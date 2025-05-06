@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WAGS</title>
+
+    <!-- Webmanifest + Favicon / App icons -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="app-icons/icon-32x32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="app-icons/icon-180x180.png">
+
+    <!-- Theme switcher (color modes) -->
+    <script src="js/theme-switcher.js"></script>
+
+    <!-- Import Google font (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" id="google-font">
+
+    <!-- Font icons -->
+    <link rel="stylesheet" href="icons/around-icons.min.css">
+
+    <!-- Theme styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+    <link rel="stylesheet" media="screen" href="css/page.css">
+
+     <!-- Page loading scripts -->
+     <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1500);
+        };
+      })();
+    </script>
+  </head>
+
+
+
+  <body>
+    <!-- Page loading spinner -->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div>
+        <span>Loading...</span>
+      </div>
+    </div>
+
+    <!-- Page wrapper -->
+    <main class="page-wrapper">
+      <!-- Navbar -->
+      <header class="navbar navbar-expand-lg fixed-top bg-light">
+        <div class="container">
+          <!-- Navbar brand (Logo) -->
+          <a class="navbar-brand pe-sm-3" href="index.html">
+            <span class="text-primary flex-shrink-0 me-2">
+            
+            </span>
+           Best 14
+          </a>
+
+           <!-- Theme switcher -->
+           <div class="form-check form-switch mode-switch order-lg-2 me-3 me-lg-4 ms-auto" data-bs-toggle="mode">
+            <input class="form-check-input" type="checkbox" id="theme-mode">
+            <label class="form-check-label" for="theme-mode">
+              <i class="ai-sun fs-lg"></i>
+            </label>
+            <label class="form-check-label" for="theme-mode">
+              <i class="ai-moon fs-lg"></i>
+            </label>
+          </div>
+
+          <!-- Mobile menu toggler -->
+          <button class="navbar-toggler ms-sm-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+           <!-- Navbar collapse -->
+           <nav class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav navbar-nav-scroll me-auto" style="--ar-scroll-height: 520px;">
+              <li class="nav-item"><a class="nav-link" href="index.html">Scores</a></li>
+              <li class="nav-item"><a class="nav-link" href="handicaps.html">Handicaps</a></li>
+              <li class="nav-item"><a class="nav-link" href="best14.html">Best 14</a></li>
+              <li class="nav-item"><a class="nav-link" href="leagues.html">Leagues</a></li>
+              <li class="nav-item"><a class="nav-link" href="rscup.html">RS Cup</a></li>
+              <li class="nav-item"><a class="nav-link" href="faqs.html">FAQ's</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+
+
+  <!-- <section> begin ============================-->
+    <section class="py-0 bg-light">
+      <div class="container">
+    
+    
+        <div class="table-responsive mt-3">
+          <table class="table">
+            <thead>
+    
+              <tr>
+                <th scope="col">NAME</th>
+                <th scope="col">BEST 14</th>
+              </tr>
+            </thead>
+            <tbody>
+    
+    
+    
+              <tr> <td>RICHARD BIRD</td><td>96</td></tr>
+              <tr> <td>IAN IND</td><td>94</td></tr>
+              <tr> <td>JON MURCHINGTON</td><td>93</td></tr>
+              <tr> <td>SIMON CARTER</td><td>90</td></tr>
+              <tr> <td>STEVE SUCH</td><td>82</td></tr>
+              <tr> <td>NICK STABLEFORD</td><td>80</td></tr>
+              <tr> <td>JOHN GOODMAN</td><td>79</td></tr>
+              <tr> <td>TIM LEWIS</td><td>78</td></tr>
+              <tr> <td>CHRIS BOARDS</td><td>77</td></tr>
+              <tr> <td>GARY ADCOCK</td><td>76</td></tr>
+              <tr> <td>JON BODEN</td><td>75</td></tr>
+              <tr> <td>MARK MOSLEY</td><td>73</td></tr>
+              <tr> <td>TOM GREEN</td><td>73</td></tr>
+              <tr> <td>MARK JACKSON</td><td>71</td></tr>
+              <tr> <td>STUART MURDOCK</td><td>71</td></tr>
+              <tr> <td>TIM ALLSOPP</td><td>70</td></tr>
+              <tr> <td>DAVE HARRISON</td><td>65</td></tr>
+              <tr> <td>JAMES TOUGH</td><td>65</td></tr>
+              <tr> <td>JEZ WILLIAMS</td><td>65</td></tr>
+              <tr> <td>TONY MYNARD</td><td>65</td></tr>
+              <tr> <td>MARK READY</td><td>63</td></tr>
+              <tr> <td>ADE COOPER</td><td>62</td></tr>
+              <tr> <td>LEE EASTOE</td><td>61</td></tr>
+              <tr> <td>MARC ALLSOPP</td><td>60</td></tr>
+              <tr> <td>STEPHEN WALLACE</td><td>60</td></tr>
+              <tr> <td>ADAM SIMCOX</td><td>59</td></tr>
+              <tr> <td>RICHARD CRAVEN JONES</td><td>57</td></tr>
+              <tr> <td>KEVIN HORTON</td><td>54</td></tr>
+              <tr> <td>LES LAWRENCE</td><td>54</td></tr>
+              <tr> <td>CRAIG MILLIGAN</td><td>53</td></tr>
+              <tr> <td>MARK HOWELL</td><td>51</td></tr>
+              <tr> <td>STEVE TARMEY</td><td>50</td></tr>
+              <tr> <td>ANDY RAY</td><td>49</td></tr>
+              <tr> <td>ADAM TEALE</td><td>45</td></tr>
+              <tr> <td>PETER JEFFRIES</td><td>45</td></tr>
+              <tr> <td>STEVE ROBINSON</td><td>41</td></tr>
+              <tr> <td>MARK JEFFRIES</td><td>36</td></tr>
+              <tr> <td>PAUL SMITH</td><td>35</td></tr>
+              <tr> <td>ROSS KELLY</td><td>35</td></tr>
+              <tr> <td>MARTIN STEVENSON</td><td>33</td></tr>
+              <tr> <td>WARREN CROOK</td><td>33</td></tr>
+              <tr> <td>PAUL CHAPMAN</td><td>29</td></tr>
+              <tr> <td>ROSS JEFFRIES</td><td>29</td></tr>
+              <tr> <td>MATT SPENCER</td><td>28</td></tr>
+              <tr> <td>MICK SANDOZ</td><td>28</td></tr>
+              <tr> <td>STEVE ROCHESTER</td><td>23</td></tr>
+              <tr> <td>ANDY SPENCER</td><td>22</td></tr>
+              <tr> <td>PAUL BLADES</td><td>19</td></tr>
+              <tr> <td>JAMES WILLIS</td><td>17</td></tr>
+              <tr> <td>RICHARD COOK</td><td>15</td></tr>
+              <tr> <td>PAUL GARRATT</td><td>11</td></tr>
+              <tr> <td>NEALE ASTON</td><td>10</td></tr>
+              <tr> <td>SCOTT WORRALL</td><td>10</td></tr>
+    
+    
+    
+            </tbody>
+          </table>
+        </div>
+    
+    
+    
+      </div>
+      </div>
+      </div><!-- end of .container-->
+    </section>
+
+
+
+
+
+
+
+
+
+
+ 
+
+ <!-- Back to top button -->
+ <a class="btn-scroll-top" href="#top" data-scroll aria-label="Scroll back to top">
+  <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"></circle>
+  </svg>
+  <i class="ai-arrow-up"></i>
+</a>
+
+<!-- Bootstrap + Theme scripts -->
+<script src="js/theme.min.js"></script>
+
+<!-- Navbar scroll behavior -->
+<script>
+  let lastScrollTop = 0;
+  const navbar = document.querySelector('.navbar');
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      navbar.classList.add('hidden');
+    } else {
+      navbar.classList.remove('hidden');
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
+</script>
+</body>
+</html>
