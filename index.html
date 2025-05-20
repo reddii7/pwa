@@ -13,17 +13,32 @@
     <!-- Theme switcher (color modes) -->
     <script src="js/theme-switcher.js"></script>
 
-    <!-- Import Google font (Inter) -->
+    <!-- Google Fonts: Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" id="google-font">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Font icons -->
     <link rel="stylesheet" href="icons/around-icons.min.css">
 
     <!-- Theme styles + Bootstrap -->
     <link rel="stylesheet" media="screen" href="css/theme.min.css">
-     <style>:root{--ar-body-font-family:'avenir',sans-serif;}</style>
+     <style>
+      :root {
+        --ar-body-font-family: 'Montserrat', sans-serif; /* Using Montserrat for body */
+        /* If your theme has a specific heading font variable (e.g., --ar-heading-font-family),
+           you might want to set that to 'Montserrat' as well, or directly style
+           h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; } 
+           if your theme doesn't have a specific heading font variable. */
+      }
+      main.page-wrapper {
+        padding-top: 5rem; /* Adjust this value based on the navbar's actual height to prevent content overlap */
+      }
+      /* Make table font smaller */
+      .bg-light .table {
+        font-size: 0.9rem; 
+      }
+    </style>
     <link rel="stylesheet" media="screen" href="css/page.css">
 
      <!-- Page loading scripts -->
@@ -59,7 +74,7 @@
           <!-- Navbar brand (Logo) -->
           <a class="navbar-brand pe-sm-3" href="index.html">
             <span class="text-primary flex-shrink-0 me-2">
-            
+              <!-- TODO: Add logo/icon here e.g., <i class="ai-trophy"></i> -->
             </span>
            Scores
           </a>
@@ -97,27 +112,30 @@
 
 
 
-   <!-- week 6 -->
-        <section class="container pt-5 mt-5">
-        <div class="row pt-2 pt-md-4 pt-lg-3 pt-xl-4 g-4 g-sm-3 g-md-4">
-          <div class="col-sm-6 col-lg-4 order-lg-1">
-            <div class="card border-0 bg-secondary h-100 py-lg-2 py-xl-4">
-              <div class="card-body">
-                <h6>WEEK 06</h6>
-                <p class="mb-0 fs-3">Tim Allsopp won with 22 points. 3 H'cap changes - Tim down to 3, Squigs up to 5, Gaz up to 12.</p>
-              </div>
-            </div>
-          </div>
+<!-- Week 06 -->
+<section class="container py-4">
+  <h2 class="text-center mb-4">WEEK 06</h2>
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-10 col-lg-8">
+      <div class="card border-0 bg-secondary shadow-sm">
+        <div class="card-body">
+          <p class="card-text text-center">Tim Allsopp won with 22 points. 3 H'cap changes - Tim down to 3, Squigs up to 5, Gaz up to 12.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <section class="py-0 bg-light">
-            <div class="container pt-3">
-              <div class="table-responsive mt-3">
-                <table class="table   text-start">
+<div class="bg-light shadow-sm"> <!-- Full-width background for the table section -->
+  <div class="container-fluid py-4 px-3"> <!-- Table content uses container-fluid for wider layout -->
+  <div class="row">
+    <div class="col-12">
+        <div class="table-responsive">
+        <table class="table table-hover text-start mb-0">
                   <thead>
                     <tr>
                       <th scope="col">NAME</th>
                       <th scope="col" class="text-center">POINTS</th>
-                      
                     </tr>
                   </thead>
                   <tbody>
@@ -153,32 +171,36 @@
  <tr> <td>GARY ADCOCK</td><td class="text-center">11</td></tr>
                   </tbody>
                 </table>
-              </div>
-            </div>
-          </section>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<!-- Week 05 -->
+<section class="container py-4">
+  <h2 class="text-center mb-4">WEEK 05</h2>
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-10 col-lg-8">
+      <div class="card border-0 bg-secondary shadow-sm">
+        <div class="card-body">
+          <p class="card-text text-center">Jon Murchington won with 23 points. 5 H'cap changes - Jon down to 11, Squigsy down to 4, Tealy up to 7, Chappy up to 12 and Rochy up to 8</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-       <!-- week 5 -->
-       <section class="container pt-5 mt-5">
-        <div class="row pt-2 pt-md-4 pt-lg-3 pt-xl-4 g-4 g-sm-3 g-md-4">
-          <div class="col-sm-6 col-lg-4 order-lg-1">
-            <div class="card border-0 bg-secondary h-100 py-lg-2 py-xl-4">
-              <div class="card-body">
-                <h3>WEEK 05</h3>
-                <p class="mb-0">Jon Murchington won with 23 points. 5 H'cap changes - Jon down to 11, Squigsy down to 4, Tealy up to 7, Chappy up to 12 and Rochy up to 8</p>
-              </div>
-            </div>
-          </div>
-
-          <section class="py-0 bg-light">
-            <div class="container pt-3">
-              <div class="table-responsive mt-3">
-                <table class="table   text-start">
+<div class="bg-light shadow-sm"> <!-- Full-width background for the table section -->
+  <div class="container-fluid py-4 px-3"> <!-- Table content uses container-fluid for wider layout -->
+  <div class="row">
+    <div class="col-12">
+        <div class="table-responsive">
+        <table class="table table-hover text-start mb-0">
                   <thead>
                     <tr>
                       <th scope="col">NAME</th>
                       <th scope="col" class="text-center">POINTS</th>
-                      
                     </tr>
                   </thead>
                   <tbody>
@@ -214,39 +236,37 @@
                     <tr> <td>STEVE ROCHESTER</td><td class="text-center">8</td></tr>
                   </tbody>
                 </table>
-              </div>
-            </div>
-          </section>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<!-- Week 04 (Mistakenly labeled as Week 4 in original comment, corrected to Week 04 for consistency) -->
+<!-- Week 4 -->
+<section class="container py-4">
+  <h2 class="text-center mb-4">WEEK 04</h2>
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-10 col-lg-8">
+      <div class="card border-0 bg-secondary shadow-sm">
+        <div class="card-body">
+          <p class="card-text text-center">Howla won with 24 points. 2 H'cap changes - Howla down to 4, Jon Goodman down to 2</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-
-
-
-          <div class="col-sm-6 col-lg-4 order-lg-1">
-            <div class="card border-0 bg-secondary h-100 py-lg-2 py-xl-4">
-              <div class="card-body">
-                <h3>Week 4</h3>
-                <p class="mb-0">Howla won with 24 points. 2 H'cap changes - Howla down to 4, Jon Goodman down to 2 </p>
-
-
-                
-
- 
-
-              </div>
-            </div>
-          </div>
-
-
-          <section class="py-0 bg-light">
-            <div class="container pt-3">
-              <div class="table-responsive mt-3">
-                <table class="table   text-start">
+<div class="bg-light shadow-sm"> <!-- Full-width background for the table section -->
+  <div class="container-fluid py-4 px-3"> <!-- Table content uses container-fluid for wider layout -->
+  <div class="row">
+    <div class="col-12">
+        <div class="table-responsive">
+        <table class="table table-hover text-start mb-0">
                   <thead>
                     <tr>
                       <th scope="col">NAME</th>
                       <th scope="col" class="text-center">POINTS</th>
-                      
                     </tr>
                   </thead>
                   <tbody>
@@ -288,34 +308,37 @@
                     <tr> <td>PAUL CHAPMAN</td><td class="text-center">6</td></tr>
                   </tbody>
                 </table>
-              </div>
-            </div>
-          </section>
-          <div class="col-sm-6 col-lg-4 order-lg-1">
-            <div class="card border-0 bg-secondary h-100 py-lg-2 py-xl-4">
-              <div class="card-body">
-                <h3>Week 3</h3>
-                <p class="mb-0">Jon Boden won with 22 points. 4 H'cap changes - Jon down to 5, Lee Eastoe up to 4, Toughy up to 4 and Chris up to 7</p>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-                    
+<!-- Week 03 (Mistakenly labeled as Week 3 in original comment, corrected to Week 03 for consistency) -->
+<!-- Week 3 -->
+<section class="container py-4">
+  <h2 class="text-center mb-4">WEEK 03</h2>
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-10 col-lg-8">
+      <div class="card border-0 bg-secondary shadow-sm">
+        <div class="card-body">
+          <p class="card-text text-center">Jon Boden won with 22 points. 4 H'cap changes - Jon down to 5, Lee Eastoe up to 4, Toughy up to 4 and Chris up to 7</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-
-
-              </div>
-            </div>
-          </div>
-
-          
-
-          <section class="py-0 bg-light">
-            <div class="container pt-3">
-              <div class="table-responsive mt-3">
-                <table class="table   text-start">
+<div class="bg-light shadow-sm"> <!-- Full-width background for the table section -->
+  <div class="container-fluid py-4 px-3"> <!-- Table content uses container-fluid for wider layout -->
+  <div class="row">
+    <div class="col-12">
+        <div class="table-responsive">
+        <table class="table table-hover text-start mb-0">
                   <thead>
                     <tr>
                       <th scope="col">NAME</th>
                       <th scope="col" class="text-center">POINTS</th>
-                      
                     </tr>
                   </thead>
                   <tbody>
@@ -354,35 +377,37 @@
                     <tr> <td>PAUL SMITH</td><td class="text-center">7</td></tr>
                   </tbody>
                 </table>
-              </div>
-            </div>
-          </section>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<!-- Week 02 (Mistakenly labeled as Week 2 in original comment, corrected to Week 02 for consistency) -->
+<!-- Week 2 -->
+<section class="container py-4">
+  <h2 class="text-center mb-4">WEEK 02</h2>
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-10 col-lg-8">
+      <div class="card border-0 bg-secondary shadow-sm">
+        <div class="card-body">
+          <p class="card-text text-center">RJC won with 23 points as Matt hadn't played 3 rounds. 3 H'cap changes - Matt down to 3, RJC down to 13, and Warren Crook up to 7</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-
-          <div class="col-sm-6 col-lg-4 order-lg-1">
-            <div class="card border-0 bg-secondary h-100 py-lg-2 py-xl-4">
-              <div class="card-body">
-                <h3>Week 2</h3>
-                <p class="mb-0">RJC won with 23 points as Matt hadn't played 3 rounds. 3 H'cap changes - Matt down to 3, RJC down to 13, and Warren Crook up to 7</p>
-
-                    
-      
-
-              </div>
-            </div>
-          </div>
-
-
-          <section class="py-0 bg-light">
-            <div class="container pt-3">
-              <div class="table-responsive mt-3">
-                <table class="table   text-start">
+<div class="bg-light shadow-sm"> <!-- Full-width background for the table section -->
+  <div class="container-fluid py-4 px-3"> <!-- Table content uses container-fluid for wider layout -->
+  <div class="row">
+    <div class="col-12">
+        <div class="table-responsive">
+        <table class="table table-hover text-start mb-0">
                   <thead>
                     <tr>
                       <th scope="col">NAME</th>
                       <th scope="col" class="text-center">POINTS</th>
-                      
                     </tr>
                   </thead>
                   <tbody>
@@ -428,34 +453,37 @@
                     <tr> <td>STEPHEN WALLACE</td><td class="text-center">9</td></tr>
                   </tbody>
                 </table>
-              </div>
-            </div>
-          </section>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-          <div class="col-sm-6 col-lg-4 order-lg-1">
-            <div class="card border-0 bg-secondary h-100 py-lg-2 py-xl-4">
-              <div class="card-body">
-                <h3>Week 1</h3>
-                <p class="mb-0">BigD won with 22 points. 6 H'cap changes - Ian Ind down to 5, Toughy down to 3, Nick up to 4, Jon B up to 6, Tim A up to 4 and Neale A up to 9</p>
+<!-- Week 01 (Mistakenly labeled as Week 1 in original comment, corrected to Week 01 for consistency) -->
+<!-- Week 1 -->
+<section class="container py-4">
+  <h2 class="text-center mb-4">WEEK 01</h2>
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-10 col-lg-8">
+      <div class="card border-0 bg-secondary shadow-sm">
+        <div class="card-body">
+          <p class="card-text text-center">BigD won with 22 points. 6 H'cap changes - Ian Ind down to 5, Toughy down to 3, Nick up to 4, Jon B up to 6, Tim A up to 4 and Neale A up to 9</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                    
-   
-
-              </div>
-            </div>
-          </div>
-
-
-
-          <section class="py-0 bg-light">
-            <div class="container pt-3">
-              <div class="table-responsive mt-3">
-                <table class="table   text-start">
+<div class="bg-light shadow-sm"> <!-- Full-width background for the table section -->
+  <div class="container-fluid py-4 px-3"> <!-- Table content uses container-fluid for wider layout -->
+  <div class="row">
+    <div class="col-12">
+        <div class="table-responsive">
+        <table class="table table-hover text-start mb-0">
                   <thead>
                     <tr>
                       <th scope="col">NAME</th>
                       <th scope="col" class="text-center">POINTS</th>
-                      
                     </tr>
                   </thead>
                   <tbody>
@@ -498,24 +526,11 @@
                     <tr> <td>MARK JEFFRIES</td><td class="text-center">7</td></tr>
                   </tbody>
                 </table>
-              </div>
-            </div>
-          </section>
-        </div>
-      </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
 
  
 
