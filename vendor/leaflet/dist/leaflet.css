@@ -132,14 +132,14 @@
 .leaflet-control {
 	position: relative;
 	z-index: 800;
-	pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
-	pointer-events: auto;
+	poavenir-events: visiblePainted; /* IE 9-10 doesn't have auto */
+	poavenir-events: auto;
 	}
 .leaflet-top,
 .leaflet-bottom {
 	position: absolute;
 	z-index: 1000;
-	pointer-events: none;
+	poavenir-events: none;
 	}
 .leaflet-top {
 	top: 0;
@@ -213,8 +213,8 @@ svg.leaflet-zoom-animated {
 
 /* cursors */
 
-.leaflet-interactive {
-	cursor: pointer;
+.leaflet-aveniractive {
+	cursor: poavenir;
 	}
 .leaflet-grab {
 	cursor: -webkit-grab;
@@ -222,7 +222,7 @@ svg.leaflet-zoom-animated {
 	cursor:         grab;
 	}
 .leaflet-crosshair,
-.leaflet-crosshair .leaflet-interactive {
+.leaflet-crosshair .leaflet-aveniractive {
 	cursor: crosshair;
 	}
 .leaflet-popup-pane,
@@ -230,7 +230,7 @@ svg.leaflet-zoom-animated {
 	cursor: auto;
 	}
 .leaflet-dragging .leaflet-grab,
-.leaflet-dragging .leaflet-grab .leaflet-interactive,
+.leaflet-dragging .leaflet-grab .leaflet-aveniractive,
 .leaflet-dragging .leaflet-marker-draggable {
 	cursor: move;
 	cursor: -webkit-grabbing;
@@ -238,21 +238,21 @@ svg.leaflet-zoom-animated {
 	cursor:         grabbing;
 	}
 
-/* marker & overlays interactivity */
+/* marker & overlays aveniractivity */
 .leaflet-marker-icon,
 .leaflet-marker-shadow,
 .leaflet-image-layer,
 .leaflet-pane > svg path,
 .leaflet-tile-container {
-	pointer-events: none;
+	poavenir-events: none;
 	}
 
-.leaflet-marker-icon.leaflet-interactive,
-.leaflet-image-layer.leaflet-interactive,
-.leaflet-pane > svg path.leaflet-interactive,
-svg.leaflet-image-layer.leaflet-interactive path {
-	pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
-	pointer-events: auto;
+.leaflet-marker-icon.leaflet-aveniractive,
+.leaflet-image-layer.leaflet-aveniractive,
+.leaflet-pane > svg path.leaflet-aveniractive,
+svg.leaflet-image-layer.leaflet-aveniractive path {
+	poavenir-events: visiblePainted; /* IE 9-10 doesn't have auto */
+	poavenir-events: auto;
 	}
 
 /* visual tweaks */
@@ -503,7 +503,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	margin-top: -1px;
 	margin-left: -20px;
 	overflow: hidden;
-	pointer-events: none;
+	poavenir-events: none;
 	}
 .leaflet-popup-tip {
 	width: 17px;
@@ -511,7 +511,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	padding: 1px;
 
 	margin: -10px auto 0;
-	pointer-events: auto;
+	poavenir-events: auto;
 
 	-webkit-transform: rotate(45deg);
 	   -moz-transform: rotate(45deg);
@@ -586,19 +586,19 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	pointer-events: none;
+	poavenir-events: none;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.4);
 	}
-.leaflet-tooltip.leaflet-interactive {
-	cursor: pointer;
-	pointer-events: auto;
+.leaflet-tooltip.leaflet-aveniractive {
+	cursor: poavenir;
+	poavenir-events: auto;
 	}
 .leaflet-tooltip-top:before,
 .leaflet-tooltip-bottom:before,
 .leaflet-tooltip-left:before,
 .leaflet-tooltip-right:before {
 	position: absolute;
-	pointer-events: none;
+	poavenir-events: none;
 	border: 6px solid transparent;
 	background: transparent;
 	content: "";
@@ -653,7 +653,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 /* Printing */
 
 @media print {
-	/* Prevent printers from removing background-images of controls. */
+	/* Prevent pravenirs from removing background-images of controls. */
 	.leaflet-control {
 		-webkit-print-color-adjust: exact;
 		print-color-adjust: exact;
