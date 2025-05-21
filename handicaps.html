@@ -13,16 +13,28 @@
     <!-- Theme switcher (color modes) -->
     <script src="js/theme-switcher.js"></script>
 
-    <!-- Import Google font (avenir) -->
+    <!-- Google Fonts: Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=avenir:wght@400;500;600;700;800&display=swap" rel="stylesheet" id="google-font">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Font icons -->
     <link rel="stylesheet" href="icons/around-icons.min.css">
 
     <!-- Theme styles + Bootstrap -->
     <link rel="stylesheet" media="screen" href="css/theme.min.css">
+     <style>
+      :root {
+        --ar-body-font-family: 'Montserrat', sans-serif; /* Using Montserrat for body */
+      }
+      main.page-wrapper {
+        padding-top: 5rem; /* Adjust this value based on the navbar's actual height to prevent content overlap */
+      }
+      /* Make table font smaller */
+      .bg-light .table {
+        font-size: 0.9rem; 
+      }
+    </style>
     <link rel="stylesheet" media="screen" href="css/page.css">
 
      <!-- Page loading scripts -->
@@ -96,11 +108,27 @@
 
 
 
+<!-- Title and Info Card Section -->
+<section class="container py-4">
+  <h2 class="text-center mb-4">HANDICAPS</h2>
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-10 col-lg-8">
+      <div class="card border-0 bg-secondary">
+        <div class="card-body">
+          <p class="card-text text-center">Current handicaps for all players. Handicaps are adjusted based on weekly performance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <section class="py-0 bg-light">
-        <div class="container pt-5">
-          <div class="table-responsive mt-3">
-            <table class="table text-start">
+<!-- Table Section -->
+<div class="bg-light"> <!-- Full-width background for the table section -->
+  <div class="container-fluid py-4 px-3"> <!-- Table content uses container-fluid for wider layout -->
+    <div class="row">
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table table-hover text-start mb-0">
               <thead>
                 <tr>
                   <th scope="col">NAME</th>
@@ -109,6 +137,7 @@
               </thead>
               <tbody>
               <tr> <td>ADAM SIMCOX</td><td class="text-center">3.3</td></tr>
+ <tr> <td>ADAM SIMCOX</td><td class="text-center">3.3</td></tr>
  <tr> <td>ADAM TEALE</td><td class="text-center">6.6</td></tr>
  <tr> <td>ADE COOPER</td><td class="text-center">7.3</td></tr>
  <tr> <td>ANDREW KING</td><td class="text-center">3.3</td></tr>
@@ -172,7 +201,9 @@
             </table>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
 
  <!-- Back to top button -->
  <a class="btn-scroll-top" href="#top" data-scroll aria-label="Scroll back to top">
