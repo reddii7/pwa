@@ -927,14 +927,45 @@
 
 <!-- GSAP Animation for cards -->
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    gsap.from(".weekly-summary-cards .col", {
-      duration: 0.8,
-      x: "100%", // Start from 100% to the right
+  window.addEventListener('load', () => { // Ensure this is 'load'
+    const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+
+    // 1. Animate Navbar Links
+    tl.from(".navbar-nav .nav-item", {
+      duration: 0.5,
       opacity: 0,
-      stagger: 0.2, // Stagger the animation of each card
-      ease: "power2.out"
-    });
+      y: -20, // Come from top
+      stagger: 0.07,
+    }, "+=0.1"); // Start 0.1s after timeline begins
+
+    // 2. Animate main H2 titles (staggered)
+    // This will animate "Latest Results", "WEEK 08", "WEEK 07", etc. on scores.html
+    tl.from("section.container > h2.text-center", {
+      duration: 0.6,
+      y: 25, // Come from bottom
+      opacity: 0,
+      stagger: 0.15,
+    }, "-=0.2"); // Overlap slightly with end of navbar animation
+
+    // 3. Animation for the "Latest Results" summary cards (if they exist at the top)
+    if (document.querySelector(".weekly-summary-cards .col")) {
+      tl.from(".weekly-summary-cards .col", {
+        duration: 0.7,
+        x: "80%", 
+        opacity: 0,
+        stagger: 0.1,
+      }, "-=0.3"); // Start relative to the H2s animation
+    }
+
+    // 4. Animate the smaller summary cards under each "WEEK XX" title on scores.html
+    if (document.querySelector("section.container .row.justify-content-center .card")) {
+      tl.from("section.container .row.justify-content-center .card", {
+        duration: 0.6,
+        y: 25, // Come from bottom
+        opacity: 0,
+        stagger: 0.1, // Stagger the animation of each weekly summary card
+      }, "-=0.2"); // Start relative to previous animations (likely after their H2 has started)
+    }
   });
 </script>
 
@@ -955,5 +986,6 @@
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   });
 </script>
+
 </body>
 </html>

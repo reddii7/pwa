@@ -814,13 +814,45 @@
 <!-- GSAP Animation for cards -->
 <script>
   window.addEventListener('load', () => {
-    gsap.from(".weekly-summary-cards .col", {
-      duration: 0.8,
-      x: "100%", // Start from 100% to the right
+    const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+
+    // 1. Animate Navbar Links
+    tl.from(".navbar-nav .nav-item", {
+      duration: 0.5,
       opacity: 0,
-      stagger: 0.2, // Stagger the animation of each card
-      ease: "power2.out"
-    });
+      y: -20, // Come from top
+      stagger: 0.07,
+    }, "+=0.1"); // Start 0.1s after timeline begins
+
+    // 2. Animate main H2 titles (staggered)
+    // Catches "Latest Results" on index.html
+    tl.from("section.container > h2.text-center", {
+      duration: 0.6,
+      y: 25, // Come from bottom
+      opacity: 0,
+      stagger: 0.15, // In case there are multiple such H2s visible on load
+    }, "-=0.2"); // Overlap slightly with end of navbar animation
+
+    // 3. Animation for the "Latest Results" summary cards (if they exist)
+    if (document.querySelector(".weekly-summary-cards .col")) {
+      tl.from(".weekly-summary-cards .col", {
+        duration: 0.7,
+        x: "80%", 
+        opacity: 0,
+        stagger: 0.1,
+      }, "-=0.3"); // Start relative to the H2s animation
+    }
+
+    // 4. Placeholder for other specific card animations if needed on index.html
+    // Example: (This selector might not exist on index.html, guarded by if)
+    // if (document.querySelector("section.container .some-other-cards .card")) {
+    //   tl.from("section.container .some-other-cards .card", {
+    //     duration: 0.6,
+    //     y: 25,
+    //     opacity: 0,
+    //     stagger: 0.1,
+    //   }, "-=0.2");
+    // }
   });
 </script>
 
