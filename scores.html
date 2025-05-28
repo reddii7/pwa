@@ -922,6 +922,22 @@
 <!-- Bootstrap + Theme scripts -->
 <script src="js/theme.min.js"></script>
 
+<!-- GSAP Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<!-- GSAP Animation for cards -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    gsap.from(".weekly-summary-cards .col", {
+      duration: 0.8,
+      x: "100%", // Start from 100% to the right
+      opacity: 0,
+      stagger: 0.2, // Stagger the animation of each card
+      ease: "power2.out"
+    });
+  });
+</script>
+
 <!-- Navbar scroll behavior -->
 <script>
   let lastScrollTop = 0;
