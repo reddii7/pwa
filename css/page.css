@@ -122,7 +122,7 @@ main.page-wrapper {
 .league-rules-icon {
   display: inline-block; /* Ensures transform works as expected */
   animation: pulse-animation 2s infinite;
-  color: var(--bs-primary); /* Ensure icon color is distinct if needed */
+  color: currentColor; /* Inherit color from parent, which will be set by text-dark */
 }
 
 /* Remove border and shadow from the league rules modal */
