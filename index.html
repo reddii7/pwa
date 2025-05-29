@@ -912,11 +912,13 @@
     // 3. Animation for the "Latest Results" summary cards (if they exist)
     if (document.querySelector(".weekly-summary-cards .col")) {
       tl.from(".weekly-summary-cards .col", {
-        duration: 0.7,
-        x: "80%", 
+        duration: 1.2, // Increased duration to accommodate the bounce
+        x: "100%",    // Start from further right (100% of element's width)
         opacity: 0,
-        stagger: 0.1,
-      }, "-=0.3"); // Start relative to the H2s animation
+        ease: "elastic.out(1, 0.75)", // Elastic ease for the bounce effect.
+                                      // The parameters (amplitude, period) can be tuned.
+        stagger: 0.15, // Slightly adjusted stagger for a smoother sequence
+      }, "-=0.3"); // Timing relative to the previous animation
     }
 
     // 4. Placeholder for other specific card animations if needed on index.html
