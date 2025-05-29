@@ -51,28 +51,27 @@
       </div>
     </div>
 
-    <!-- Back Button -->
-    <a href="index.html" class="btn btn-icon btn-secondary rounded-circle position-fixed top-0 start-0 m-3 shadow-sm" style="z-index: 1031;" aria-label="Back">
-      <i class="ai-arrow-left fs-xl"></i>
-    </a>
+    <!-- Combined Title and Back Button Navigation -->
+    <nav class="leagues-title-nav fixed-top bg-light shadow-sm">
+      <div class="container d-flex align-items-center justify-content-between py-3">
+        <a href="index.html" class="btn btn-icon btn-sm btn-outline-secondary border-0 rounded-circle" aria-label="Back">
+          <i class="ai-arrow-left"></i>
+        </a>
+        <h2 class="mb-0 fs-5 text-center">
+          LEAGUES
+          <a href="#" class="ms-1" data-bs-toggle="modal" data-bs-target="#leagueRulesModal" aria-label="League Rules">
+            <i class="ai-file-text fs-4 align-middle league-rules-icon"></i>
+          </a>
+        </h2>
+        <div style="width: 2.25rem;"></div> <!-- Placeholder to balance the back button -->
+      </div>
+    </nav>
 
     <!-- Page wrapper -->
-    <main class="page-wrapper">
+    <main class="page-wrapper leagues-page-wrapper">
       <!-- Navbar -->
       <!-- Navbar has been removed -->
 
-
-
-<!-- Title and Info Section -->
-<section class="container py-1">
-  <h2 class="text-center mb-1">
-    LEAGUES 
-    <a href="#" class="ms-1" data-bs-toggle="modal" data-bs-target="#leagueRulesModal" aria-label="League Rules">
-      <i class="ai-file-text fs-4 align-middle league-rules-icon"></i>
-    </a>
-  </h2>
-
-</section>
 
 <!-- Leagues Table Section -->
 <div class="bg-light py-4"> <!-- Added padding to the main background div -->
