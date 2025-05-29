@@ -112,25 +112,30 @@
 <!-- Title and Info Card Section -->
 <section class="container py-4">
   <h2 class="text-center mb-4">LEAGUES</h2>
-  <div class="row justify-content-center mb-4">
-    <div class="col-md-10 col-lg-8">
-      <div class="card border-0 bg-secondary">
-        <div class="card-body">
-          <p class="card-text text-center">League standings based on best 10 scores. Promotion and relegation for top/bottom 3 at season's end.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <p class="text-center mb-4">League standings based on best 10 scores. Promotion and relegation for top/bottom 3 at season's end.</p>
 </section>
 
 <!-- Leagues Table Section -->
-<div class="bg-light"> <!-- Full-width background for all league tables -->
+<div class="bg-light py-4"> <!-- Added padding to the main background div -->
+  <div class="container"> <!-- Using a standard container for tab layout -->
+    <ul class="nav nav-tabs nav-justified mb-4" id="leaguesTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="league1-tab" data-bs-toggle="tab" data-bs-target="#league1-pane" type="button" role="tab" aria-controls="league1-pane" aria-selected="true">LEAGUE 1</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="league2-tab" data-bs-toggle="tab" data-bs-target="#league2-pane" type="button" role="tab" aria-controls="league2-pane" aria-selected="false">LEAGUE 2</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="league3-tab" data-bs-toggle="tab" data-bs-target="#league3-pane" type="button" role="tab" aria-controls="league3-pane" aria-selected="false">LEAGUE 3</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="league4-tab" data-bs-toggle="tab" data-bs-target="#league4-pane" type="button" role="tab" aria-controls="league4-pane" aria-selected="false">LEAGUE 4</button>
+      </li>
+    </ul>
 
-  <!-- League 1 -->
-  <div class="container-fluid py-4 px-3">
-    <div class="row">
-      <div class="col-12">
-        <h3 class="text-center mb-3">LEAGUE 1</h3>
+    <div class="tab-content" id="leaguesTabContent">
+      <!-- League 1 Pane -->
+      <div class="tab-pane fade show active" id="league1-pane" role="tabpanel" aria-labelledby="league1-tab" tabindex="0">
         <div class="table-responsive">
           <table class="table table-hover text-start mb-0">
             <thead>
@@ -160,14 +165,9 @@
           </table>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- League 2 -->
-  <div class="container-fluid py-4 px-3">
-    <div class="row">
-      <div class="col-12">
-        <h3 class="text-center mb-3">LEAGUE 2</h3>
+      <!-- League 2 Pane -->
+      <div class="tab-pane fade" id="league2-pane" role="tabpanel" aria-labelledby="league2-tab" tabindex="0">
         <div class="table-responsive">
           <table class="table table-hover text-start mb-0">
             <thead>
@@ -197,14 +197,9 @@
           </table>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- League 3 -->
-  <div class="container-fluid py-4 px-3">
-    <div class="row">
-      <div class="col-12">
-        <h3 class="text-center mb-3">LEAGUE 3</h3>
+      <!-- League 3 Pane -->
+      <div class="tab-pane fade" id="league3-pane" role="tabpanel" aria-labelledby="league3-tab" tabindex="0">
         <div class="table-responsive">
           <table class="table table-hover text-start mb-0">
             <thead>
@@ -235,14 +230,9 @@
           </table>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- League 4 -->
-  <div class="container-fluid py-4 px-3">
-    <div class="row">
-      <div class="col-12">
-        <h3 class="text-center mb-3">LEAGUE 4</h3>
+      <!-- League 4 Pane -->
+      <div class="tab-pane fade" id="league4-pane" role="tabpanel" aria-labelledby="league4-tab" tabindex="0">
         <div class="table-responsive">
           <table class="table table-hover text-start mb-0">
             <thead>
@@ -272,9 +262,8 @@
           </table>
         </div>
       </div>
-    </div>
-  </div>
-
+    </div> <!-- end of tab-content -->
+  </div> <!-- end of container -->
 </div> <!-- end of bg-light -->
 
  
