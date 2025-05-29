@@ -68,6 +68,14 @@
         text-underline-offset: 0.2em; /* Adjust for desired distance */
       }
 
+      /* Improve text color contrast on secondary cards */
+      .card.bg-secondary {
+        color: var(--bs-secondary-text-emphasis) !important;
+      }
+      .card.bg-secondary a {
+        color: inherit !important; /* Ensure links inherit this improved contrast color */
+      }
+
     </style>
     <link rel="stylesheet" media="screen" href="css/page.css">
 

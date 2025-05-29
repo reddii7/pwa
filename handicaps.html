@@ -34,6 +34,20 @@
       .bg-light .table {
         font-size: 0.9rem; 
       }
+
+      /* Improve text color contrast on secondary cards */
+      .card.bg-secondary {
+        color: var(--bs-secondary-text-emphasis) !important;
+      }
+      .card.bg-secondary a {
+        color: inherit !important; /* Ensure links inherit this improved contrast color */
+      }
+
+      /* Remove border and shadow from the rules modal */
+      #handicapRulesModal .modal-content {
+        border: none !important;
+        box-shadow: none !important;
+      }
     </style>
     <link rel="stylesheet" media="screen" href="css/page.css">
 
@@ -51,8 +65,6 @@
     </script>
   </head>
 
-
-
   <body>
     <!-- Page loading spinner -->
     <div class="page-loading active">
@@ -62,67 +74,22 @@
       </div>
     </div>
 
-   <!-- Page wrapper -->
+    <!-- Combined Title and Back Button Navigation -->
+    <nav class="leagues-title-nav fixed-top bg-light">
+      <div class="container d-flex align-items-center justify-content-between py-3">
+        <a href="index.html" class="btn btn-icon btn-sm btn-outline-secondary border-0 rounded-circle" aria-label="Back">
+          <i class="ai-arrow-left"></i>
+        </a>
+        <h5 class="mb-0 fs-5 fw-bold text-dark text-nowrap overflow-hidden text-truncate">HANDICAPS</h5>
+        <a href="#" class="btn btn-icon btn-sm border-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#handicapRulesModal" aria-label="Handicap Rules">
+          <i class="ai-file-text fs-4 league-rules-icon"></i>
+        </a>
+      </div>
+    </nav>
+
     <main class="page-wrapper">
-      <!-- Navbar -->
-      <header class="navbar navbar-expand-lg fixed-top bg-light">
-        <div class="container">
-          <!-- Navbar brand (Logo) -->
-          <a class="navbar-brand pe-sm-3" href="index.html">
-            <!-- Logo for light mode -->
-            <img src="logo-black.svg" width="60" height="60" alt="WAGS Logo" class="d-dark-mode-none flex-shrink-0 me-2">
-            <!-- Logo for dark mode -->
-            <img src="logo-white.svg" width="60" height="60" alt="WAGS Logo" class="d-none d-dark-mode-block flex-shrink-0 me-2">
-          
-          </a>
-
-           <!-- Theme switcher -->
-           <div class="form-check form-switch mode-switch order-lg-2 me-3 me-lg-4 ms-auto" data-bs-toggle="mode">
-            <input class="form-check-input" type="checkbox" id="theme-mode">
-            <label class="form-check-label" for="theme-mode">
-              <i class="ai-sun fs-lg"></i>
-            </label>
-            <label class="form-check-label" for="theme-mode">
-              <i class="ai-moon fs-lg"></i>
-            </label>
-          </div>
-
-          <!-- Mobile menu toggler -->
-          <button class="navbar-toggler ms-sm-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-           <!-- Navbar collapse -->
-           <nav class="collapse navbar-collapse" id="navbarNav">
-
-            <ul class="navbar-nav navbar-nav-scroll me-auto" style="--ar-scroll-height: 520px;">
-              <li class="nav-item"><a class="nav-link" href="index.html">Scores</a></li>
-              <li class="nav-item"><a class="nav-link" href="handicaps.html">Handicaps</a></li>
-              <li class="nav-item"><a class="nav-link" href="best14.html">Best 14</a></li>
-              <li class="nav-item"><a class="nav-link" href="leagues.html">Leagues</a></li>
-              <li class="nav-item"><a class="nav-link" href="rscup.html">RS Cup</a></li>
-              <li class="nav-item"><a class="nav-link" href="faqs.html">FAQ's</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-
-
 
 <!-- Title and Info Card Section -->
-<section class="container py-4">
-  <h2 class="text-center mb-4">HANDICAPS</h2>
-  <div class="row justify-content-center mb-4">
-    <div class="col-md-10 col-lg-8">
-      <div class="card border-0 bg-secondary">
-        <div class="card-body">
-          <p class="card-text text-center">Handicaps are adjusted based on weekly performance.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Table Section -->
 <div class="bg-light"> <!-- Full-width background for the table section -->
   <div class="container-fluid py-4 px-3"> <!-- Table content uses container-fluid for wider layout -->
@@ -208,6 +175,46 @@
     </div>
   </div>
 
+<!-- Handicap Rules Modal -->
+<div class="modal fade" id="handicapRulesModal" tabindex="-1" aria-labelledby="handicapRulesModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="handicapRulesModalLabel">Handicap Rules</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Initial Handicap Calculation:</strong><br>New WAGS handicap calculations are 3/4 of your club handicap, then divided by 2.</p>
+        <hr class="my-3">
+        <p><strong>Handicap Adjustments based on Stableford Score (Par = 20 points):</strong></p>
+        <ul>
+          <li><strong>Category 1 Golfers:</strong>
+            <ul>
+              <li>Buffer zone: 19 points.</li>
+              <li>Increased by 0.1 for any score below par points (outside buffer zone).</li>
+              <li>Reduced by 0.1 for each point scored above par.</li>
+            </ul>
+          </li>
+          <li class="mt-2"><strong>Category 2 Golfers:</strong>
+            <ul>
+              <li>Buffer zone: 18 points.</li>
+              <li>Increased by 0.1 for any score below par points (outside buffer zone).</li>
+              <li>Reduced by 0.2 for each point scored above par.</li>
+            </ul>
+          </li>
+          <li class="mt-2"><strong>Category 3 Golfers:</strong>
+            <ul>
+              <li>Buffer zone: 17 points.</li>
+              <li>Increased by 0.1 for any score below par points (outside buffer zone).</li>
+              <li>Reduced by 0.3 for each point scored above par.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
  <!-- Back to top button -->
  <a class="btn-scroll-top" href="#top" data-scroll aria-label="Scroll back to top">
   <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -219,22 +226,5 @@
 <!-- Bootstrap + Theme scripts -->
 <script src="js/theme.min.js"></script>
 
-<!-- Navbar scroll behavior -->
-<script>
-  let lastScrollTop = 0;
-  const navbar = document.querySelector('.navbar');
-
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop) {
-      navbar.classList.add('hidden');
-    } else {
-      navbar.classList.remove('hidden');
-    }
-
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  });
-</script>
 </body>
 </html>
