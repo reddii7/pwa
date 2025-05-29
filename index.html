@@ -43,17 +43,9 @@
         background-color: #dee2e6 !important; /* Bootstrap $gray-300 */
       }
 
-      /* Pulse animation for winner's name */
-      @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-        100% { transform: scale(1); }
-      }
+   
 
-      .winner-pulse {
-        display: inline-block; /* Allows transform to work correctly */
-        animation: pulse 1.5s infinite;
-      }
+  
 
       /* Styling for summary cards */
       .weekly-summary-cards .card .card-title {
@@ -148,18 +140,36 @@
       <section class="container py-4">
         <h2 class="text-center mb-4">Latest Results</h2>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 weekly-summary-cards">
+           <!-- Card for Week 09 -->
+          <div class="col">
+            <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
+              <div class="card-body">
+                <div class="flex-grow-1">
+                  <h5 class="card-title fs-6 mb-5"><span class="badge rounded-pill text-bg-info">WEEK 09</h5>
+                  <p class="card-text mb-2">Winner: <strong class="winner-pulse">Lee Eastoe</strong> (24 points)</p>
+                  <p class="card-text mb-1">Prize Money: £58.50</p><hr class="my-3">
+                   <p class="card-text mb-2">H'cap Changes: </p>
+                <p class="card-text mb-1">Lee down to 3<br>Chris down to 5<br>Robbo down to 9<br>Craig down to 6<br>John Goodman down to 2<br>Mark Jeffries up to 4.</p>
+                </div>
+                <div class="scores-button-wrapper text-end pt-2">
+                 <a href="#" data-bs-toggle="modal" data-bs-target="#week09ScoresModal"><i class="ai-arrow-right fs-1 "></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
           <!-- Card for Week 08 -->
           <div class="col">
             <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
               <div class="card-body">
-                <div>
-                  <h5 class="card-title">WEEK 08</h5>
-                  <p class="card-text mb-1">Prize Money: £43.50</p>
-                  <p class="card-text mb-1">Winner: <strong class="winner-pulse">Ade Cooper</strong> (24 points)</p>
-                  <p class="card-text">H'cap Change: Pete down to 10.</p>
+                <div class="flex-grow-1">
+                  <h5 class="card-title fs-6 mb-5"><span class="badge rounded-pill text-bg-info">WEEK 08</span></h5>
+                  <p class="card-text mb-2">Winner: <strong class="winner-pulse">Ade Cooper</strong> (24 points)</p>
+                  <p class="card-text mb-1">Prize Money: £43.50</p><hr class="my-3">
+                  <p class="card-text mb-2">H'cap Changes: </p>
+                  <p class="card-text mb-1">Pete down to 10.</p>
                 </div>
                 <div class="scores-button-wrapper text-end pt-2">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#week08ScoresModal"><i class="ai-arrow-right fs-3 winner-pulse"></i></a>
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#week08ScoresModal"><i class="ai-arrow-right fs-1"></i></a>
                 </div>
               </div>
             </div>
@@ -168,14 +178,15 @@
           <div class="col">
             <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
               <div class="card-body">
-                <div>
-                  <h5 class="card-title">WEEK 07</h5>
-                  <p class="card-text mb-1">Prize Money: £51.00</p>
-                  <p class="card-text mb-1">Winner: <strong class="winner-pulse">Chris Boards</strong> (25 points)</p>
-                  <p class="card-text">H'cap Changes: Chris down to 6, Craig up to 7, Jon G up to 3.</p>
+                <div class="flex-grow-1">
+                  <h5 class="card-title fs-6 mb-5"><span class="badge rounded-pill text-bg-info">WEEK 07</span></h5>
+                  <p class="card-text mb-2">Winner: <strong class="winner-pulse">Chris Boards</strong> (25 points)</p>
+                  <p class="card-text mb-1">Prize Money: £51.00</p><hr class="my-3">
+                  <p class="card-text mb-2">H'cap Changes: </p>
+                  <p class="card-text mb-1">Chris down to 6<br>Craig up to 7<br>Jon G up to 3.</p>
                 </div>
                 <div class="scores-button-wrapper text-end pt-2">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#week07ScoresModal"><i class="ai-arrow-right fs-3 winner-pulse"></i></a>
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#week07ScoresModal"><i class="ai-arrow-right fs-1"></i></a>
                 </div>
               </div>
             </div>
@@ -184,14 +195,15 @@
           <div class="col">
             <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
               <div class="card-body">
-                <div>
-                  <h5 class="card-title">WEEK 06</h5>
-                  <p class="card-text mb-1">Prize Money: £49.50</p>
-                  <p class="card-text mb-1">Winner: <strong class="winner-pulse">Tim Allsopp</strong> (22 points)</p>
-                  <p class="card-text">H'cap Changes: Tim down to 3, Squigs up to 5, Gaz up to 12.</p>
+                <div class="flex-grow-1">
+                  <h5 class="card-title fs-6 mb-5"><span class="badge rounded-pill text-bg-info">WEEK 06</span></h5>
+                  <p class="card-text mb-2">Winner: <strong class="winner-pulse">Tim Allsopp</strong> (22 points)</p>
+                  <p class="card-text mb-1">Prize Money: £49.50</p><hr class="my-3">
+                  <p class="card-text mb-2">H'cap Changes: </p>
+                  <p class="card-text mb-1">Tim down to 3<br>Squigs up to 5<br>Gaz up to 12.</p>
                 </div>
                 <div class="scores-button-wrapper text-end pt-2">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#week06ScoresModal"><i class="ai-arrow-right fs-3 winner-pulse"></i></a>
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#week06ScoresModal"><i class="ai-arrow-right fs-1"></i></a>
                 </div>
               </div>
             </div>
@@ -200,14 +212,15 @@
           <div class="col">
             <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
               <div class="card-body">
-                <div>
-                  <h5 class="card-title">WEEK 05</h5>
-                  <p class="card-text mb-1">Prize Money: £45.00</p>
-                  <p class="card-text mb-1">Winner: <strong class="winner-pulse">Jon Murchington</strong> (23 points)</p>
-                  <p class="card-text">H'cap Changes: Jon down to 11, Squigsy down to 4, Tealy up to 7, Chappy up to 12, Rochy up to 8.</p>
+                <div class="flex-grow-1">
+                  <h5 class="card-title fs-6 mb-5"><span class="badge rounded-pill text-bg-info">WEEK 05</span></h5>
+                  <p class="card-text mb-2">Winner: <strong class="winner-pulse">Jon Murchington</strong> (23 points)</p>
+                  <p class="card-text mb-1">Prize Money: £45.00</p><hr class="my-3">
+                  <p class="card-text mb-2">H'cap Changes: </p>
+                  <p class="card-text mb-1">Jon down to 11<br>Squigsy down to 4<br>Tealy up to 7<br>Chappy up to 12<br>Rochy up to 8.</p>
                 </div>
                 <div class="scores-button-wrapper text-end pt-2">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#week05ScoresModal"><i class="ai-arrow-right fs-3 winner-pulse"></i></a>
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#week05ScoresModal"><i class="ai-arrow-right fs-1"></i></a>
                 </div>
               </div>
             </div>
@@ -216,14 +229,15 @@
           <div class="col">
             <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
               <div class="card-body">
-                <div>
-                  <h5 class="card-title">WEEK 04</h5>
-                  <p class="card-text mb-1">Prize Money: £54.00</p>
-                  <p class="card-text mb-1">Winner: <strong class="winner-pulse">Mark Howell</strong> (24 points)</p>
-                  <p class="card-text">H'cap Changes: Howla down to 4, Jon Goodman down to 2.</p>
+                <div class="flex-grow-1">
+                  <h5 class="card-title fs-6 mb-5"><span class="badge rounded-pill text-bg-info">WEEK 04</span></h5>
+                  <p class="card-text mb-2">Winner: <strong class="winner-pulse">Mark Howell</strong> (24 points)</p>
+                  <p class="card-text mb-1">Prize Money: £54.00</p><hr class="my-3">
+                  <p class="card-text mb-2">H'cap Changes: </p>
+                  <p class="card-text mb-1">Howla down to 4<br>Jon Goodman down to 2.</p>
                 </div>
                 <div class="scores-button-wrapper text-end pt-2">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#week04ScoresModal"><i class="ai-arrow-right fs-3 winner-pulse"></i></a>
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#week04ScoresModal"><i class="ai-arrow-right fs-1"></i></a>
                 </div>
               </div>
             </div>
@@ -232,14 +246,15 @@
           <div class="col">
             <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
               <div class="card-body">
-                <div>
-                  <h5 class="card-title">WEEK 03</h5>
-                  <p class="card-text mb-1">Prize Money: £49.50</p>
-                  <p class="card-text mb-1">Winner: <strong class="winner-pulse">Jon Boden</strong> (22 points)</p>
-                  <p class="card-text">H'cap Changes: Jon down to 5, Lee Eastoe up to 4, Toughy up to 4, Chris up to 7.</p>
+                <div class="flex-grow-1">
+                  <h5 class="card-title fs-6 mb-5"><span class="badge rounded-pill text-bg-info">WEEK 03</span></h5>
+                  <p class="card-text mb-2">Winner: <strong class="winner-pulse">Jon Boden</strong> (22 points)</p>
+                  <p class="card-text mb-1">Prize Money: £49.50</p><hr class="my-3">
+                  <p class="card-text mb-2">H'cap Changes: </p>
+                  <p class="card-text mb-1">Jon down to 5<br>Lee Eastoe up to 4<br>Toughy up to 4<br>Chris up to 7.</p>
                 </div>
                 <div class="scores-button-wrapper text-end pt-2">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#week03ScoresModal"><i class="ai-arrow-right fs-3 winner-pulse"></i></a>
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#week03ScoresModal"><i class="ai-arrow-right fs-1"></i></a>
                 </div>
               </div>
             </div>
@@ -248,14 +263,15 @@
           <div class="col">
             <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
               <div class="card-body">
-                <div>
-                  <h5 class="card-title">WEEK 02</h5>
-                  <p class="card-text mb-1">Prize Money: £60.00</p>
-                  <p class="card-text mb-1">Winner: <strong class="winner-pulse">Richard Craven Jones</strong> (23 points)</p>
-                  <p class="card-text">H'cap Changes: Matt down to 3, RJC down to 13, Warren Crook up to 7.</p>
+                <div class="flex-grow-1">
+                  <h5 class="card-title fs-6 mb-5"><span class="badge rounded-pill text-bg-info">WEEK 02</span></h5>
+                  <p class="card-text mb-2">Winner: <strong class="winner-pulse">Richard Craven Jones</strong> (23 points)</p>
+                  <p class="card-text mb-1">Prize Money: £60.00</p><hr class="my-3">
+                  <p class="card-text mb-2">H'cap Changes: </p>
+                  <p class="card-text mb-1">Matt down to 3<br>RJC down to 13<br>Warren Crook up to 7.</p>
                 </div>
                 <div class="scores-button-wrapper text-end pt-2">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#week02ScoresModal"><i class="ai-arrow-right fs-3 winner-pulse"></i></a>
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#week02ScoresModal"><i class="ai-arrow-right fs-1"></i></a>
                 </div>
               </div>
             </div>
@@ -264,14 +280,15 @@
           <div class="col">
             <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
               <div class="card-body">
-                <div>
-                  <h5 class="card-title">WEEK 01</h5>
-                  <p class="card-text mb-1">Prize Money: £55.50</p>
-                  <p class="card-text mb-1">Winner: <strong class="winner-pulse">Dave Harrison</strong> (22 points)</p>
-                  <p class="card-text">H'cap Changes: Ian Ind down to 5, Toughy down to 3, Nick up to 4, Jon B up to 6, Tim A up to 4, Neale A up to 9.</p>
+                <div class="flex-grow-1">
+                  <h5 class="card-title fs-6 mb-5"><span class="badge rounded-pill text-bg-info">WEEK 01</span></h5>
+                  <p class="card-text mb-2">Winner: <strong class="winner-pulse">Dave Harrison</strong> (22 points)</p>
+                  <p class="card-text mb-1">Prize Money: £55.50</p><hr class="my-3">
+                  <p class="card-text mb-2">H'cap Changes: </p>
+                  <p class="card-text mb-1">Ian Ind down to 5<br>Toughy down to 3<br>Nick up to 4<br>Jon B up to 6<br>Tim A up to 4<br>Neale A up to 9.</p>
                 </div>
                 <div class="scores-button-wrapper text-end pt-2">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#week01ScoresModal"><i class="ai-arrow-right fs-3 winner-pulse"></i></a>
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#week01ScoresModal"><i class="ai-arrow-right fs-1"></i></a>
                 </div>
               </div>
             </div>
@@ -285,7 +302,74 @@
     </main> <!-- End of .page-wrapper -->
 
     <!-- MODALS SECTION -->
-    <!-- Week 09 Scores Modal (Placeholder) -->
+    <!-- Week 09 Scores Modal -->
+    <div class="modal fade" id="week09ScoresModal" tabindex="-1" aria-labelledby="week09ScoresModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="week09ScoresModalLabel">WEEK 09 Scores - £58.50</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="table-responsive">
+              <table class="table table-hover text-start mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-center">POS</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col" class="text-center">POINTS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr> <td class="text-center"># 1</td><td>LEE EASTOE</td><td class="text-center">24</td></tr>
+                  <tr> <td class="text-center">= #2</td><td>CHRIS BOARDS</td><td class="text-center">22</td></tr>
+                  <tr> <td class="text-center">= #2</td><td>MARK JACKSON</td><td class="text-center">22</td></tr>
+                  <tr> <td class="text-center">= #2</td><td>SIMON CARTER</td><td class="text-center">22</td></tr>
+                  <tr> <td class="text-center">= #2</td><td>STEVE ROBINSON</td><td class="text-center">22</td></tr>
+                  <tr> <td class="text-center">= #6</td><td>CRAIG MILLIGAN</td><td class="text-center">21</td></tr>
+                  <tr> <td class="text-center">= #6</td><td>JAMES HARRISON</td><td class="text-center">21</td></tr>
+                  <tr> <td class="text-center">= #6</td><td>JOHN GOODMAN</td><td class="text-center">21</td></tr>
+                  <tr> <td class="text-center">= #6</td><td>MARTIN STEVENSON</td><td class="text-center">21</td></tr>
+                  <tr> <td class="text-center">= #6</td><td>MICK SANDOZ</td><td class="text-center">21</td></tr>
+                  <tr> <td class="text-center">= #6</td><td>NICK STABLEFORD</td><td class="text-center">21</td></tr>
+                  <tr> <td class="text-center">= #12</td><td>MARC ALLSOPP</td><td class="text-center">20</td></tr>
+                  <tr> <td class="text-center">= #12</td><td>PAUL SMITH</td><td class="text-center">20</td></tr>
+                  <tr> <td class="text-center">= #12</td><td>STEPHEN WALLACE</td><td class="text-center">20</td></tr>
+                  <tr> <td class="text-center">= #15</td><td>ADAM TEALE</td><td class="text-center">19</td></tr>
+                  <tr> <td class="text-center">= #15</td><td>JON BODEN</td><td class="text-center">19</td></tr>
+                  <tr> <td class="text-center">= #15</td><td>PAUL CHAPMAN</td><td class="text-center">19</td></tr>
+                  <tr> <td class="text-center">= #15</td><td>RICHARD CRAVEN JONES</td><td class="text-center">19</td></tr>
+                  <tr> <td class="text-center">= #15</td><td>TIM ALLSOPP</td><td class="text-center">19</td></tr>
+                  <tr> <td class="text-center">= #20</td><td>ANDY RAY</td><td class="text-center">18</td></tr>
+                  <tr> <td class="text-center">= #20</td><td>IAN IND</td><td class="text-center">18</td></tr>
+                  <tr> <td class="text-center">= #20</td><td>MARK JEFFRIES</td><td class="text-center">18</td></tr>
+                  <tr> <td class="text-center">= #20</td><td>MARK READY</td><td class="text-center">18</td></tr>
+                  <tr> <td class="text-center"># 24</td><td>JEZ WILLIAMS</td><td class="text-center">17</td></tr>
+                  <tr> <td class="text-center">= #25</td><td>DAVE HARRISON</td><td class="text-center">16</td></tr>
+                  <tr> <td class="text-center">= #25</td><td>MARK HOWELL</td><td class="text-center">16</td></tr>
+                  <tr> <td class="text-center">= #25</td><td>PETER JEFFRIES</td><td class="text-center">16</td></tr>
+                  <tr> <td class="text-center">= #25</td><td>RICHARD SHAW</td><td class="text-center">16</td></tr>
+                  <tr> <td class="text-center">= #25</td><td>STEVE SUCH</td><td class="text-center">16</td></tr>
+                  <tr> <td class="text-center"># 30</td><td>TOM GREEN</td><td class="text-center">15</td></tr>
+                  <tr> <td class="text-center">= #31</td><td>ADE COOPER</td><td class="text-center">14</td></tr>
+                  <tr> <td class="text-center">= #31</td><td>JAMES TOUGH</td><td class="text-center">14</td></tr>
+                  <tr> <td class="text-center">= #31</td><td>KEVIN HORTON</td><td class="text-center">14</td></tr>
+                  <tr> <td class="text-center">= #31</td><td>MARK MOSLEY</td><td class="text-center">14</td></tr>
+                  <tr> <td class="text-center">= #31</td><td>TONY MYNARD</td><td class="text-center">14</td></tr>
+                  <tr> <td class="text-center">= #31</td><td>STUART MURDOCK</td><td class="text-center">14</td></tr>
+                  <tr> <td class="text-center"># 37</td><td>JAMES SIMMONS</td><td class="text-center">13</td></tr>
+                  <tr> <td class="text-center"># 38</td><td>RICHARD BIRD</td><td class="text-center">11</td></tr>
+                  <tr> <td class="text-center"># 39</td><td>GARY ADCOCK</td><td class="text-center">8</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Week 08 Scores Modal -->
     <div class="modal fade" id="week08ScoresModal" tabindex="-1" aria-labelledby="week08ScoresModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-scrollable">
