@@ -1,5 +1,5 @@
-<!-- Page loading styles -->
-<style>.page-loading {
+/* Page loading styles */
+.page-loading {
     position: fixed;
     top: 0;
     right: 0;
@@ -97,4 +97,52 @@
       transform: none;
     }
   }
-</style>
+
+/* Custom page styles (previously inline in leagues.html) */
+:root {
+  --ar-body-font-family: 'Montserrat', sans-serif; /* Using Montserrat for body */
+}
+
+main.page-wrapper {
+  padding-top: 5rem; /* Adjust this value based on the navbar's actual height to prevent content overlap */
+}
+
+/* Make table font smaller */
+.bg-light .table {
+  font-size: 0.9rem;
+}
+
+/* League tab pill style */
+.league-tab-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;  /* Set width for the circle */
+  height: 28px; /* Set height for the circle */
+  padding: 0;     /* Remove padding, rely on flex centering */
+  border-radius: 50%; /* Make it a circle */
+  background-color: var(--bs-primary); /* Bootstrap primary color */
+  color: var(--bs-white); /* Text color inside pill */
+  font-weight: bold;
+  font-size: 0.75rem; /* Font size for text inside pill */
+  line-height: 1; /* Consistent height behavior */
+}
+
+/* Pulse animation for league rules icon */
+@keyframes pulse-animation {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.league-rules-icon {
+  display: inline-block; /* Ensures transform works as expected */
+  animation: pulse-animation 2s infinite;
+  color: var(--bs-primary); /* Ensure icon color is distinct if needed */
+}
+
+/* Remove border and shadow from the league rules modal */
+#leagueRulesModal .modal-content {
+  border: none !important;
+  box-shadow: none !important;
+}

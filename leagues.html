@@ -23,18 +23,7 @@
 
     <!-- Theme styles + Bootstrap -->
     <link rel="stylesheet" media="screen" href="css/theme.min.css">
-     <style>
-      :root {
-        --ar-body-font-family: 'Montserrat', sans-serif; /* Using Montserrat for body */
-      }
-      main.page-wrapper {
-        padding-top: 5rem; /* Adjust this value based on the navbar's actual height to prevent content overlap */
-      }
-      /* Make table font smaller */
-      .bg-light .table {
-        font-size: 0.9rem; 
-      }
-    </style>
+    <!-- Custom page styles (including .league-tab-circle and .league-rules-icon) -->
     <link rel="stylesheet" media="screen" href="css/page.css">
 
      <!-- Page loading scripts -->
@@ -62,57 +51,27 @@
       </div>
     </div>
 
+    <!-- Back Button -->
+    <a href="index.html" class="btn btn-icon btn-secondary rounded-circle position-fixed top-0 start-0 m-3 shadow-sm" style="z-index: 1031;" aria-label="Back">
+      <i class="ai-arrow-left fs-xl"></i>
+    </a>
+
     <!-- Page wrapper -->
     <main class="page-wrapper">
       <!-- Navbar -->
-      <header class="navbar navbar-expand-lg fixed-top bg-light">
-        <div class="container">
-          <!-- Navbar brand (Logo) -->
-          <a class="navbar-brand pe-sm-3" href="index.html">
-            <!-- Logo for light mode -->
-            <img src="logo-black.svg" width="60" height="60" alt="WAGS Logo" class="d-dark-mode-none flex-shrink-0 me-2">
-            <!-- Logo for dark mode -->
-            <img src="logo-white.svg" width="60" height="60" alt="WAGS Logo" class="d-none d-dark-mode-block flex-shrink-0 me-2">
-          
-          </a>
-
-           <!-- Theme switcher -->
-           <div class="form-check form-switch mode-switch order-lg-2 me-3 me-lg-4 ms-auto" data-bs-toggle="mode">
-            <input class="form-check-input" type="checkbox" id="theme-mode">
-            <label class="form-check-label" for="theme-mode">
-              <i class="ai-sun fs-lg"></i>
-            </label>
-            <label class="form-check-label" for="theme-mode">
-              <i class="ai-moon fs-lg"></i>
-            </label>
-          </div>
-
-          <!-- Mobile menu toggler -->
-          <button class="navbar-toggler ms-sm-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-           <!-- Navbar collapse -->
-           <nav class="collapse navbar-collapse" id="navbarNav">
-
-            <ul class="navbar-nav navbar-nav-scroll me-auto" style="--ar-scroll-height: 520px;">
-              <li class="nav-item"><a class="nav-link" href="index.html">Scores</a></li>
-              <li class="nav-item"><a class="nav-link" href="handicaps.html">Handicaps</a></li>
-              <li class="nav-item"><a class="nav-link" href="best14.html">Best 14</a></li>
-              <li class="nav-item"><a class="nav-link" href="leagues.html">Leagues</a></li>
-              <li class="nav-item"><a class="nav-link" href="rscup.html">RS Cup</a></li>
-              <li class="nav-item"><a class="nav-link" href="faqs.html">FAQ's</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+      <!-- Navbar has been removed -->
 
 
 
-<!-- Title and Info Card Section -->
-<section class="container py-1">
-  <h2 class="text-center mb-1">LEAGUES</h2>
-  <p class="text-center mb-1">Promotion and relegation for top/bottom 3 at season's end.</p>
+<!-- Title and Info Section -->
+<section class="container py-4">
+  <h2 class="text-center mb-1">
+    LEAGUES 
+    <a href="#" class="ms-1" data-bs-toggle="modal" data-bs-target="#leagueRulesModal" aria-label="League Rules">
+      <i class="ai-file-text fs-4 align-middle league-rules-icon"></i>
+    </a>
+  </h2>
+
 </section>
 
 <!-- Leagues Table Section -->
@@ -120,16 +79,16 @@
   <div class="container"> <!-- Using a standard container for tab layout -->
     <ul class="nav nav-tabs nav-justified mb-4" id="leaguesTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="league1-tab" data-bs-toggle="tab" data-bs-target="#league1-pane" type="button" role="tab" aria-controls="league1-pane" aria-selected="true">L 1</button>
+        <button class="nav-link active" id="league1-tab" data-bs-toggle="tab" data-bs-target="#league1-pane" type="button" role="tab" aria-controls="league1-pane" aria-selected="true"><span class="league-tab-circle">L 1</span></button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="league2-tab" data-bs-toggle="tab" data-bs-target="#league2-pane" type="button" role="tab" aria-controls="league2-pane" aria-selected="false">L 2</button>
+        <button class="nav-link" id="league2-tab" data-bs-toggle="tab" data-bs-target="#league2-pane" type="button" role="tab" aria-controls="league2-pane" aria-selected="false"><span class="league-tab-circle">L 2</span></button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="league3-tab" data-bs-toggle="tab" data-bs-target="#league3-pane" type="button" role="tab" aria-controls="league3-pane" aria-selected="false">L 3</button>
+        <button class="nav-link" id="league3-tab" data-bs-toggle="tab" data-bs-target="#league3-pane" type="button" role="tab" aria-controls="league3-pane" aria-selected="false"><span class="league-tab-circle">L 3</span></button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="league4-tab" data-bs-toggle="tab" data-bs-target="#league4-pane" type="button" role="tab" aria-controls="league4-pane" aria-selected="false">L 4</button>
+        <button class="nav-link" id="league4-tab" data-bs-toggle="tab" data-bs-target="#league4-pane" type="button" role="tab" aria-controls="league4-pane" aria-selected="false"><span class="league-tab-circle">L 4</span></button>
       </li>
     </ul>
 
@@ -279,23 +238,20 @@
 <!-- Bootstrap + Theme scripts -->
 <script src="js/theme.min.js"></script>
 
-<!-- Navbar scroll behavior -->
-<script>
-  let lastScrollTop = 0;
-  const navbar = document.querySelector('.navbar');
-
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop) {
-      navbar.classList.add('hidden');
-    } else {
-      navbar.classList.remove('hidden');
-    }
-
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  });
-</script>
+<!-- League Rules Modal -->
+<div class="modal fade" id="leagueRulesModal" tabindex="-1" aria-labelledby="leagueRulesModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="leagueRulesModalLabel">League Rules</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>To keep everyones season going we play individual leagues. The top & bottom 3 players swap places at the end of each season.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
