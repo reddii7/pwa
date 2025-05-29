@@ -112,22 +112,6 @@ main.page-wrapper {
   font-size: 0.9rem;
 }
 
-/* League tab pill style */
-.league-tab-circle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;  /* Set width for the circle */
-  height: 28px; /* Set height for the circle */
-  padding: 0;     /* Remove padding, rely on flex centering */
-  border-radius: 50%; /* Make it a circle */
-  background-color: var(--bs-primary); /* Bootstrap primary color */
-  color: var(--bs-white); /* Text color inside pill */
-  font-weight: bold;
-  font-size: 0.75rem; /* Font size for text inside pill */
-  line-height: 1; /* Consistent height behavior */
-}
-
 /* Pulse animation for league rules icon */
 @keyframes pulse-animation {
   0% { transform: scale(1); }

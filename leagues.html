@@ -52,18 +52,27 @@
     </div>
 
     <!-- Combined Title and Back Button Navigation -->
-    <nav class="leagues-title-nav fixed-top bg-light shadow-sm">
+    <nav class="leagues-title-nav fixed-top bg-light">
       <div class="container d-flex align-items-center justify-content-between py-3">
         <a href="index.html" class="btn btn-icon btn-sm btn-outline-secondary border-0 rounded-circle" aria-label="Back">
           <i class="ai-arrow-left"></i>
         </a>
-        <h2 class="mb-0 fs-5 text-center">
-          LEAGUES
-          <a href="#" class="ms-1" data-bs-toggle="modal" data-bs-target="#leagueRulesModal" aria-label="League Rules">
-            <i class="ai-file-text fs-4 align-middle league-rules-icon"></i>
-          </a>
-        </h2>
-        <div style="width: 2.25rem;"></div> <!-- Placeholder to balance the back button -->
+        <!-- Dropdown for Leagues -->
+        <div class="dropdown">
+          <button class="btn btn-link dropdown-toggle text-dark fs-5 fw-bold text-decoration-none p-0" type="button" id="leaguesDropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <span id="activeLeagueName">LEAGUES</span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="leaguesDropdownMenuButton" id="leaguesDropdownMenu" role="tablist">
+            <li><button class="dropdown-item active" id="dropdown-league1-tab" type="button" data-bs-toggle="tab" data-bs-target="#league1-pane" role="tab" aria-controls="league1-pane" aria-selected="true">League 1</button></li>
+            <li><button class="dropdown-item" id="dropdown-league2-tab" type="button" data-bs-toggle="tab" data-bs-target="#league2-pane" role="tab" aria-controls="league2-pane" aria-selected="false">League 2</button></li>
+            <li><button class="dropdown-item" id="dropdown-league3-tab" type="button" data-bs-toggle="tab" data-bs-target="#league3-pane" role="tab" aria-controls="league3-pane" aria-selected="false">League 3</button></li>
+            <li><button class="dropdown-item" id="dropdown-league4-tab" type="button" data-bs-toggle="tab" data-bs-target="#league4-pane" role="tab" aria-controls="league4-pane" aria-selected="false">League 4</button></li>
+          </ul>
+        </div>
+        <!-- Rules Icon - moved to the right -->
+        <a href="#" class="btn btn-icon btn-sm border-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#leagueRulesModal" aria-label="League Rules">
+          <i class="ai-file-text fs-4 league-rules-icon"></i>
+        </a>
       </div>
     </nav>
 
@@ -75,25 +84,10 @@
 
 <!-- Leagues Table Section -->
 <div class="bg-light py-4"> <!-- Added padding to the main background div -->
-  <div class="container"> <!-- Using a standard container for tab layout -->
-    <ul class="nav nav-tabs nav-justified mb-4" id="leaguesTab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="league1-tab" data-bs-toggle="tab" data-bs-target="#league1-pane" type="button" role="tab" aria-controls="league1-pane" aria-selected="true"><span class="league-tab-circle">L 1</span></button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="league2-tab" data-bs-toggle="tab" data-bs-target="#league2-pane" type="button" role="tab" aria-controls="league2-pane" aria-selected="false"><span class="league-tab-circle">L 2</span></button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="league3-tab" data-bs-toggle="tab" data-bs-target="#league3-pane" type="button" role="tab" aria-controls="league3-pane" aria-selected="false"><span class="league-tab-circle">L 3</span></button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="league4-tab" data-bs-toggle="tab" data-bs-target="#league4-pane" type="button" role="tab" aria-controls="league4-pane" aria-selected="false"><span class="league-tab-circle">L 4</span></button>
-      </li>
-    </ul>
-
+  <div class="container pt-3"> <!-- Using a standard container, added pt-3 for spacing from navbar -->
     <div class="tab-content" id="leaguesTabContent">
       <!-- League 1 Pane -->
-      <div class="tab-pane fade show active" id="league1-pane" role="tabpanel" aria-labelledby="league1-tab" tabindex="0">
+      <div class="tab-pane fade show active" id="league1-pane" role="tabpanel" tabindex="0">
         <div class="table-responsive">
           <table class="table table-hover text-start mb-0">
             <thead>
@@ -125,7 +119,7 @@
       </div>
 
       <!-- League 2 Pane -->
-      <div class="tab-pane fade" id="league2-pane" role="tabpanel" aria-labelledby="league2-tab" tabindex="0">
+      <div class="tab-pane fade" id="league2-pane" role="tabpanel" tabindex="0">
         <div class="table-responsive">
           <table class="table table-hover text-start mb-0">
             <thead>
@@ -157,7 +151,7 @@
       </div>
 
       <!-- League 3 Pane -->
-      <div class="tab-pane fade" id="league3-pane" role="tabpanel" aria-labelledby="league3-tab" tabindex="0">
+      <div class="tab-pane fade" id="league3-pane" role="tabpanel" tabindex="0">
         <div class="table-responsive">
           <table class="table table-hover text-start mb-0">
             <thead>
@@ -190,7 +184,7 @@
       </div>
 
       <!-- League 4 Pane -->
-      <div class="tab-pane fade" id="league4-pane" role="tabpanel" aria-labelledby="league4-tab" tabindex="0">
+      <div class="tab-pane fade" id="league4-pane" role="tabpanel" tabindex="0">
         <div class="table-responsive">
           <table class="table table-hover text-start mb-0">
             <thead>
@@ -251,6 +245,32 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const activeLeagueNameSpan = document.getElementById('activeLeagueName');
+    const leagueDropdownItems = document.querySelectorAll('#leaguesDropdownMenu .dropdown-item[data-bs-toggle="tab"]');
+
+    function updateActiveLeagueName(name) {
+      if (activeLeagueNameSpan) {
+        activeLeagueNameSpan.textContent = name;
+      }
+    }
+
+    // Set initial active league name on page load
+    const initiallyActiveItem = document.querySelector('#leaguesDropdownMenu .dropdown-item.active');
+    if (initiallyActiveItem) {
+      updateActiveLeagueName(initiallyActiveItem.textContent);
+    }
+
+    // Add event listeners to update name when a new league is shown
+    leagueDropdownItems.forEach(item => {
+      item.addEventListener('shown.bs.tab', function (event) {
+        updateActiveLeagueName(event.target.textContent);
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
