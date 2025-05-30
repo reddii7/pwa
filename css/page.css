@@ -156,8 +156,4 @@ main.page-wrapper {
   box-shadow: none !important;
 }
 
-/* In /Users/markready/Library/Mobile Documents/com~apple~CloudDocs/CURRENT WAGS SITE/pwa/css/page.css */
 
-.weekly-summary-cards .card .card-body .card-text {
-  font-size: 1.2em; /* Increases font size by 20% relative to its parent */
-}
