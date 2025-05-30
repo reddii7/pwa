@@ -1,4 +1,29 @@
 /* Page loading styles */
+  :root {
+        --ar-body-font-family: 'Roboto', sans-serif; /* Using Roboto for body */
+      }
+      main.page-wrapper {
+        padding-top: 5rem; /* Adjust this value based on the navbar's actual height to prevent content overlap */
+      }
+      /* Make table font smaller */
+      .bg-light .table {
+        font-size: 0.9rem; 
+      }
+
+      /* Improve text color contrast on secondary cards */
+      .card.bg-secondary {
+        color: var(--bs-secondary-text-emphasis) !important;
+      }
+      .card.bg-secondary a {
+        color: inherit !important; /* Ensure links inherit this improved contrast color */
+      }
+
+      /* Remove border and shadow from the rules modal */
+      #best14RulesModal .modal-content {
+        border: none !important;
+        box-shadow: none !important;
+      }
+
 .page-loading {
     position: fixed;
     top: 0;
@@ -129,4 +154,10 @@ main.page-wrapper {
 #leagueRulesModal .modal-content {
   border: none !important;
   box-shadow: none !important;
+}
+
+/* In /Users/markready/Library/Mobile Documents/com~apple~CloudDocs/CURRENT WAGS SITE/pwa/css/page.css */
+
+.weekly-summary-cards .card .card-body .card-text {
+  font-size: 1.2em; /* Increases font size by 20% relative to its parent */
 }

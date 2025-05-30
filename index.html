@@ -23,57 +23,7 @@
 
     <!-- Theme styles + Bootstrap -->
     <link rel="stylesheet" media="screen" href="css/theme.min.css">
-     <style>
-      :root {
-        --ar-body-font-family: 'Roboto', sans-serif; /* Using Roboto for body */
-        /* If your theme has a specific heading font variable (e.g., --ar-heading-font-family),
-           you might want to set that to 'Roboto' as well, or directly style
-           h1, h2, h3, h4, h5, h6 { font-family: 'Roboto', sans-serif; }
-           if your theme doesn't have a specific heading font variable. */
-      }
-      main.page-wrapper {
-        padding-top: 5rem; /* Adjust this value based on the navbar's actual height to prevent content overlap */
-      }
-      /* Make table font smaller */
-      .bg-light .table {
-        font-size: 0.9rem;
-      }
- 
-
-   
-
   
-
-      /* Styling for summary cards */
-      .weekly-summary-cards .card .card-title {
-        letter-spacing: 0.05em; /* Adjust as needed */
-      }
-      .weekly-summary-cards .card .card-text {
-        letter-spacing: 0.03em; /* Adjust as needed */
-      }
-      .weekly-summary-cards .card-body {
-        display: flex;
-        flex-direction: column;
-      }
-      .weekly-summary-cards .scores-button-wrapper {
-        margin-top: auto; /* Pushes button to the bottom */
-      }
-
-      /* Custom style for underlined week titles */
-      .custom-week-underline {
-        text-decoration: underline;
-        text-underline-offset: 0.2em; /* Adjust for desired distance */
-      }
-
-      /* Improve text color contrast on secondary cards */
-      .card.bg-secondary {
-        color: var(--bs-secondary-text-emphasis) !important;
-      }
-      .card.bg-secondary a {
-        color: inherit !important; /* Ensure links inherit this improved contrast color */
-      }
-
-    </style>
     <link rel="stylesheet" media="screen" href="css/page.css">
 
      <!-- Page loading scripts -->
@@ -149,11 +99,11 @@
       <!-- Weekly Summary Cards -->
       <section class="container py-4">
         <h2 class="text-center mb-4">Latest Results</h2>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 weekly-summary-cards">
+        <div class="row row-cols-1 g-4 weekly-summary-cards">
            <!-- Card for Week 09 -->
           <div class="col">
             <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
-              <div class="card-body">
+              <div class="card-body d-flex flex-column">
                 <div class="flex-grow-1">
                   <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 09</h5>
                   <p class="card-text mb-2">Winner: <strong class="winner-pulse">Lee Eastoe</strong> (24 points)</p>
@@ -171,7 +121,7 @@
           <!-- Card for Week 08 -->
           <div class="col">
             <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
-              <div class="card-body">
+              <div class="card-body d-flex flex-column">
                 <div class="flex-grow-1">
                   <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 08</h5>
                   <p class="card-text mb-2">Winner: <strong class="winner-pulse">Ade Cooper</strong> (24 points)</p>
@@ -189,7 +139,7 @@
           <!-- Card for Week 07 -->
           <div class="col">
             <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
-              <div class="card-body">
+              <div class="card-body d-flex flex-column">
                 <div class="flex-grow-1">
                   <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 07</h5>
                   <p class="card-text mb-2">Winner: <strong class="winner-pulse">Chris Boards</strong> (25 points)</p>
@@ -207,7 +157,7 @@
           <!-- Card for Week 06 -->
           <div class="col">
             <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
-              <div class="card-body">
+              <div class="card-body d-flex flex-column">
                 <div class="flex-grow-1">
                   <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 06</h5>
                   <p class="card-text mb-2">Winner: <strong class="winner-pulse">Tim Allsopp</strong> (22 points)</p>
@@ -225,7 +175,7 @@
           <!-- Card for Week 05 -->
           <div class="col">
             <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
-              <div class="card-body">
+              <div class="card-body d-flex flex-column">
                 <div class="flex-grow-1">
                   <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 05</h5>
                   <p class="card-text mb-2">Winner: <strong class="winner-pulse">Jon Murchington</strong> (23 points)</p>
@@ -243,7 +193,7 @@
           <!-- Card for Week 04 -->
           <div class="col">
             <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
-              <div class="card-body">
+              <div class="card-body d-flex flex-column">
                 <div class="flex-grow-1">
                   <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 04</h5>
                   <p class="card-text mb-2">Winner: <strong class="winner-pulse">Mark Howell</strong> (24 points)</p>
@@ -261,7 +211,7 @@
           <!-- Card for Week 03 -->
           <div class="col">
             <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
-              <div class="card-body">
+              <div class="card-body d-flex flex-column">
                 <div class="flex-grow-1">
                   <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 03</h5>
                   <p class="card-text mb-2">Winner: <strong class="winner-pulse">Jon Boden</strong> (22 points)</p>
@@ -279,7 +229,7 @@
           <!-- Card for Week 02 -->
           <div class="col">
             <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
-              <div class="card-body">
+              <div class="card-body d-flex flex-column">
                 <div class="flex-grow-1">
                   <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 02</h5>
                   <p class="card-text mb-2">Winner: <strong class="winner-pulse">Richard Craven Jones</strong> (23 points)</p>
@@ -297,7 +247,7 @@
           <!-- Card for Week 01 -->
           <div class="col">
             <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
-              <div class="card-body">
+              <div class="card-body d-flex flex-column">
                 <div class="flex-grow-1">
                   <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 01</h5>
                   <p class="card-text mb-2">Winner: <strong class="winner-pulse">Dave Harrison</strong> (22 points)</p>
