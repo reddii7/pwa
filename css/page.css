@@ -123,10 +123,7 @@
     }
   }
 
-/* Custom page styles (previously inline in leagues.html) */
-:root {
-  --ar-body-font-family: 'Montserrat', sans-serif; /* Using Montserrat for body */
-}
+
 
 main.page-wrapper {
   padding-top: 5rem; /* Adjust this value based on the navbar's actual height to prevent content overlap */
@@ -157,3 +154,9 @@ main.page-wrapper {
 }
 
 
+ .card-winner-info {
+  font-size: 1.2em; /* 20% larger font size for winner info on cards */
+  color: #fff !important; /* Make winner text white */
+}
+
+      
