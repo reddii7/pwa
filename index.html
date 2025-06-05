@@ -102,6 +102,26 @@
       <section class="container py-4">
         <h2 class="text-center mb-4">Latest Results</h2>
         <div class="row row-cols-1 g-4 weekly-summary-cards">
+                    <!-- Card for Week 10 -->
+          <div class="col">
+            <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
+              <div class="card-body d-flex flex-column">
+                <div class="flex-grow-1">
+                  <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 10</h5>
+                  <p class="card-text mb-2 card-winner-info">Winner: <strong class="winner-pulse">Stuart Pickersgill</strong> (23 points)</p>
+                  <p class="card-text mb-1">Prize Money: £31.50</p>
+                  <p class="card-text mb-1">No. of Players: 21</p>
+                  <hr class="my-3">
+                  <p class="card-text mb-2">H'cap Changes: </p>
+                  <p class="card-text mb-1">Stuart Pickersgill down to 3<br>Mick Hennessy down to 3<br>James Harrison down to 8<br>Gary Adcock down to 11</p>
+                </div>
+                <div class="scores-button-wrapper text-end pt-2">
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#week10ScoresModal"><i class="ai-arrow-right fs-1"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ...existing code... -->
            <!-- Card for Week 09 -->
           <div class="col">
             <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
@@ -273,6 +293,54 @@
     </main> <!-- End of .page-wrapper -->
 
     <!-- MODALS SECTION -->
+         <!-- Week 10 Scores Modal -->
+    <div class="modal fade" id="week10ScoresModal" tabindex="-1" aria-labelledby="week10ScoresModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="week10ScoresModalLabel">WEEK 10 Scores - £31.50</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-center">POS</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col" class="text-center">POINTS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="winner-row-highlight"> <td class="text-center">#1</td><td>STUART PICKERSGILL</td><td class="text-center">23</td></tr>
+                  <tr> <td class="text-center">=&nbsp;#2</td><td>IAN IND</td><td class="text-center">22</td></tr>
+                  <tr> <td class="text-center">=&nbsp;#2</td><td>JAMES HARRISON</td><td class="text-center">22</td></tr>
+                  <tr> <td class="text-center">=&nbsp;#2</td><td>MICK HENNESSY</td><td class="text-center">22</td></tr>
+                  <tr> <td class="text-center">=&nbsp;#5</td><td>GARY ADCOCK</td><td class="text-center">21</td></tr>
+                  <tr> <td class="text-center">=&nbsp;#5</td><td>ADAM SIMCOX</td><td class="text-center">21</td></tr>
+                  <tr> <td class="text-center">=&nbsp;#5</td><td>RICHARD SHAW</td><td class="text-center">21</td></tr>
+                  <tr> <td class="text-center">=&nbsp;#8</td><td>DAVE HARRISON</td><td class="text-center">20</td></tr>
+                  <tr> <td class="text-center">=&nbsp;#8</td><td>MARK READY</td><td class="text-center">20</td></tr>
+                  <tr> <td class="text-center">=&nbsp;#8</td><td>SIMON CARTER</td><td class="text-center">20</td></tr>
+                  <tr> <td class="text-center">=&nbsp;#11</td><td>PETER JEFFRIES</td><td class="text-center">18</td></tr>
+                  <tr> <td class="text-center">=&nbsp;#11</td><td>TIM ALLSOPP</td><td class="text-center">18</td></tr>
+                  <tr> <td class="text-center">=&nbsp;#11</td><td>TONY MYNARD</td><td class="text-center">18</td></tr>
+                  <tr> <td class="text-center">=&nbsp;#11</td><td>STUART MURDOCK</td><td class="text-center">18</td></tr>
+                  <tr> <td class="text-center">=&nbsp;#15</td><td>ADAM TEALE</td><td class="text-center">17</td></tr>
+                  <tr> <td class="text-center">=&nbsp;#15</td><td>JAMES TOUGH</td><td class="text-center">17</td></tr>
+                  <tr> <td class="text-center">=&nbsp;#15</td><td>PAUL SMITH</td><td class="text-center">17</td></tr>
+                  <tr> <td class="text-center">=&nbsp;#18</td><td>ROSS KELLY</td><td class="text-center">16</td></tr>
+                  <tr> <td class="text-center">=&nbsp;#18</td><td>NICK STABLEFORD</td><td class="text-center">16</td></tr>
+                  <tr> <td class="text-center">#20</td><td>STEVE ROCHESTER</td><td class="text-center">14</td></tr>
+                  <tr> <td class="text-center">#21</td><td>MARK HOWELL</td><td class="text-center">10</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ...existing code... -->
     <!-- Week 09 Scores Modal -->
     <div class="modal fade" id="week09ScoresModal" tabindex="-1" aria-labelledby="week09ScoresModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-scrollable">
