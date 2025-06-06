@@ -1,976 +1,2648 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WAGS</title>
 
-    <!-- Webmanifest + Favicon / App icons -->
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/png" href="app-icons/icon-32x32.png" sizes="32x32">
-    <link rel="apple-touch-icon" href="app-icons/icon-180x180.png">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WAGS</title>
 
-    <!-- Theme switcher (color modes) -->
-    <script src="js/theme-switcher.js"></script>
+  <!-- Webmanifest + Favicon / App icons -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="app-icons/icon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="app-icons/icon-180x180.png">
 
-    <!-- Google Fonts: Roboto -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Theme switcher (color modes) -->
+  <script src="js/theme-switcher.js"></script>
 
-    <!-- Font icons -->
-    <link rel="stylesheet" href="icons/around-icons.min.css">
+  <!-- Google Fonts: Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Theme styles + Bootstrap -->
-    <link rel="stylesheet" media="screen" href="css/theme.min.css">
-  
-    <link rel="stylesheet" media="screen" href="css/page.css">
+  <!-- Font icons -->
+  <link rel="stylesheet" href="icons/around-icons.min.css">
 
+  <!-- Theme styles + Bootstrap -->
+  <link rel="stylesheet" media="screen" href="css/theme.min.css">
 
-
-     <!-- Page loading scripts -->
-     <script>
-      (function () {
-        window.onload = function () {
-          const preloader = document.querySelector('.page-loading');
-          preloader.classList.remove('active');
-          setTimeout(function () {
-            preloader.remove();
-          }, 1500);
-        };
-      })();
-    </script>
-  </head>
+  <link rel="stylesheet" media="screen" href="css/page.css">
 
 
 
-  <body>
-    <!-- Page loading spinner -->
-    <div class="page-loading active">
-      <div class="page-loading-inner">
-        <div class="page-spinner"></div>
-        <span>Loading...</span>
-      </div>
+  <!-- Page loading scripts -->
+  <script>
+    (function () {
+      window.onload = function () {
+        const preloader = document.querySelector('.page-loading');
+        preloader.classList.remove('active');
+        setTimeout(function () {
+          preloader.remove();
+        }, 1500);
+      };
+    })();
+  </script>
+</head>
+
+
+
+<body>
+  <!-- Page loading spinner -->
+  <div class="page-loading active">
+    <div class="page-loading-inner">
+      <div class="page-spinner"></div>
+      <span>Loading...</span>
     </div>
+  </div>
 
-    <!-- Page wrapper -->
-    <main class="page-wrapper">
-      <!-- Navbar -->
-      <header class="navbar navbar-expand-lg fixed-top bg-light">
-        <div class="container">
-          <!-- Navbar brand (Logo) -->
-          <a class="navbar-brand pe-sm-3" href="index.html">
-            <!-- Logo for light mode -->
-            <img src="logo-black.svg" width="60" height="60" alt="WAGS Logo" class="d-dark-mode-none flex-shrink-0 me-2">
-            <!-- Logo for dark mode -->
-            <img src="logo-white.svg" width="60" height="60" alt="WAGS Logo" class="d-none d-dark-mode-block flex-shrink-0 me-2">
-          
-          </a>
+  <!-- Page wrapper -->
+  <main class="page-wrapper">
+    <!-- Navbar -->
+    <header class="navbar navbar-expand-lg fixed-top bg-light">
+      <div class="container">
+        <!-- Navbar brand (Logo) -->
+        <a class="navbar-brand pe-sm-3" href="index.html">
+          <!-- Logo for light mode -->
+          <img src="logo-black.svg" width="60" height="60" alt="WAGS Logo" class="d-dark-mode-none flex-shrink-0 me-2">
+          <!-- Logo for dark mode -->
+          <img src="logo-white.svg" width="60" height="60" alt="WAGS Logo"
+            class="d-none d-dark-mode-block flex-shrink-0 me-2">
 
-           <!-- Theme switcher -->
-           <div class="form-check form-switch mode-switch order-lg-2 me-3 me-lg-4 ms-auto" data-bs-toggle="mode">
-            <input class="form-check-input" type="checkbox" id="theme-mode">
-            <label class="form-check-label" for="theme-mode">
-              <i class="ai-sun fs-lg"></i>
-            </label>
-            <label class="form-check-label" for="theme-mode">
-              <i class="ai-moon fs-lg"></i>
-            </label>
-          </div>
+        </a>
 
-          <!-- Mobile menu toggler -->
-          <button class="navbar-toggler ms-sm-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-           <!-- Navbar collapse -->
-           <nav class="collapse navbar-collapse" id="navbarNav">
-
-            <ul class="navbar-nav navbar-nav-scroll me-auto" style="--ar-scroll-height: 520px;">
-              <li class="nav-item"><a class="nav-link" href="index.html">Scores.</a></li>
-              <li class="nav-item"><a class="nav-link" href="handicaps.html">Handicaps.</a></li>
-              <li class="nav-item"><a class="nav-link" href="best14.html">Best 14.</a></li>
-              <li class="nav-item"><a class="nav-link" href="leagues.html">Leagues.</a></li>
-              <li class="nav-item"><a class="nav-link" href="rscup.html">RS Cup.</a></li>
-              <li class="nav-item"><a class="nav-link" href="faqs.html">FAQ's</a></li>
-            </ul>
-          </nav>
+        <!-- Theme switcher -->
+        <div class="form-check form-switch mode-switch order-lg-2 me-3 me-lg-4 ms-auto" data-bs-toggle="mode">
+          <input class="form-check-input" type="checkbox" id="theme-mode">
+          <label class="form-check-label" for="theme-mode">
+            <i class="ai-sun fs-lg"></i>
+          </label>
+          <label class="form-check-label" for="theme-mode">
+            <i class="ai-moon fs-lg"></i>
+          </label>
         </div>
-      </header>
 
-      <!-- Weekly Summary Cards -->
-      <section class="container py-4">
-        <h2 class="text-center mb-4">Latest Results</h2>
-        <div class="row row-cols-1 g-4 weekly-summary-cards">
-                    <!-- Card for Week 10 -->
-          <div class="col">
-            <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
-              <div class="card-body d-flex flex-column">
-                <div class="flex-grow-1">
-                  <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 10</h5>
-                  <p class="card-text mb-2 card-winner-info">Winner: <strong class="winner-pulse">Stuart Pickersgill</strong> (23 points)</p>
-                  <p class="card-text mb-1">Prize Money: £31.50</p>
-                  <p class="card-text mb-1">No. of Players: 21</p>
-                  <hr class="my-3">
-                  <p class="card-text mb-2">H'cap Changes:</p>
-                  <p class="card-text mb-1">Stuart Pickersgill <i class="ai-arrow-down"></i> 3<br>Mick Hennessy <i class="ai-arrow-down"></i> 3<br>James Harrison <i class="ai-arrow-down"></i> 8<br>Gary Adcock <i class="ai-arrow-down"></i> 11</p>
+        <!-- Mobile menu toggler -->
+        <button class="navbar-toggler ms-sm-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar collapse -->
+        <nav class="collapse navbar-collapse" id="navbarNav">
+
+          <ul class="navbar-nav navbar-nav-scroll me-auto" style="--ar-scroll-height: 520px;">
+            <li class="nav-item"><a class="nav-link" href="index.html">Scores</a></li>
+            <li class="nav-item"><a class="nav-link" href="handicaps.html">Handicaps</a></li>
+            <li class="nav-item"><a class="nav-link" href="best14.html">Best 14</a></li>
+            <li class="nav-item"><a class="nav-link" href="leagues.html">Leagues</a></li>
+            <li class="nav-item"><a class="nav-link" href="rscup.html">RS Cup</a></li>
+            <li class="nav-item"><a class="nav-link" href="faqs.html">FAQ's</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Weekly Summary Cards -->
+    <section class="container py-4">
+
+      <div class="row row-cols-1 g-4 weekly-summary-cards">
+
+        <!-- WEEK TEN SUMMARY CARD (top 3 and ties only) -->
+        <div class="col">
+          <div class="card border-1 h-100 rounded-5 shadow-sm bg-secondary">
+            <div class="card-body d-flex flex-column">
+              <div class="flex-grow-1">
+                <h5 class="card-title fs-5 mb-2 custom-week-underline">WEEK TEN</h5>
+                <p class="card-text mb-5">Prize Money: £31.50<br>No. of Players: 21</p>
+                <div class="table-responsive">
+        <table class="table table-hover mb-5">
+            <thead>
+              <tr>
+                <th scope="col" class="text-center">POS</th>
+                <th scope="col">NAME</th>
+                <th scope="col" class="text-center">POINTS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="text-center">1</td><td>STUART PICKERSGILL</td><td class="text-center">23</td></tr>
+              <tr><td class="text-center">T2</td><td>IAN IND</td><td class="text-center">22</td></tr>
+              <tr><td class="text-center">T2</td><td>JAMES HARRISON</td><td class="text-center">22</td></tr>
+              <tr><td class="text-center">T2</td><td>MICK HENNESSY</td><td class="text-center">22</td></tr>
+            </tbody>
+          </table>
                 </div>
-                <div class="scores-button-wrapper text-end pt-2">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#week10ScoresModal"><i class="ai-arrow-right fs-1"></i></a>
-                </div>
+                <p class="card-text mb-5">H'cap Changes: Stu <i class="ai-arrow-down"></i> 3, Jimbo <i
+                    class="ai-arrow-down"></i> 8, Mick <i class="ai-arrow-down"></i> 3, Villa Gaz <i
+                    class="ai-arrow-down"></i> 11.</p>
               </div>
-            </div>
-          </div>
-          <!-- ...existing code... -->
-           <!-- Card for Week 09 -->
-          <div class="col">
-            <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
-              <div class="card-body d-flex flex-column">
-                <div class="flex-grow-1">
-                  <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 09</h5>
-                  <p class="card-text mb-2 card-winner-info">Winner: <strong class="winner-pulse">Lee Eastoe</strong> (24 points)</p>
-                  <p class="card-text mb-1">Prize Money: £58.50</p>
-                  <p class="card-text mb-1">No. of Players: 39</p><hr class="my-3">
-                   <p class="card-text mb-2">H'cap Changes:</p>
-                <p class="card-text mb-1">Lee <i class="ai-arrow-down"></i> 3<br>Chris <i class="ai-arrow-down"></i> 5<br>Robbo <i class="ai-arrow-down"></i> 9<br>Craig <i class="ai-arrow-down"></i> 6<br>John Goodman <i class="ai-arrow-down"></i> 2<br>Mark Jeffries <i class="ai-arrow-up"></i> 4.</p>
-                </div>
-                <div class="scores-button-wrapper text-end pt-2">
-                 <a href="#" data-bs-toggle="modal" data-bs-target="#week09ScoresModal"><i class="ai-arrow-right fs-1 "></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Card for Week 08 -->
-          <div class="col">
-            <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
-              <div class="card-body d-flex flex-column">
-                <div class="flex-grow-1">
-                  <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 08</h5>
-                  <p class="card-text mb-2 card-winner-info">Winner: <strong class="winner-pulse">Ade Cooper</strong> (24 points)</p>
-                  <p class="card-text mb-1">Prize Money: £43.50</p>
-                  <p class="card-text mb-1">No. of Players: 29</p><hr class="my-3">
-                  <p class="card-text mb-2">H'cap Changes:</p>
-                  <p class="card-text mb-1">Pete <i class="ai-arrow-down"></i> 10.</p>
-                </div>
-                <div class="scores-button-wrapper text-end pt-2">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#week08ScoresModal"><i class="ai-arrow-right fs-1"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Card for Week 07 -->
-          <div class="col">
-            <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
-              <div class="card-body d-flex flex-column">
-                <div class="flex-grow-1">
-                  <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 07</h5>
-                  <p class="card-text mb-2 card-winner-info">Winner: <strong class="winner-pulse">Chris Boards</strong> (25 points)</p>
-                  <p class="card-text mb-1">Prize Money: £51.00</p>
-                  <p class="card-text mb-1">No. of Players: 34</p><hr class="my-3">
-                  <p class="card-text mb-2">H'cap Changes:</p>
-                  <p class="card-text mb-1">Chris <i class="ai-arrow-down"></i> 6<br>Craig <i class="ai-arrow-up"></i> 7<br>Jon G <i class="ai-arrow-up"></i> 3.</p>
-                </div>
-                <div class="scores-button-wrapper text-end pt-2">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#week07ScoresModal"><i class="ai-arrow-right fs-1"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Card for Week 06 -->
-          <div class="col">
-            <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
-              <div class="card-body d-flex flex-column">
-                <div class="flex-grow-1">
-                  <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 06</h5>
-                  <p class="card-text mb-2 card-winner-info">Winner: <strong class="winner-pulse">Tim Allsopp</strong> (22 points)</p>
-                  <p class="card-text mb-1">Prize Money: £49.50</p>
-                  <p class="card-text mb-1">No. of Players: 30</p><hr class="my-3">
-                  <p class="card-text mb-2">H'cap Changes:</p>
-                  <p class="card-text mb-1">Tim <i class="ai-arrow-down"></i> 3<br>Squigs <i class="ai-arrow-up"></i> 5<br>Gaz <i class="ai-arrow-up"></i> 12.</p>
-                </div>
-                <div class="scores-button-wrapper text-end pt-2">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#week06ScoresModal"><i class="ai-arrow-right fs-1"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Card for Week 05 -->
-          <div class="col">
-            <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
-              <div class="card-body d-flex flex-column">
-                <div class="flex-grow-1">
-                  <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 05</h5>
-                  <p class="card-text mb-2 card-winner-info">Winner: <strong class="winner-pulse">Jon Murchington</strong> (23 points)</p>
-                  <p class="card-text mb-1">Prize Money: £45.00</p>
-                  <p class="card-text mb-1">No. of Players: 30</p><hr class="my-3">
-                  <p class="card-text mb-2">H'cap Changes:</p>
-                  <p class="card-text mb-1">Jon <i class="ai-arrow-down"></i> 11<br>Squigsy <i class="ai-arrow-down"></i> 4<br>Tealy <i class="ai-arrow-up"></i> 7<br>Chappy <i class="ai-arrow-up"></i> 12<br>Rochy <i class="ai-arrow-up"></i> 8.</p>
-                </div>
-                <div class="scores-button-wrapper text-end pt-2">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#week05ScoresModal"><i class="ai-arrow-right fs-1"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Card for Week 04 -->
-          <div class="col">
-            <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
-              <div class="card-body d-flex flex-column">
-                <div class="flex-grow-1">
-                  <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 04</h5>
-                  <p class="card-text mb-2 card-winner-info">Winner: <strong class="winner-pulse">Mark Howell</strong> (24 points)</p>
-                  <p class="card-text mb-1">Prize Money: £54.00</p>
-                  <p class="card-text mb-1">No. of Players: 36</p><hr class="my-3">
-                  <p class="card-text mb-2">H'cap Changes:</p>
-                  <p class="card-text mb-1">Howla <i class="ai-arrow-down"></i> 4<br>Jon Goodman <i class="ai-arrow-down"></i> 2.</p>
-                </div>
-                <div class="scores-button-wrapper text-end pt-2">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#week04ScoresModal"><i class="ai-arrow-right fs-1"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Card for Week 03 -->
-          <div class="col">
-            <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
-              <div class="card-body d-flex flex-column">
-                <div class="flex-grow-1">
-                  <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 03</h5>
-                  <p class="card-text mb-2 card-winner-info">Winner: <strong class="winner-pulse">Jon Boden</strong> (22 points)</p>
-                  <p class="card-text mb-1">Prize Money: £49.50</p>
-                  <p class="card-text mb-1">No. of Players: 33</p><hr class="my-3">
-                  <p class="card-text mb-2">H'cap Changes:</p>
-                  <p class="card-text mb-1">Jon <i class="ai-arrow-down"></i> 5<br>Lee Eastoe <i class="ai-arrow-up"></i> 4<br>Toughy <i class="ai-arrow-up"></i> 4<br>Chris <i class="ai-arrow-up"></i> 7.</p>
-                </div>
-                <div class="scores-button-wrapper text-end pt-2">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#week03ScoresModal"><i class="ai-arrow-right fs-1"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Card for Week 02 -->
-          <div class="col">
-            <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
-              <div class="card-body d-flex flex-column">
-                <div class="flex-grow-1">
-                  <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 02</h5>
-                  <p class="card-text mb-2 card-winner-info">Winner: <strong class="winner-pulse">Richard Craven Jones</strong> (23 points)</p>
-                  <p class="card-text mb-1">Prize Money: £60.00</p>
-                  <p class="card-text mb-1">No. of Players: 40</p><hr class="my-3">
-                  <p class="card-text mb-2">H'cap Changes:</p>
-                  <p class="card-text mb-1">Matt <i class="ai-arrow-down"></i> 3<br>RJC <i class="ai-arrow-down"></i> 13<br>Warren Crook <i class="ai-arrow-up"></i> 7.</p>
-                </div>
-                <div class="scores-button-wrapper text-end pt-2">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#week02ScoresModal"><i class="ai-arrow-right fs-1"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Card for Week 01 -->
-          <div class="col">
-            <div class="card border-0 h-100 rounded-5 shadow-sm bg-secondary">
-              <div class="card-body d-flex flex-column">
-                <div class="flex-grow-1">
-                  <h5 class="card-title fs-5 mb-5 custom-week-underline">WEEK 01</h5>
-                  <p class="card-text mb-2 card-winner-info">Winner: <strong class="winner-pulse">Dave Harrison</strong> (22 points)</p>
-                  <p class="card-text mb-1">Prize Money: £55.50</p>
-                  <p class="card-text mb-1">No. of Players: 37</p><hr class="my-3">
-                  <p class="card-text mb-2">H'cap Changes:</p>
-                  <p class="card-text mb-1">Ian Ind <i class="ai-arrow-down"></i> 5<br>Toughy <i class="ai-arrow-down"></i> 3<br>Nick <i class="ai-arrow-up"></i> 4<br>Jon B <i class="ai-arrow-up"></i> 6<br>Tim A <i class="ai-arrow-up"></i> 4<br>Neale A <i class="ai-arrow-up"></i> 9.</p>
-                </div>
-                <div class="scores-button-wrapper text-end pt-2">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#week01ScoresModal"><i class="ai-arrow-right fs-1"></i></a>
-                </div>
+              <div class="scores-button-wrapper text-end pt-4">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#week10ScoresModal"
+                  class="d-inline-flex align-items-center text-decoration-none">
+                  <span class="me-2">Full results</span>
+                  <span class="arrow-icon-circle"><i class="ai-arrow-right fs-xl"></i></span>
+                </a>
               </div>
             </div>
           </div>
         </div>
-      </section>
 
 
-
-
-    </main> <!-- End of .page-wrapper -->
-
-    <!-- MODALS SECTION -->
-         <!-- Week 10 Scores Modal -->
-    <div class="modal fade" id="week10ScoresModal" tabindex="-1" aria-labelledby="week10ScoresModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="week10ScoresModalLabel">WEEK 10 Scores - £31.50</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- Card for Week 09 -->
+        <div class="col">
+          <div class="card border-1 h-100 rounded-5 shadow-sm bg-secondary">
+            <div class="card-body d-flex flex-column">
+              <div class="flex-grow-1">
+                <h5 class="card-title fs-5 mb-2 custom-week-underline">WEEK NINE</h5>
+                <p class="card-text mb-5">Prize Money: £58.50<br>No. of Players: 39</p>
+                <div class="table-responsive">
+                  <table class="table table-hover mb-5">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="text-center">POS</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col" class="text-center">POINTS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">1</td>
+                        <td>LEE EASTOE</td>
+                        <td class="text-center">24</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">T2</td>
+                        <td>CHRIS BOARDS</td>
+                        <td class="text-center">22</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">T2</td>
+                        <td>MARK JACKSON</td>
+                        <td class="text-center">22</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">T2</td>
+                        <td>SIMON CARTER</td>
+                        <td class="text-center">22</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">T2</td>
+                        <td>STEVE ROBINSON</td>
+                        <td class="text-center">22</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="card-text mb-5">H'cap Changes: Lee <i class="ai-arrow-down"></i> 3, Chris <i
+                    class="ai-arrow-down"></i> 5, Robbo <i class="ai-arrow-down"></i> 9, Craig <i
+                    class="ai-arrow-down"></i> 6, John Goodman <i class="ai-arrow-down"></i> 2, Mark Jeffries <i
+                    class="ai-arrow-up"></i> 4.</p>
+              </div>
+              <div class="scores-button-wrapper text-end pt-4">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#week09ScoresModal"
+                  class="d-inline-flex align-items-center text-decoration-none">
+                  <span class="me-2">Full results</span>
+                  <span class="arrow-icon-circle"><i class="ai-arrow-right fs-xl"></i></span>
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="modal-body">
-            <div class="table-responsive">
-              <table class="table table-hover mb-0">
-                <thead>
-                  <tr>
-                    <th scope="col" class="text-center">POS</th>
-                    <th scope="col">NAME</th>
-                    <th scope="col" class="text-center">POINTS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="winner-row-highlight"> <td class="text-center">#1</td><td>STUART PICKERSGILL</td><td class="text-center">23</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#2</td><td>IAN IND</td><td class="text-center">22</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#2</td><td>JAMES HARRISON</td><td class="text-center">22</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#2</td><td>MICK HENNESSY</td><td class="text-center">22</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#5</td><td>GARY ADCOCK</td><td class="text-center">21</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#5</td><td>ADAM SIMCOX</td><td class="text-center">21</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#5</td><td>RICHARD SHAW</td><td class="text-center">21</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#8</td><td>DAVE HARRISON</td><td class="text-center">20</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#8</td><td>MARK READY</td><td class="text-center">20</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#8</td><td>SIMON CARTER</td><td class="text-center">20</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#11</td><td>PETER JEFFRIES</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#11</td><td>TIM ALLSOPP</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#11</td><td>TONY MYNARD</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#11</td><td>STUART MURDOCK</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#15</td><td>ADAM TEALE</td><td class="text-center">17</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#15</td><td>JAMES TOUGH</td><td class="text-center">17</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#15</td><td>PAUL SMITH</td><td class="text-center">17</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#18</td><td>ROSS KELLY</td><td class="text-center">16</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#18</td><td>NICK STABLEFORD</td><td class="text-center">16</td></tr>
-                  <tr> <td class="text-center">#20</td><td>STEVE ROCHESTER</td><td class="text-center">14</td></tr>
-                  <tr> <td class="text-center">#21</td><td>MARK HOWELL</td><td class="text-center">10</td></tr>
-                </tbody>
-              </table>
+        </div>
+        <!-- Card for Week 08 -->
+        <div class="col">
+          <div class="card border-1 h-100 rounded-5 shadow-sm bg-secondary">
+            <div class="card-body d-flex flex-column">
+              <div class="flex-grow-1">
+                <h5 class="card-title fs-5 mb-2 custom-week-underline">WEEK EIGHT</h5>
+                <p class="card-text mb-5">Prize Money: £43.50<br>No. of Players: 29</p>
+                <div class="table-responsive">
+                  <table class="table table-hover mb-5">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="text-center">POS</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col" class="text-center">POINTS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">1</td>
+                        <td>ADE COOPER</td>
+                        <td class="text-center">24</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">2</td>
+                        <td>PETER JEFFRIES</td>
+                        <td class="text-center">22</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">T3</td>
+                        <td>JAMES TOUGH</td>
+                        <td class="text-center">18</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">T3</td>
+                        <td>JEZ WILLIAMS</td>
+                        <td class="text-center">18</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">T3</td>
+                        <td>MICK SANDOZ</td>
+                        <td class="text-center">18</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">T3</td>
+                        <td>STEVE ROBINSON</td>
+                        <td class="text-center">18</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="card-text mb-5">H'cap Changes: Pete <i class="ai-arrow-down"></i> 10.</p>
+              </div>
+              <div class="scores-button-wrapper text-end pt-4">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#week08ScoresModal"
+                  class="d-inline-flex align-items-center text-decoration-none">
+                  <span class="me-2">Full results</span>
+                  <span class="arrow-icon-circle"><i class="ai-arrow-right fs-xl"></i></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Card for Week 07 -->
+        <div class="col">
+          <div class="card border-1 h-100 rounded-5 shadow-sm bg-secondary">
+            <div class="card-body d-flex flex-column">
+              <div class="flex-grow-1">
+                <h5 class="card-title fs-5 mb-2 custom-week-underline">WEEK SEVEN</h5>
+                <p class="card-text mb-5">Prize Money: £51.00<br>No. of Players: 34</p>
+                <div class="table-responsive">
+                  <table class="table table-hover mb-5">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="text-center">POS</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col" class="text-center">POINTS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">1</td>
+                        <td>CHRIS BOARDS</td>
+                        <td class="text-center">25</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">2</td>
+                        <td>PAUL SMITH</td>
+                        <td class="text-center">20</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">3</td>
+                        <td>JAMES TOUGH</td>
+                        <td class="text-center">19</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="card-text mb-5">H'cap Changes: Chris <i class="ai-arrow-down"></i> 6, Craig <i
+                    class="ai-arrow-up"></i> 7, Jon G <i class="ai-arrow-up"></i> 3.</p>
+              </div>
+              <div class="scores-button-wrapper text-end pt-4">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#week07ScoresModal"
+                  class="d-inline-flex align-items-center text-decoration-none">
+                  <span class="me-2">Full results</span>
+                  <span class="arrow-icon-circle"><i class="ai-arrow-right fs-xl"></i></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Card for Week 06 -->
+        <div class="col">
+          <div class="card border-1 h-100 rounded-5 shadow-sm bg-secondary">
+            <div class="card-body d-flex flex-column">
+              <div class="flex-grow-1">
+                <h5 class="card-title fs-5 mb-2 custom-week-underline">WEEK SIX</h5>
+                <p class="card-text mb-5">Prize Money: £49.50<br>No. of Players: 30</p>
+                <div class="table-responsive">
+                  <table class="table table-hover mb-5">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="text-center">POS</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col" class="text-center">POINTS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">1</td>
+                        <td>TIM ALLSOPP</td>
+                        <td class="text-center">22</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">2</td>
+                        <td>KEVIN HORTON</td>
+                        <td class="text-center">21</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">3</td>
+                        <td>PETER JEFFRIES</td>
+                        <td class="text-center">20</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="card-text mb-5">H'cap Changes: Tim <i class="ai-arrow-down"></i> 3, Squigs <i
+                    class="ai-arrow-up"></i> 5, Gaz <i class="ai-arrow-up"></i> 12.</p>
+              </div>
+              <div class="scores-button-wrapper text-end pt-4">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#week06ScoresModal"
+                  class="d-inline-flex align-items-center text-decoration-none">
+                  <span class="me-2">Full results</span>
+                  <span class="arrow-icon-circle"><i class="ai-arrow-right fs-xl"></i></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Card for Week 05 -->
+        <div class="col">
+          <div class="card border-1 h-100 rounded-5 shadow-sm bg-secondary">
+            <div class="card-body d-flex flex-column">
+              <div class="flex-grow-1">
+                <h5 class="card-title fs-5 mb-2 custom-week-underline">WEEK FIVE</h5>
+                <p class="card-text mb-5">Prize Money: £45.00<br>No. of Players: 30</p>
+                <div class="table-responsive">
+                  <table class="table table-hover mb-5">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="text-center">POS</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col" class="text-center">POINTS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">1</td>
+                        <td>JON MURCHINGTON</td>
+                        <td class="text-center">23</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">2</td>
+                        <td>STEPHEN WALLACE</td>
+                        <td class="text-center">22</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">T3</td>
+                        <td>IAN IND</td>
+                        <td class="text-center">21</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">T3</td>
+                        <td>JOHN GOODMAN</td>
+                        <td class="text-center">21</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">T3</td>
+                        <td>RICHARD BIRD</td>
+                        <td class="text-center">21</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="card-text mb-5">H'cap Changes: Jon <i class="ai-arrow-down"></i> 11, Squigsy <i
+                    class="ai-arrow-down"></i> 4, Tealy <i class="ai-arrow-up"></i> 7, Chappy <i
+                    class="ai-arrow-up"></i> 12, Rochy <i class="ai-arrow-up"></i> 8.</p>
+              </div>
+              <div class="scores-button-wrapper text-end pt-4">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#week05ScoresModal"
+                  class="d-inline-flex align-items-center text-decoration-none">
+                  <span class="me-2">Full results</span>
+                  <span class="arrow-icon-circle"><i class="ai-arrow-right fs-xl"></i></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Card for Week 04 -->
+        <div class="col">
+          <div class="card border-1 h-100 rounded-5 shadow-sm bg-secondary">
+            <div class="card-body d-flex flex-column">
+              <div class="flex-grow-1">
+                <h5 class="card-title fs-5 mb-2 custom-week-underline">WEEK FOUR</h5>
+                <p class="card-text mb-5">Prize Money: £54.00<br>No. of Players: 36</p>
+                <div class="table-responsive">
+                  <table class="table table-hover mb-5">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="text-center">POS</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col" class="text-center">POINTS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">1</td>
+                        <td>MARK HOWELL</td>
+                        <td class="text-center">24</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">2</td>
+                        <td>JOHN GOODMAN</td>
+                        <td class="text-center">23</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">3</td>
+                        <td>TIM LEWIS</td>
+                        <td class="text-center">22</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="card-text mb-5">H'cap Changes: Howla <i class="ai-arrow-down"></i> 4, Jon Goodman <i
+                    class="ai-arrow-down"></i> 2.</p>
+              </div>
+              <div class="scores-button-wrapper text-end pt-4">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#week04ScoresModal"
+                  class="d-inline-flex align-items-center text-decoration-none">
+                  <span class="me-2">Full results</span>
+                  <span class="arrow-icon-circle"><i class="ai-arrow-right fs-xl"></i></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Card for Week 03 -->
+        <div class="col">
+          <div class="card border-1 h-100 rounded-5 shadow-sm bg-secondary">
+            <div class="card-body d-flex flex-column">
+              <div class="flex-grow-1">
+                <h5 class="card-title fs-5 mb-2 custom-week-underline">WEEK THREE</h5>
+                <p class="card-text mb-5">Prize Money: £49.50<br>No. of Players: 33</p>
+                <div class="table-responsive">
+                  <table class="table table-hover mb-5">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="text-center">POS</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col" class="text-center">POINTS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">1</td>
+                        <td>JON BODEN</td>
+                        <td class="text-center">22</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">T2</td>
+                        <td>JON MURCHINGTON</td>
+                        <td class="text-center">20</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">T2</td>
+                        <td>MARK READY</td>
+                        <td class="text-center">20</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="card-text mb-5">H'cap Changes: Jon <i class="ai-arrow-down"></i> 5, Lee Eastoe <i
+                    class="ai-arrow-up"></i> 4, Toughy <i class="ai-arrow-up"></i> 4, Chris <i class="ai-arrow-up"></i>
+                  7.</p>
+              </div>
+              <div class="scores-button-wrapper text-end pt-4">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#week03ScoresModal"
+                  class="d-inline-flex align-items-center text-decoration-none">
+                  <span class="me-2">Full results</span>
+                  <span class="arrow-icon-circle"><i class="ai-arrow-right fs-xl"></i></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Card for Week 02 -->
+        <div class="col">
+          <div class="card border-1 h-100 rounded-5 shadow-sm bg-secondary">
+            <div class="card-body d-flex flex-column">
+              <div class="flex-grow-1">
+                <h5 class="card-title fs-5 mb-2 custom-week-underline">WEEK TWO</h5>
+                <p class="card-text mb-5">Prize Money: £60.00<br>No. of Players: 40</p>
+                <div class="table-responsive">
+                  <table class="table table-hover mb-5">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="text-center">POS</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col" class="text-center">POINTS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">1</td>
+                        <td>MATT SPENCER</td>
+                        <td class="text-center">28</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">2</td>
+                        <td>RICHARD CRAVEN JONES</td>
+                        <td class="text-center">23</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">T3</td>
+                        <td>LES LAWRENCE</td>
+                        <td class="text-center">22</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">T3</td>
+                        <td>ANDY SPENCER</td>
+                        <td class="text-center">22</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="card-text mb-5">H'cap Changes: Matt <i class="ai-arrow-down"></i> 3, RJC <i
+                    class="ai-arrow-down"></i> 13, Warren Crook <i class="ai-arrow-up"></i> 7.</p>
+              </div>
+              <div class="scores-button-wrapper text-end pt-4">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#week02ScoresModal"
+                  class="d-inline-flex align-items-center text-decoration-none">
+                  <span class="me-2">Full results</span>
+                  <span class="arrow-icon-circle"><i class="ai-arrow-right fs-xl"></i></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Card for Week 01 -->
+        <div class="col">
+          <div class="card border-1 h-100 rounded-5 shadow-sm bg-secondary">
+            <div class="card-body d-flex flex-column">
+              <div class="flex-grow-1">
+                <h5 class="card-title fs-5 mb-2 custom-week-underline">WEEK ONE</h5>
+                <p class="card-text mb-5">Prize Money: £55.50<br>No. of Players: 37</p>
+                <div class="table-responsive">
+                  <table class="table table-hover mb-5">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="text-center">POS</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col" class="text-center">POINTS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">1</td>
+                        <td>DAVE HARRISON</td>
+                        <td class="text-center">22</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">T2</td>
+                        <td>IAN IND</td>
+                        <td class="text-center">21</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">T2</td>
+                        <td>JAMES TOUGH</td>
+                        <td class="text-center">21</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">T2</td>
+                        <td>TONY MYNARD</td>
+                        <td class="text-center">21</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="card-text mb-5">H'cap Changes: Ian Ind <i class="ai-arrow-down"></i> 5, Toughy <i
+                    class="ai-arrow-down"></i> 3, Nick <i class="ai-arrow-up"></i> 4, Jon B <i class="ai-arrow-up"></i>
+                  6, Tim A <i class="ai-arrow-up"></i> 4, Neale A <i class="ai-arrow-up"></i> 9.</p>
+              </div>
+              <div class="scores-button-wrapper text-end pt-4">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#week01ScoresModal"
+                  class="d-inline-flex align-items-center text-decoration-none">
+                  <span class="me-2">Full results</span>
+                  <span class="arrow-icon-circle"><i class="ai-arrow-right fs-xl"></i></span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- ...existing code... -->
-    <!-- Week 09 Scores Modal -->
-    <div class="modal fade" id="week09ScoresModal" tabindex="-1" aria-labelledby="week09ScoresModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="week09ScoresModalLabel">WEEK 09 Scores - £58.50</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="table-responsive">
-              <table class="table table-hover mb-0">
-                <thead>
-                  <tr>
-                    <th scope="col" class="text-center">POS</th>
-                    <th scope="col">NAME</th>
-                    <th scope="col" class="text-center">POINTS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="winner-row-highlight"> <td class="text-center">#1</td><td>LEE EASTOE</td><td class="text-center">24</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#2</td><td>CHRIS BOARDS</td><td class="text-center">22</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#2</td><td>MARK JACKSON</td><td class="text-center">22</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#2</td><td>SIMON CARTER</td><td class="text-center">22</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#2</td><td>STEVE ROBINSON</td><td class="text-center">22</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#6</td><td>CRAIG MILLIGAN</td><td class="text-center">21</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#6</td><td>JAMES HARRISON</td><td class="text-center">21</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#6</td><td>JOHN GOODMAN</td><td class="text-center">21</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#6</td><td>MARTIN STEVENSON</td><td class="text-center">21</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#6</td><td>MICK SANDOZ</td><td class="text-center">21</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#6</td><td>NICK STABLEFORD</td><td class="text-center">21</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#12</td><td>MARC ALLSOPP</td><td class="text-center">20</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#12</td><td>PAUL SMITH</td><td class="text-center">20</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#12</td><td>STEPHEN WALLACE</td><td class="text-center">20</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#15</td><td>ADAM TEALE</td><td class="text-center">19</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#15</td><td>JON BODEN</td><td class="text-center">19</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#15</td><td>PAUL CHAPMAN</td><td class="text-center">19</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#15</td><td>RICHARD CRAVEN JONES</td><td class="text-center">19</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#15</td><td>TIM ALLSOPP</td><td class="text-center">19</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#20</td><td>ANDY RAY</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#20</td><td>IAN IND</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#20</td><td>MARK JEFFRIES</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#20</td><td>MARK READY</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">#24</td><td>JEZ WILLIAMS</td><td class="text-center">17</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#25</td><td>DAVE HARRISON</td><td class="text-center">16</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#25</td><td>MARK HOWELL</td><td class="text-center">16</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#25</td><td>PETER JEFFRIES</td><td class="text-center">16</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#25</td><td>RICHARD SHAW</td><td class="text-center">16</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#25</td><td>STEVE SUCH</td><td class="text-center">16</td></tr>
-                  <tr> <td class="text-center">#30</td><td>TOM GREEN</td><td class="text-center">15</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#31</td><td>ADE COOPER</td><td class="text-center">14</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#31</td><td>JAMES TOUGH</td><td class="text-center">14</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#31</td><td>KEVIN HORTON</td><td class="text-center">14</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#31</td><td>MARK MOSLEY</td><td class="text-center">14</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#31</td><td>TONY MYNARD</td><td class="text-center">14</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#31</td><td>STUART MURDOCK</td><td class="text-center">14</td></tr>
-                  <tr> <td class="text-center">#37</td><td>JAMES SIMMONS</td><td class="text-center">13</td></tr>
-                  <tr> <td class="text-center">#38</td><td>RICHARD BIRD</td><td class="text-center">11</td></tr>
-                  <tr> <td class="text-center">#39</td><td>GARY ADCOCK</td><td class="text-center">8</td></tr>
-                </tbody>
-              </table>
-            </div>
+    </section>
+
+
+
+
+  </main> <!-- End of .page-wrapper -->
+
+  <!-- Add this modal after the other modals -->
+  <div class="modal fade" id="week10ScoresModal" tabindex="-1" aria-labelledby="week10ScoresModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="week10ScoresModalLabel">WEEK 10 Scores</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead>
+                <tr>
+                  <th scope="col" class="text-center">POS</th>
+                  <th scope="col">NAME</th>
+                  <th scope="col" class="text-center">POINTS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center">1</td>
+                  <td>STUART PICKERSGILL</td>
+                  <td class="text-center">23</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T2</td>
+                  <td>IAN IND</td>
+                  <td class="text-center">22</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T2</td>
+                  <td>JAMES HARRISON</td>
+                  <td class="text-center">22</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T2</td>
+                  <td>MICK HENNESSY</td>
+                  <td class="text-center">22</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T5</td>
+                  <td>GARY ADCOCK</td>
+                  <td class="text-center">21</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T5</td>
+                  <td>ADAM SIMCOX</td>
+                  <td class="text-center">21</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T5</td>
+                  <td>RICHARD SHAW</td>
+                  <td class="text-center">21</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T8</td>
+                  <td>DAVE HARRISON</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T8</td>
+                  <td>MARK READY</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T8</td>
+                  <td>SIMON CARTER</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T11</td>
+                  <td>PETER JEFFRIES</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T11</td>
+                  <td>TIM ALLSOPP</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T11</td>
+                  <td>TONY MYNARD</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T11</td>
+                  <td>STUART MURDOCK</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T15</td>
+                  <td>ADAM TEALE</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T15</td>
+                  <td>JAMES TOUGH</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T15</td>
+                  <td>PAUL SMITH</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T18</td>
+                  <td>ROSS KELLY</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T18</td>
+                  <td>NICK STABLEFORD</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">20</td>
+                  <td>STEVE ROCHESTER</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">21</td>
+                  <td>MARK HOWELL</td>
+                  <td class="text-center">10</td>
+                </tr>
+
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
-    <!-- Week 08 Scores Modal -->
-    <div class="modal fade" id="week08ScoresModal" tabindex="-1" aria-labelledby="week08ScoresModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="week08ScoresModalLabel">WEEK 08 Scores - £43.50</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="table-responsive">
-              <table class="table table-hover mb-0">
-                <thead>
-                  <tr>
-                    <th scope="col" class="text-center">POS</th>
-                    <th scope="col">NAME</th>
-                    <th scope="col" class="text-center">POINTS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="winner-row-highlight"> <td class="text-center">#1</td><td>ADE COOPER</td><td class="text-center">24</td></tr>
-                  <tr> <td class="text-center">#2</td><td>PETER JEFFRIES</td><td class="text-center">22</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#3</td><td>JAMES TOUGH</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#3</td><td>JEZ WILLIAMS</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#3</td><td>MICK SANDOZ</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#3</td><td>STEVE ROBINSON</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#7</td><td>ADAM TEALE</td><td class="text-center">17</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#7</td><td>DAVE HARRISON</td><td class="text-center">17</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#7</td><td>LEE EASTOE</td><td class="text-center">17</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#7</td><td>PAUL CHAPMAN</td><td class="text-center">17</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#7</td><td>RICHARD SHAW</td><td class="text-center">17</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#7</td><td>STEVE SUCH</td><td class="text-center">17</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#7</td><td>TONY MYNARD</td><td class="text-center">17</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#14</td><td>MARK MOSLEY</td><td class="text-center">16</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#14</td><td>RICHARD BIRD</td><td class="text-center">16</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#14</td><td>STEPHEN WALLACE</td><td class="text-center">16</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#14</td><td>TIM ALLSOPP</td><td class="text-center">16</td></tr>
-                  <tr> <td class="text-center">#18</td><td>STUART MURDOCK</td><td class="text-center">15</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#19</td><td>IAN IND</td><td class="text-center">14</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#19</td><td>MARK READY</td><td class="text-center">14</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#21</td><td>ANDY RAY</td><td class="text-center">13</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#21</td><td>CHRIS BOARDS</td><td class="text-center">13</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#21</td><td>TOM GREEN</td><td class="text-center">13</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#21</td><td>JAMES SIMMONS</td><td class="text-center">13</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#21</td><td>STUART PICKERSGILL</td><td class="text-center">13</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#26</td><td>JON BODEN</td><td class="text-center">12</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#26</td><td>MARC ALLSOPP</td><td class="text-center">12</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#26</td><td>MARK JACKSON</td><td class="text-center">12</td></tr>
-                  <tr> <td class="text-center">#29</td><td>JON MURCHINGTON</td><td class="text-center">9</td></tr>
-                </tbody>
-              </table>
-            </div>
+  </div>
+
+  <!-- MODALS SECTION -->
+  <!-- Week 09 Scores Modal -->
+  <div class="modal fade" id="week09ScoresModal" tabindex="-1" aria-labelledby="week09ScoresModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="week09ScoresModalLabel">WEEK 09 Scores - £58.50</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead>
+                <tr>
+                  <th scope="col" class="text-center">POS</th>
+                  <th scope="col">NAME</th>
+                  <th scope="col" class="text-center">POINTS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="winner-row-highlight">
+                  <td class="text-center">1</td>
+                  <td>LEE EASTOE</td>
+                  <td class="text-center">24</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T2</td>
+                  <td>CHRIS BOARDS</td>
+                  <td class="text-center">22</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T2</td>
+                  <td>MARK JACKSON</td>
+                  <td class="text-center">22</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T2</td>
+                  <td>SIMON CARTER</td>
+                  <td class="text-center">22</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T2</td>
+                  <td>STEVE ROBINSON</td>
+                  <td class="text-center">22</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>CRAIG MILLIGAN</td>
+                  <td class="text-center">21</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>JAMES HARRISON</td>
+                  <td class="text-center">21</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>JOHN GOODMAN</td>
+                  <td class="text-center">21</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>MARTIN STEVENSON</td>
+                  <td class="text-center">21</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>MICK SANDOZ</td>
+                  <td class="text-center">21</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>NICK STABLEFORD</td>
+                  <td class="text-center">21</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T12</td>
+                  <td>MARC ALLSOPP</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T12</td>
+                  <td>PAUL SMITH</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T12</td>
+                  <td>STEPHEN WALLACE</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T15</td>
+                  <td>ADAM TEALE</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T15</td>
+                  <td>JON BODEN</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T15</td>
+                  <td>PAUL CHAPMAN</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T15</td>
+                  <td>RICHARD CRAVEN JONES</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T15</td>
+                  <td>TIM ALLSOPP</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T20</td>
+                  <td>ANDY RAY</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T20</td>
+                  <td>IAN IND</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T20</td>
+                  <td>MARK JEFFRIES</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T20</td>
+                  <td>MARK READY</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">24</td>
+                  <td>JEZ WILLIAMS</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T25</td>
+                  <td>DAVE HARRISON</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T25</td>
+                  <td>MARK HOWELL</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T25</td>
+                  <td>PETER JEFFRIES</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T25</td>
+                  <td>RICHARD SHAW</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T25</td>
+                  <td>STEVE SUCH</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">30</td>
+                  <td>TOM GREEN</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T31</td>
+                  <td>ADE COOPER</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T31</td>
+                  <td>JAMES TOUGH</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T31</td>
+                  <td>KEVIN HORTON</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T31</td>
+                  <td>MARK MOSLEY</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T31</td>
+                  <td>TONY MYNARD</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T31</td>
+                  <td>STUART MURDOCK</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">37</td>
+                  <td>JAMES SIMMONS</td>
+                  <td class="text-center">13</td>
+                </tr>
+                <tr>
+                  <td class="text-center">38</td>
+                  <td>RICHARD BIRD</td>
+                  <td class="text-center">11</td>
+                </tr>
+                <tr>
+                  <td class="text-center">39</td>
+                  <td>GARY ADCOCK</td>
+                  <td class="text-center">8</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Week 07 Scores Modal -->
-    <div class="modal fade" id="week07ScoresModal" tabindex="-1" aria-labelledby="week07ScoresModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="week07ScoresModalLabel">WEEK 07 Scores - £51.00</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="table-responsive">
-              <table class="table table-hover mb-0">
-                <thead>
-                  <tr>
-                    <th scope="col" class="text-center">POS</th>
-                    <th scope="col">NAME</th>
-                    <th scope="col" class="text-center">POINTS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="winner-row-highlight"> <td class="text-center">#1</td><td>CHRIS BOARDS</td><td class="text-center">25</td></tr>
-                  <tr> <td class="text-center">#2</td><td>PAUL SMITH</td><td class="text-center">20</td></tr>
-                  <tr> <td class="text-center">#3</td><td>JAMES TOUGH</td><td class="text-center">19</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#4</td><td>JEZ WILLIAMS</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#4</td><td>MARC ALLSOPP</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#4</td><td>MARK MOSLEY</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#4</td><td>MARK READY</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#4</td><td>RICHARD SHAW</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#9</td><td>ANDY RAY</td><td class="text-center">17</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#9</td><td>BRIAN ELLIOT</td><td class="text-center">17</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#9</td><td>CRAIG MILLIGAN</td><td class="text-center">17</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#9</td><td>KEVIN HORTON</td><td class="text-center">17</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#13</td><td>JON BODEN</td><td class="text-center">16</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#13</td><td>RICHARD BIRD</td><td class="text-center">16</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#13</td><td>TIM ALLSOPP</td><td class="text-center">16</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#13</td><td>TOM GREEN</td><td class="text-center">16</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#17</td><td>ADAM TEALE</td><td class="text-center">15</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#17</td><td>ADE COOPER</td><td class="text-center">15</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#17</td><td>DAVE HARRISON</td><td class="text-center">15</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#17</td><td>PAUL BLADES</td><td class="text-center">15</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#21</td><td>RICHARD CRAVEN JONES</td><td class="text-center">14</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#21</td><td>STEPHEN WALLACE</td><td class="text-center">14</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#21</td><td>TONY MYNARD</td><td class="text-center">14</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#24</td><td>ADAM SIMCOX</td><td class="text-center">13</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#24</td><td>IAN IND</td><td class="text-center">13</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#24</td><td>LES LAWRENCE</td><td class="text-center">13</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#24</td><td>STUART MURDOCK</td><td class="text-center">13</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#28</td><td>JOHN GOODMAN</td><td class="text-center">12</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#28</td><td>JON MURCHINGTON</td><td class="text-center">12</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#28</td><td>STEVE ROBINSON</td><td class="text-center">12</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#28</td><td>TIM LEWIS</td><td class="text-center">12</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#32</td><td>GARY ADCOCK</td><td class="text-center">11</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#32</td><td>MARTIN STEVENSON</td><td class="text-center">11</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#32</td><td>STEVE SUCH</td><td class="text-center">11</td></tr>
-                </tbody>
-              </table>
-            </div>
+  </div>
+  <!-- Week 08 Scores Modal -->
+  <div class="modal fade" id="week08ScoresModal" tabindex="-1" aria-labelledby="week08ScoresModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="week08ScoresModalLabel">WEEK 08 Scores - £43.50</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead>
+                <tr>
+                  <th scope="col" class="text-center">POS</th>
+                  <th scope="col">NAME</th>
+                  <th scope="col" class="text-center">POINTS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="winner-row-highlight">
+                  <td class="text-center">1</td>
+                  <td>ADE COOPER</td>
+                  <td class="text-center">24</td>
+                </tr>
+                <tr>
+                  <td class="text-center">2</td>
+                  <td>PETER JEFFRIES</td>
+                  <td class="text-center">22</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T3</td>
+                  <td>JAMES TOUGH</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T3</td>
+                  <td>JEZ WILLIAMS</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T3</td>
+                  <td>MICK SANDOZ</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T3</td>
+                  <td>STEVE ROBINSON</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T7</td>
+                  <td>ADAM TEALE</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T7</td>
+                  <td>DAVE HARRISON</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T7</td>
+                  <td>LEE EASTOE</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T7</td>
+                  <td>PAUL CHAPMAN</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T7</td>
+                  <td>RICHARD SHAW</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T7</td>
+                  <td>STEVE SUCH</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T7</td>
+                  <td>TONY MYNARD</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T14</td>
+                  <td>MARK MOSLEY</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T14</td>
+                  <td>RICHARD BIRD</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T14</td>
+                  <td>STEPHEN WALLACE</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T14</td>
+                  <td>TIM ALLSOPP</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">18</td>
+                  <td>STUART MURDOCK</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T19</td>
+                  <td>IAN IND</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T19</td>
+                  <td>MARK READY</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T21</td>
+                  <td>ANDY RAY</td>
+                  <td class="text-center">13</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T21</td>
+                  <td>CHRIS BOARDS</td>
+                  <td class="text-center">13</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T21</td>
+                  <td>TOM GREEN</td>
+                  <td class="text-center">13</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T21</td>
+                  <td>JAMES SIMMONS</td>
+                  <td class="text-center">13</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T21</td>
+                  <td>STUART PICKERSGILL</td>
+                  <td class="text-center">13</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T26</td>
+                  <td>JON BODEN</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T26</td>
+                  <td>MARC ALLSOPP</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T26</td>
+                  <td>MARK JACKSON</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">29</td>
+                  <td>JON MURCHINGTON</td>
+                  <td class="text-center">9</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Week 06 Scores Modal -->
-    <div class="modal fade" id="week06ScoresModal" tabindex="-1" aria-labelledby="week06ScoresModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="week06ScoresModalLabel">WEEK 06 Scores - £49.50</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="table-responsive">
-              <table class="table table-hover mb-0">
-                <thead>
-                  <tr>
-                    <th scope="col" class="text-center">POS</th>
-                    <th scope="col">NAME</th>
-                    <th scope="col" class="text-center">POINTS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="winner-row-highlight"> <td class="text-center">#1</td><td>TIM ALLSOPP</td><td class="text-center">22</td></tr>
-                  <tr> <td class="text-center">#2</td><td>KEVIN HORTON</td><td class="text-center">21</td></tr>
-                  <tr> <td class="text-center">#3</td><td>PETER JEFFRIES</td><td class="text-center">20</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#4</td><td>MICK SANDOZ</td><td class="text-center">19</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#4</td><td>PAUL SMITH</td><td class="text-center">19</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#4</td><td>SIMON CARTER</td><td class="text-center">19</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#7</td><td>IAN IND</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#7</td><td>JON MURCHINGTON</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#7</td><td>STEVE SUCH</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#7</td><td>TIM LEWIS</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#7</td><td>TONY MYNARD</td><td class="text-center">18</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#12</td><td>MARK JEFFRIES</td><td class="text-center">17</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#12</td><td>MARK MOSLEY</td><td class="text-center">17</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#12</td><td>STEVE TARMEY</td><td class="text-center">17</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#15</td><td>NICK STABLEFORD</td><td class="text-center">16</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#15</td><td>ROSS JEFFRIES</td><td class="text-center">16</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#15</td><td>STEPHEN WALLACE</td><td class="text-center">16</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#15</td><td>STEVE ROBINSON</td><td class="text-center">16</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#19</td><td>JAMES TOUGH</td><td class="text-center">15</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#19</td><td>JEZ WILLIAMS</td><td class="text-center">15</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#19</td><td>JON BODEN</td><td class="text-center">15</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#19</td><td>MARK JACKSON</td><td class="text-center">15</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#23</td><td>ADE COOPER</td><td class="text-center">14</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#23</td><td>JOHN GOODMAN</td><td class="text-center">14</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#25</td><td>ADAM TEALE</td><td class="text-center">13</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#25</td><td>MARK READY</td><td class="text-center">13</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#25</td><td>PAUL CHAPMAN</td><td class="text-center">13</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#28</td><td>ANDY RAY</td><td class="text-center">12</td></tr>
-                  <tr> <td class="text-center">=&nbsp;#28</td><td>STEVE ROCHESTER</td><td class="text-center">12</td></tr>
-                  <tr> <td class="text-center">#30</td><td>GARY ADCOCK</td><td class="text-center">11</td></tr>
-                </tbody>
-              </table>
-            </div>
+  <!-- Week 07 Scores Modal -->
+  <div class="modal fade" id="week07ScoresModal" tabindex="-1" aria-labelledby="week07ScoresModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="week07ScoresModalLabel">WEEK 07 Scores - £51.00</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead>
+                <tr>
+                  <th scope="col" class="text-center">POS</th>
+                  <th scope="col">NAME</th>
+                  <th scope="col" class="text-center">POINTS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="winner-row-highlight">
+                  <td class="text-center">1</td>
+                  <td>CHRIS BOARDS</td>
+                  <td class="text-center">25</td>
+                </tr>
+                <tr>
+                  <td class="text-center">2</td>
+                  <td>PAUL SMITH</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">3</td>
+                  <td>JAMES TOUGH</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T4</td>
+                  <td>JEZ WILLIAMS</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T4</td>
+                  <td>MARC ALLSOPP</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T4</td>
+                  <td>MARK MOSLEY</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T4</td>
+                  <td>MARK READY</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T4</td>
+                  <td>RICHARD SHAW</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T9</td>
+                  <td>ANDY RAY</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T9</td>
+                  <td>BRIAN ELLIOT</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T9</td>
+                  <td>CRAIG MILLIGAN</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T9</td>
+                  <td>KEVIN HORTON</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T13</td>
+                  <td>JON BODEN</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T13</td>
+                  <td>RICHARD BIRD</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T13</td>
+                  <td>TIM ALLSOPP</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T13</td>
+                  <td>TOM GREEN</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T17</td>
+                  <td>ADAM TEALE</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T17</td>
+                  <td>ADE COOPER</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T17</td>
+                  <td>DAVE HARRISON</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T17</td>
+                  <td>PAUL BLADES</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T21</td>
+                  <td>RICHARD CRAVEN JONES</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T21</td>
+                  <td>STEPHEN WALLACE</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T21</td>
+                  <td>TONY MYNARD</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T24</td>
+                  <td>ADAM SIMCOX</td>
+                  <td class="text-center">13</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T24</td>
+                  <td>IAN IND</td>
+                  <td class="text-center">13</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T24</td>
+                  <td>LES LAWRENCE</td>
+                  <td class="text-center">13</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T24</td>
+                  <td>STUART MURDOCK</td>
+                  <td class="text-center">13</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T28</td>
+                  <td>JOHN GOODMAN</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T28</td>
+                  <td>JON MURCHINGTON</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T28</td>
+                  <td>STEVE ROBINSON</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T28</td>
+                  <td>TIM LEWIS</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T32</td>
+                  <td>GARY ADCOCK</td>
+                  <td class="text-center">11</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T32</td>
+                  <td>MARTIN STEVENSON</td>
+                  <td class="text-center">11</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T32</td>
+                  <td>STEVE SUCH</td>
+                  <td class="text-center">11</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Week 05 Scores Modal -->
-    <div class="modal fade" id="week05ScoresModal" tabindex="-1" aria-labelledby="week05ScoresModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="week05ScoresModalLabel">WEEK 05 Scores - £45.00</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="table-responsive">
-              <table class="table table-hover mb-0">
-                <thead>
-                  <tr>
-                    <th scope="col" class="text-center">POS</th>
-                    <th scope="col">NAME</th>
-                    <th scope="col" class="text-center">POINTS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="winner-row-highlight"> <td class="text-center">#1</td><td>JON MURCHINGTON</td><td class="text-center">23</td></tr>
-                    <tr> <td class="text-center">#2</td><td>STEPHEN WALLACE</td><td class="text-center">22</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#3</td><td>IAN IND</td><td class="text-center">21</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#3</td><td>JOHN GOODMAN</td><td class="text-center">21</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#3</td><td>RICHARD BIRD</td><td class="text-center">21</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#6</td><td>ADAM SIMCOX</td><td class="text-center">20</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#6</td><td>MARK JACKSON</td><td class="text-center">20</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#6</td><td>SIMON CARTER</td><td class="text-center">20</td></tr>
- <tr> <td class="text-center">=&nbsp;#6</td><td>TOM GREEN</td><td class="text-center">20</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#10</td><td>LEE EASTOE</td><td class="text-center">19</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#10</td><td>ROSS KELLY</td><td class="text-center">19</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#10</td><td>STUART MURDOCK</td><td class="text-center">19</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#13</td><td>ADAM TEALE</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#13</td><td>GARY ADCOCK</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#13</td><td>PETER JEFFRIES</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#13</td><td>STEVE SUCH</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#17</td><td>ADE COOPER</td><td class="text-center">16</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#17</td><td>LES LAWRENCE</td><td class="text-center">16</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#17</td><td>STEVE TARMEY</td><td class="text-center">16</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#17</td><td>RICHARD CRAVEN JONES</td><td class="text-center">16</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#17</td><td>TIM LEWIS</td><td class="text-center">16</td></tr>
-                    <tr> <td class="text-center">#22</td><td>KEVIN HORTON</td><td class="text-center">15</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#23</td><td>CHRIS BOARDS</td><td class="text-center">14</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#23</td><td>JAMES TOUGH</td><td class="text-center">14</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#23</td><td>PAUL SMITH</td><td class="text-center">14</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#26</td><td>CRAIG MILLIGAN</td><td class="text-center">12</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#26</td><td>NICK STABLEFORD</td><td class="text-center">12</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#28</td><td>MARK MOSLEY</td><td class="text-center">10</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#28</td><td>PAUL CHAPMAN</td><td class="text-center">10</td></tr>
-                    <tr> <td class="text-center">#30</td><td>STEVE ROCHESTER</td><td class="text-center">8</td></tr>
-                </tbody>
-              </table>
-            </div>
+  <!-- Week 06 Scores Modal -->
+  <div class="modal fade" id="week06ScoresModal" tabindex="-1" aria-labelledby="week06ScoresModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="week06ScoresModalLabel">WEEK 06 Scores - £49.50</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead>
+                <tr>
+                  <th scope="col" class="text-center">POS</th>
+                  <th scope="col">NAME</th>
+                  <th scope="col" class="text-center">POINTS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="winner-row-highlight">
+                  <td class="text-center">1</td>
+                  <td>TIM ALLSOPP</td>
+                  <td class="text-center">22</td>
+                </tr>
+                <tr>
+                  <td class="text-center">2</td>
+                  <td>KEVIN HORTON</td>
+                  <td class="text-center">21</td>
+                </tr>
+                <tr>
+                  <td class="text-center">3</td>
+                  <td>PETER JEFFRIES</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T4</td>
+                  <td>MICK SANDOZ</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T4</td>
+                  <td>PAUL SMITH</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T4</td>
+                  <td>SIMON CARTER</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T7</td>
+                  <td>IAN IND</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T7</td>
+                  <td>JON MURCHINGTON</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T7</td>
+                  <td>STEVE SUCH</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T7</td>
+                  <td>TIM LEWIS</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T7</td>
+                  <td>TONY MYNARD</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T12</td>
+                  <td>MARK JEFFRIES</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T12</td>
+                  <td>MARK MOSLEY</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T12</td>
+                  <td>STEVE TARMEY</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T15</td>
+                  <td>NICK STABLEFORD</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T15</td>
+                  <td>ROSS JEFFRIES</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T15</td>
+                  <td>STEPHEN WALLACE</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T15</td>
+                  <td>STEVE ROBINSON</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T19</td>
+                  <td>JAMES TOUGH</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T19</td>
+                  <td>JEZ WILLIAMS</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T19</td>
+                  <td>JON BODEN</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T19</td>
+                  <td>MARK JACKSON</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T23</td>
+                  <td>ADE COOPER</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T23</td>
+                  <td>JOHN GOODMAN</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T25</td>
+                  <td>ADAM TEALE</td>
+                  <td class="text-center">13</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T25</td>
+                  <td>MARK READY</td>
+                  <td class="text-center">13</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T25</td>
+                  <td>PAUL CHAPMAN</td>
+                  <td class="text-center">13</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T28</td>
+                  <td>ANDY RAY</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T28</td>
+                  <td>STEVE ROCHESTER</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">30</td>
+                  <td>GARY ADCOCK</td>
+                  <td class="text-center">11</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Week 04 Scores Modal -->
-    <div class="modal fade" id="week04ScoresModal" tabindex="-1" aria-labelledby="week04ScoresModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="week04ScoresModalLabel">WEEK 04 Scores - £54.00</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="table-responsive">
-              <table class="table table-hover mb-0">
-                <thead>
-                  <tr>
-                    <th scope="col" class="text-center">POS</th>
-                    <th scope="col">NAME</th>
-                    <th scope="col" class="text-center">POINTS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="winner-row-highlight"> <td class="text-center">#1</td><td>MARK HOWELL</td><td class="text-center">24</td></tr>
-                    <tr> <td class="text-center">#2</td><td>JOHN GOODMAN</td><td class="text-center">23</td></tr>
-                    <tr> <td class="text-center">#3</td><td>TIM LEWIS</td><td class="text-center">22</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#4</td><td>RICHARD BIRD</td><td class="text-center">20</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#4</td><td>TOM GREEN</td><td class="text-center">20</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#6</td><td>CHRIS BOARDS</td><td class="text-center">19</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#6</td><td>JON MURCHINGTON</td><td class="text-center">19</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#6</td><td>PAUL BLADES</td><td class="text-center">19</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#6</td><td>SIMON CARTER</td><td class="text-center">19</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#6</td><td>TIM ALLSOPP</td><td class="text-center">19</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#11</td><td>JON BODEN</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#11</td><td>MARTIN STEVENSON</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#13</td><td>IAN IND</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#13</td><td>MARK JACKSON</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#13</td><td>STEVE SUCH</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#16</td><td>JEZ WILLIAMS</td><td class="text-center">16</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#16</td><td>LES LAWRENCE</td><td class="text-center">16</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#16</td><td>STEVE TARMEY</td><td class="text-center">16</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#19</td><td>CRAIG MILLIGAN</td><td class="text-center">15</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#19</td><td>GARY ADCOCK</td><td class="text-center">15</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#19</td><td>MARC ALLSOPP</td><td class="text-center">15</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#19</td><td>STEVE ROBINSON</td><td class="text-center">15</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#19</td><td>STEVE ROCHESTER</td><td class="text-center">15</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#19</td><td>RICHARD COOK</td><td class="text-center">15</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#25</td><td>DAVE HARRISON</td><td class="text-center">14</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#25</td><td>NICK STABLEFORD</td><td class="text-center">14</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#25</td><td>PAUL SMITH</td><td class="text-center">14</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#25</td><td>TONY MYNARD</td><td class="text-center">14</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#29</td><td>KEVIN HORTON</td><td class="text-center">12</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#29</td><td>MARK MOSLEY</td><td class="text-center">12</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#31</td><td>LEE EASTOE</td><td class="text-center">11</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#31</td><td>MARK READY</td><td class="text-center">11</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#31</td><td>STEPHEN WALLACE</td><td class="text-center">11</td></tr>
-                    <tr> <td class="text-center">#34</td><td>RICHARD CRAVEN JONES</td><td class="text-center">10</td></tr>
-                    <tr> <td class="text-center">#35</td><td>STUART MURDOCK</td><td class="text-center">9</td></tr>
-                    <tr> <td class="text-center">#36</td><td>PAUL CHAPMAN</td><td class="text-center">6</td></tr>
-                </tbody>
-              </table>
-            </div>
+  <!-- Week 05 Scores Modal -->
+  <div class="modal fade" id="week05ScoresModal" tabindex="-1" aria-labelledby="week05ScoresModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="week05ScoresModalLabel">WEEK 05 Scores - £45.00</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead>
+                <tr>
+                  <th scope="col" class="text-center">POS</th>
+                  <th scope="col">NAME</th>
+                  <th scope="col" class="text-center">POINTS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="winner-row-highlight">
+                  <td class="text-center">1</td>
+                  <td>JON MURCHINGTON</td>
+                  <td class="text-center">23</td>
+                </tr>
+                <tr>
+                  <td class="text-center">2</td>
+                  <td>STEPHEN WALLACE</td>
+                  <td class="text-center">22</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T3</td>
+                  <td>IAN IND</td>
+                  <td class="text-center">21</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T3</td>
+                  <td>JOHN GOODMAN</td>
+                  <td class="text-center">21</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T3</td>
+                  <td>RICHARD BIRD</td>
+                  <td class="text-center">21</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>ADAM SIMCOX</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>MARK JACKSON</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>SIMON CARTER</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>TOM GREEN</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T10</td>
+                  <td>LEE EASTOE</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T10</td>
+                  <td>ROSS KELLY</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T10</td>
+                  <td>STUART MURDOCK</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T13</td>
+                  <td>ADAM TEALE</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T13</td>
+                  <td>GARY ADCOCK</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T13</td>
+                  <td>PETER JEFFRIES</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T13</td>
+                  <td>STEVE SUCH</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T17</td>
+                  <td>ADE COOPER</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T17</td>
+                  <td>LES LAWRENCE</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T17</td>
+                  <td>STEVE TARMEY</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T17</td>
+                  <td>RICHARD CRAVEN JONES</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T17</td>
+                  <td>TIM LEWIS</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">22</td>
+                  <td>KEVIN HORTON</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T23</td>
+                  <td>CHRIS BOARDS</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T23</td>
+                  <td>JAMES TOUGH</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T23</td>
+                  <td>PAUL SMITH</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T26</td>
+                  <td>CRAIG MILLIGAN</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T26</td>
+                  <td>NICK STABLEFORD</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T28</td>
+                  <td>MARK MOSLEY</td>
+                  <td class="text-center">10</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T28</td>
+                  <td>PAUL CHAPMAN</td>
+                  <td class="text-center">10</td>
+                </tr>
+                <tr>
+                  <td class="text-center">30</td>
+                  <td>STEVE ROCHESTER</td>
+                  <td class="text-center">8</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Week 03 Scores Modal -->
-    <div class="modal fade" id="week03ScoresModal" tabindex="-1" aria-labelledby="week03ScoresModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="week03ScoresModalLabel">WEEK 03 Scores - £49.50</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="table-responsive">
-              <table class="table table-hover mb-0">
-                <thead>
-                  <tr>
-                    <th scope="col" class="text-center">POS</th>
-                    <th scope="col">NAME</th>
-                    <th scope="col" class="text-center">POINTS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="winner-row-highlight"> <td class="text-center">#1</td><td>JON BODEN</td><td class="text-center">22</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#2</td><td>JON MURCHINGTON</td><td class="text-center">20</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#2</td><td>MARK READY</td><td class="text-center">20</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#4</td><td>STUART MURDOCK</td><td class="text-center">19</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#4</td><td>RICHARD BIRD</td><td class="text-center">19</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#6</td><td>LEE EASTOE</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#6</td><td>MARK MOSLEY</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#6</td><td>NICK STABLEFORD</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#6</td><td>STEPHEN WALLACE</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#6</td><td>TIM ALLSOPP</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#11</td><td>ANDY RAY</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#11</td><td>DAVE HARRISON</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#11</td><td>ROSS JEFFRIES</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#11</td><td>STEVE ROBINSON</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#15</td><td>IAN IND</td><td class="text-center">16</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#15</td><td>SIMON CARTER</td><td class="text-center">16</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#15</td><td>TOM GREEN</td><td class="text-center">16</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#18</td><td>MARK JACKSON</td><td class="text-center">15</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#18</td><td>TONY MYNARD</td><td class="text-center">15</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#20</td><td>ADE COOPER</td><td class="text-center">14</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#20</td><td>JAMES TOUGH</td><td class="text-center">14</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#20</td><td>MARC ALLSOPP</td><td class="text-center">14</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#20</td><td>TIM LEWIS</td><td class="text-center">14</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#24</td><td>ADAM TEALE</td><td class="text-center">12</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#24</td><td>CHRIS BOARDS</td><td class="text-center">12</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#24</td><td>GARY ADCOCK</td><td class="text-center">12</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#24</td><td>JEZ WILLIAMS</td><td class="text-center">12</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#24</td><td>MARK JEFFRIES</td><td class="text-center">12</td></tr>
-                    <tr> <td class="text-center">#29</td><td>STEVE SUCH</td><td class="text-center">11</td></tr>
-                    <tr> <td class="text-center">#30</td><td>KEVIN HORTON</td><td class="text-center">10</td></tr>
-                    <tr> <td class="text-center">#31</td><td>CRAIG MILLIGAN</td><td class="text-center">9</td></tr>
-                    <tr> <td class="text-center">#32</td><td>RICHARD CRAVEN JONES</td><td class="text-center">8</td></tr>
-                    <tr> <td class="text-center">#33</td><td>PAUL SMITH</td><td class="text-center">7</td></tr>
-                </tbody>
-              </table>
-            </div>
+  <!-- Week 04 Scores Modal -->
+  <div class="modal fade" id="week04ScoresModal" tabindex="-1" aria-labelledby="week04ScoresModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="week04ScoresModalLabel">WEEK 04 Scores - £54.00</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead>
+                <tr>
+                  <th scope="col" class="text-center">POS</th>
+                  <th scope="col">NAME</th>
+                  <th scope="col" class="text-center">POINTS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="winner-row-highlight">
+                  <td class="text-center">1</td>
+                  <td>MARK HOWELL</td>
+                  <td class="text-center">24</td>
+                </tr>
+                <tr>
+                  <td class="text-center">2</td>
+                  <td>JOHN GOODMAN</td>
+                  <td class="text-center">23</td>
+                </tr>
+                <tr>
+                  <td class="text-center">3</td>
+                  <td>TIM LEWIS</td>
+                  <td class="text-center">22</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T4</td>
+                  <td>RICHARD BIRD</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T4</td>
+                  <td>TOM GREEN</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>CHRIS BOARDS</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>JON MURCHINGTON</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>PAUL BLADES</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>SIMON CARTER</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>TIM ALLSOPP</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T11</td>
+                  <td>JON BODEN</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T11</td>
+                  <td>MARTIN STEVENSON</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T13</td>
+                  <td>IAN IND</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T13</td>
+                  <td>MARK JACKSON</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T13</td>
+                  <td>STEVE SUCH</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T16</td>
+                  <td>JEZ WILLIAMS</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T16</td>
+                  <td>LES LAWRENCE</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T16</td>
+                  <td>STEVE TARMEY</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T19</td>
+                  <td>CRAIG MILLIGAN</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T19</td>
+                  <td>GARY ADCOCK</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T19</td>
+                  <td>MARC ALLSOPP</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T19</td>
+                  <td>STEVE ROBINSON</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T19</td>
+                  <td>STEVE ROCHESTER</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T19</td>
+                  <td>RICHARD COOK</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T25</td>
+                  <td>DAVE HARRISON</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T25</td>
+                  <td>NICK STABLEFORD</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T25</td>
+                  <td>PAUL SMITH</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T25</td>
+                  <td>TONY MYNARD</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T29</td>
+                  <td>KEVIN HORTON</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T29</td>
+                  <td>MARK MOSLEY</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T31</td>
+                  <td>LEE EASTOE</td>
+                  <td class="text-center">11</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T31</td>
+                  <td>MARK READY</td>
+                  <td class="text-center">11</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T31</td>
+                  <td>STEPHEN WALLACE</td>
+                  <td class="text-center">11</td>
+                </tr>
+                <tr>
+                  <td class="text-center">34</td>
+                  <td>RICHARD CRAVEN JONES</td>
+                  <td class="text-center">10</td>
+                </tr>
+                <tr>
+                  <td class="text-center">35</td>
+                  <td>STUART MURDOCK</td>
+                  <td class="text-center">9</td>
+                </tr>
+                <tr>
+                  <td class="text-center">36</td>
+                  <td>PAUL CHAPMAN</td>
+                  <td class="text-center">6</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Week 02 Scores Modal -->
-    <div class="modal fade" id="week02ScoresModal" tabindex="-1" aria-labelledby="week02ScoresModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="week02ScoresModalLabel">WEEK 02 Scores - £60.00</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="table-responsive">
-              <table class="table table-hover mb-0">
-                <thead>
-                  <tr>
-                    <th scope="col" class="text-center">POS</th>
-                    <th scope="col">NAME</th>
-                    <th scope="col" class="text-center">POINTS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="winner-row-highlight"> <td class="text-center">#1</td><td>MATT SPENCER</td><td class="text-center">28</td></tr>
-                    <tr> <td class="text-center">#2</td><td>RICHARD CRAVEN JONES</td><td class="text-center">23</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#3</td><td>LES LAWRENCE</td><td class="text-center">22</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#3</td><td>ANDY SPENCER</td><td class="text-center">22</td></tr>
-                    <tr> <td class="text-center">#5</td><td>RICHARD BIRD</td><td class="text-center">21</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#6</td><td>ADE COOPER</td><td class="text-center">20</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#6</td><td>TIM ALLSOPP</td><td class="text-center">20</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#8</td><td>ADAM SIMCOX</td><td class="text-center">19</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#8</td><td>IAN IND</td><td class="text-center">19</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#8</td><td>MARK MOSLEY</td><td class="text-center">19</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#11</td><td>CHRIS BOARDS</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#11</td><td>JEZ WILLIAMS</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#11</td><td>JON BODEN</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#11</td><td>JON MURCHINGTON</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#11</td><td>MARC ALLSOPP</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#11</td><td>NICK STABLEFORD</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#11</td><td>PETER JEFFRIES</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#11</td><td>STEVE SUCH</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#11</td><td>TIM LEWIS</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#20</td><td>JOHN GOODMAN</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#20</td><td>KEVIN HORTON</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#20</td><td>MARK JEFFRIES</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#20</td><td>SIMON CARTER</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#20</td><td>TOM GREEN</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#20</td><td>WARREN CROOK</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#20</td><td>CRAIG MILLIGAN</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#20</td><td>JAMES WILLIS</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#28</td><td>ADAM TEALE</td><td class="text-center">16</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#28</td><td>JAMES TOUGH</td><td class="text-center">16</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#28</td><td>MICK SANDOZ</td><td class="text-center">16</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#31</td><td>MARK HOWELL</td><td class="text-center">15</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#31</td><td>MARK READY</td><td class="text-center">15</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#31</td><td>MARTIN STEVENSON</td><td class="text-center">15</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#31</td><td>TONY MYNARD</td><td class="text-center">15</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#35</td><td>ANDY RAY</td><td class="text-center">14</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#35</td><td>STUART MURDOCK</td><td class="text-center">14</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#37</td><td>DAVE HARRISON</td><td class="text-center">12</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#37</td><td>GARY ADCOCK</td><td class="text-center">12</td></tr>
-                    <tr> <td class="text-center">#39</td><td>PAUL GARRATT</td><td class="text-center">11</td></tr>
-                    <tr> <td class="text-center">#40</td><td>STEPHEN WALLACE</td><td class="text-center">9</td></tr>
-                </tbody>
-              </table>
-            </div>
+  <!-- Week 03 Scores Modal -->
+  <div class="modal fade" id="week03ScoresModal" tabindex="-1" aria-labelledby="week03ScoresModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="week03ScoresModalLabel">WEEK 03 Scores - £49.50</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead>
+                <tr>
+                  <th scope="col" class="text-center">POS</th>
+                  <th scope="col">NAME</th>
+                  <th scope="col" class="text-center">POINTS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="winner-row-highlight">
+                  <td class="text-center">1</td>
+                  <td>JON BODEN</td>
+                  <td class="text-center">22</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T2</td>
+                  <td>JON MURCHINGTON</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T2</td>
+                  <td>MARK READY</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T4</td>
+                  <td>STUART MURDOCK</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T4</td>
+                  <td>RICHARD BIRD</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>LEE EASTOE</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>MARK MOSLEY</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>NICK STABLEFORD</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>STEPHEN WALLACE</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>TIM ALLSOPP</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T11</td>
+                  <td>ANDY RAY</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T11</td>
+                  <td>DAVE HARRISON</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T11</td>
+                  <td>ROSS JEFFRIES</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T11</td>
+                  <td>STEVE ROBINSON</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T15</td>
+                  <td>IAN IND</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T15</td>
+                  <td>SIMON CARTER</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T15</td>
+                  <td>TOM GREEN</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T18</td>
+                  <td>MARK JACKSON</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T18</td>
+                  <td>TONY MYNARD</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T20</td>
+                  <td>ADE COOPER</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T20</td>
+                  <td>JAMES TOUGH</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T20</td>
+                  <td>MARC ALLSOPP</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T20</td>
+                  <td>TIM LEWIS</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T24</td>
+                  <td>ADAM TEALE</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T24</td>
+                  <td>CHRIS BOARDS</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T24</td>
+                  <td>GARY ADCOCK</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T24</td>
+                  <td>JEZ WILLIAMS</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T24</td>
+                  <td>MARK JEFFRIES</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">29</td>
+                  <td>STEVE SUCH</td>
+                  <td class="text-center">11</td>
+                </tr>
+                <tr>
+                  <td class="text-center">30</td>
+                  <td>KEVIN HORTON</td>
+                  <td class="text-center">10</td>
+                </tr>
+                <tr>
+                  <td class="text-center">31</td>
+                  <td>CRAIG MILLIGAN</td>
+                  <td class="text-center">9</td>
+                </tr>
+                <tr>
+                  <td class="text-center">32</td>
+                  <td>RICHARD CRAVEN JONES</td>
+                  <td class="text-center">8</td>
+                </tr>
+                <tr>
+                  <td class="text-center">33</td>
+                  <td>PAUL SMITH</td>
+                  <td class="text-center">7</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Week 01 Scores Modal -->
-    <div class="modal fade" id="week01ScoresModal" tabindex="-1" aria-labelledby="week01ScoresModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="week01ScoresModalLabel">WEEK 01 Scores - £55.50</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="table-responsive">
-              <table class="table table-hover mb-0">
-                <thead>
-                  <tr>
-                    <th scope="col" class="text-center">POS</th>
-                    <th scope="col">NAME</th>
-                    <th scope="col" class="text-center">POINTS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="winner-row-highlight"> <td class="text-center">#1</td><td>DAVE HARRISON</td><td class="text-center">22</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#2</td><td>IAN IND</td><td class="text-center">21</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#2</td><td>JAMES TOUGH</td><td class="text-center">21</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#2</td><td>TONY MYNARD</td><td class="text-center">21</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#5</td><td>ADAM SIMCOX</td><td class="text-center">20</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#5</td><td>GARY ADCOCK</td><td class="text-center">20</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#7</td><td>JEZ WILLIAMS</td><td class="text-center">19</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#7</td><td>MARK JACKSON</td><td class="text-center">19</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#7</td><td>STEVE SUCH</td><td class="text-center">19</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#10</td><td>ANDY RAY</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#10</td><td>JOHN GOODMAN</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#10</td><td>STEVE TARMEY</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#10</td><td>NICK STABLEFORD</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#10</td><td>SIMON CARTER</td><td class="text-center">18</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#15</td><td>JON BODEN</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#15</td><td>MARK READY</td><td class="text-center">17</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#17</td><td>ROSS KELLY</td><td class="text-center">16</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#17</td><td>WARREN CROOK</td><td class="text-center">16</td></tr>
-                    <tr> <td class="text-center">#19</td><td>RICHARD BIRD</td><td class="text-center">15</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#20</td><td>CHRIS BOARDS</td><td class="text-center">14</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#20</td><td>MARK MOSLEY</td><td class="text-center">14</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#22</td><td>JON MURCHINGTON</td><td class="text-center">13</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#22</td><td>LEE EASTOE</td><td class="text-center">13</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#22</td><td>MARC ALLSOPP</td><td class="text-center">13</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#22</td><td>PAUL CHAPMAN</td><td class="text-center">13</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#22</td><td>TIM ALLSOPP</td><td class="text-center">13</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#27</td><td>ADE COOPER</td><td class="text-center">12</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#27</td><td>MARK HOWELL</td><td class="text-center">12</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#27</td><td>MICK SANDOZ</td><td class="text-center">12</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#27</td><td>ROSS JEFFRIES</td><td class="text-center">12</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#31</td><td>NEALE ASTON</td><td class="text-center">10</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#31</td><td>PETER JEFFRIES</td><td class="text-center">10</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#31</td><td>SCOTT WORRALL</td><td class="text-center">10</td></tr>
-                    <tr> <td class="text-center">=&nbsp;#31</td><td>STUART MURDOCK</td><td class="text-center">10</td></tr>
-                    <tr> <td class="text-center">#35</td><td>STEVE ROBINSON</td><td class="text-center">9</td></tr>
-                    <tr> <td class="text-center">#36</td><td>TIM LEWIS</td><td class="text-center">8</td></tr>
-                    <tr> <td class="text-center">#37</td><td>MARK JEFFRIES</td><td class="text-center">7</td></tr>
-                </tbody>
-              </table>
-            </div>
+  <!-- Week 02 Scores Modal -->
+  <div class="modal fade" id="week02ScoresModal" tabindex="-1" aria-labelledby="week02ScoresModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="week02ScoresModalLabel">WEEK 02 Scores - £60.00</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead>
+                <tr>
+                  <th scope="col" class="text-center">POS</th>
+                  <th scope="col">NAME</th>
+                  <th scope="col" class="text-center">POINTS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="winner-row-highlight">
+                  <td class="text-center">1</td>
+                  <td>MATT SPENCER</td>
+                  <td class="text-center">28</td>
+                </tr>
+                <tr>
+                  <td class="text-center">2</td>
+                  <td>RICHARD CRAVEN JONES</td>
+                  <td class="text-center">23</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T3</td>
+                  <td>LES LAWRENCE</td>
+                  <td class="text-center">22</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T3</td>
+                  <td>ANDY SPENCER</td>
+                  <td class="text-center">22</td>
+                </tr>
+                <tr>
+                  <td class="text-center">5</td>
+                  <td>RICHARD BIRD</td>
+                  <td class="text-center">21</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>ADE COOPER</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T6</td>
+                  <td>TIM ALLSOPP</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T8</td>
+                  <td>ADAM SIMCOX</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T8</td>
+                  <td>IAN IND</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T8</td>
+                  <td>MARK MOSLEY</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T11</td>
+                  <td>CHRIS BOARDS</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T11</td>
+                  <td>JEZ WILLIAMS</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T11</td>
+                  <td>JON BODEN</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T11</td>
+                  <td>JON MURCHINGTON</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T11</td>
+                  <td>MARC ALLSOPP</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T11</td>
+                  <td>NICK STABLEFORD</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T11</td>
+                  <td>PETER JEFFRIES</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T11</td>
+                  <td>STEVE SUCH</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T11</td>
+                  <td>TIM LEWIS</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T20</td>
+                  <td>JOHN GOODMAN</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T20</td>
+                  <td>KEVIN HORTON</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T20</td>
+                  <td>MARK JEFFRIES</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T20</td>
+                  <td>SIMON CARTER</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T20</td>
+                  <td>TOM GREEN</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T20</td>
+                  <td>WARREN CROOK</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T20</td>
+                  <td>CRAIG MILLIGAN</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T20</td>
+                  <td>JAMES WILLIS</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T28</td>
+                  <td>ADAM TEALE</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T28</td>
+                  <td>JAMES TOUGH</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T28</td>
+                  <td>MICK SANDOZ</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T31</td>
+                  <td>MARK HOWELL</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T31</td>
+                  <td>MARK READY</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T31</td>
+                  <td>MARTIN STEVENSON</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T31</td>
+                  <td>TONY MYNARD</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T35</td>
+                  <td>ANDY RAY</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T35</td>
+                  <td>STUART MURDOCK</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T37</td>
+                  <td>DAVE HARRISON</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T37</td>
+                  <td>GARY ADCOCK</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">39</td>
+                  <td>PAUL GARRATT</td>
+                  <td class="text-center">11</td>
+                </tr>
+                <tr>
+                  <td class="text-center">40</td>
+                  <td>STEPHEN WALLACE</td>
+                  <td class="text-center">9</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
-    <!-- END MODALS SECTION -->
+  </div>
+
+  <!-- Week 01 Scores Modal -->
+  <div class="modal fade" id="week01ScoresModal" tabindex="-1" aria-labelledby="week01ScoresModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="week01ScoresModalLabel">WEEK 01 Scores - £55.50</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead>
+                <tr>
+                  <th scope="col" class="text-center">POS</th>
+                  <th scope="col">NAME</th>
+                  <th scope="col" class="text-center">POINTS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="winner-row-highlight">
+                  <td class="text-center">1</td>
+                  <td>DAVE HARRISON</td>
+                  <td class="text-center">22</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T2</td>
+                  <td>IAN IND</td>
+                  <td class="text-center">21</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T2</td>
+                  <td>JAMES TOUGH</td>
+                  <td class="text-center">21</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T2</td>
+                  <td>TONY MYNARD</td>
+                  <td class="text-center">21</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T5</td>
+                  <td>ADAM SIMCOX</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T5</td>
+                  <td>GARY ADCOCK</td>
+                  <td class="text-center">20</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T7</td>
+                  <td>JEZ WILLIAMS</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T7</td>
+                  <td>MARK JACKSON</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T7</td>
+                  <td>STEVE SUCH</td>
+                  <td class="text-center">19</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T10</td>
+                  <td>ANDY RAY</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T10</td>
+                  <td>JOHN GOODMAN</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T10</td>
+                  <td>STEVE TARMEY</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T10</td>
+                  <td>NICK STABLEFORD</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T10</td>
+                  <td>SIMON CARTER</td>
+                  <td class="text-center">18</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T15</td>
+                  <td>JON BODEN</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T15</td>
+                  <td>MARK READY</td>
+                  <td class="text-center">17</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T17</td>
+                  <td>ROSS KELLY</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T17</td>
+                  <td>WARREN CROOK</td>
+                  <td class="text-center">16</td>
+                </tr>
+                <tr>
+                  <td class="text-center">19</td>
+                  <td>RICHARD BIRD</td>
+                  <td class="text-center">15</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T20</td>
+                  <td>CHRIS BOARDS</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T20</td>
+                  <td>MARK MOSLEY</td>
+                  <td class="text-center">14</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T22</td>
+                  <td>JON MURCHINGTON</td>
+                  <td class="text-center">13</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T22</td>
+                  <td>LEE EASTOE</td>
+                  <td class="text-center">13</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T22</td>
+                  <td>MARC ALLSOPP</td>
+                  <td class="text-center">13</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T22</td>
+                  <td>PAUL CHAPMAN</td>
+                  <td class="text-center">13</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T22</td>
+                  <td>TIM ALLSOPP</td>
+                  <td class="text-center">13</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T27</td>
+                  <td>ADE COOPER</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T27</td>
+                  <td>MARK HOWELL</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T27</td>
+                  <td>MICK SANDOZ</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T27</td>
+                  <td>ROSS JEFFRIES</td>
+                  <td class="text-center">12</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T31</td>
+                  <td>NEALE ASTON</td>
+                  <td class="text-center">10</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T31</td>
+                  <td>PETER JEFFRIES</td>
+                  <td class="text-center">10</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T31</td>
+                  <td>SCOTT WORRALL</td>
+                  <td class="text-center">10</td>
+                </tr>
+                <tr>
+                  <td class="text-center">T31</td>
+                  <td>STUART MURDOCK</td>
+                  <td class="text-center">10</td>
+                </tr>
+                <tr>
+                  <td class="text-center">35</td>
+                  <td>STEVE ROBINSON</td>
+                  <td class="text-center">9</td>
+                </tr>
+                <tr>
+                  <td class="text-center">36</td>
+                  <td>TIM LEWIS</td>
+                  <td class="text-center">8</td>
+                </tr>
+                <tr>
+                  <td class="text-center">37</td>
+                  <td>MARK JEFFRIES</td>
+                  <td class="text-center">7</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END MODALS SECTION -->
 
 
- <!-- Back to top button -->
- <a class="btn-scroll-top" href="#top" data-scroll aria-label="Scroll back to top">
-  <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"></circle>
-  </svg>
-  <i class="ai-arrow-up"></i>
-</a>
+  <!-- Back to top button -->
+  <a class="btn-scroll-top" href="#top" data-scroll aria-label="Scroll back to top">
+    <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10">
+      </circle>
+    </svg>
+    <i class="ai-arrow-up"></i>
+  </a>
 
-<!-- Bootstrap + Theme scripts -->
-<script src="js/theme.min.js"></script>
+  <!-- Bootstrap + Theme scripts -->
+  <script src="js/theme.min.js"></script>
 
-<!-- GSAP Library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <!-- GSAP Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
-<!-- GSAP Animation for cards -->
-<script>
-  window.addEventListener('load', () => {
-    const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+  <!-- GSAP Animation for cards -->
+  <script>
+    window.addEventListener('load', () => {
+      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
-    // 1. Animate Navbar Links
-    tl.from(".navbar-nav .nav-item", {
-      duration: 0.5,
-      opacity: 0,
-      y: -20, // Come from top
-      stagger: 0.07,
-    }, "+=0.1"); // Start 0.1s after timeline begins
-
-    // 2. Animate main H2 titles (staggered)
-    // Catches "Latest Results" on index.html
-    tl.from("section.container > h2.text-center", {
-      duration: 0.6,
-      y: 25, // Come from bottom
-      opacity: 0,
-      stagger: 0.15, // In case there are multiple such H2s visible on load
-    }, "-=0.2"); // Overlap slightly with end of navbar animation
-
-    // 3. Animation for the "Latest Results" summary cards (if they exist)
-    if (document.querySelector(".weekly-summary-cards .col")) {
-      tl.from(".weekly-summary-cards .col", {
-        duration: 1.2, // Increased duration to accommodate the bounce
-        x: "100%",    // Start from further right (100% of element's width)
+      // 1. Animate Navbar Links
+      tl.from(".navbar-nav .nav-item", {
+        duration: 0.5,
         opacity: 0,
-        ease: "elastic.out(1, 0.75)", // Elastic ease for the bounce effect.
-                                      // The parameters (amplitude, period) can be tuned.
-        stagger: 0.15, // Slightly adjusted stagger for a smoother sequence
-      }, "-=0.3"); // Timing relative to the previous animation
-    }
+        y: -20, // Come from top
+        stagger: 0.07,
+      }, "+=0.1"); // Start 0.1s after timeline begins
 
-    // 4. Placeholder for other specific card animations if needed on index.html
-    // Example: (This selector might not exist on index.html, guarded by if)
-    // if (document.querySelector("section.container .some-other-cards .card")) {
-    //   tl.from("section.container .some-other-cards .card", {
-    //     duration: 0.6,
-    //     y: 25,
-    //     opacity: 0,
-    //     stagger: 0.1,
-    //   }, "-=0.2");
-    // }
-  });
-</script>
+      // 2. Animate main H2 titles (staggered)
+      // Catches "Latest Results" on index.html
+      tl.from("section.container > h2.text-center", {
+        duration: 0.6,
+        y: 25, // Come from bottom
+        opacity: 0,
+        stagger: 0.15, // In case there are multiple such H2s visible on load
+      }, "-=0.2"); // Overlap slightly with end of navbar animation
+
+      // 3. Animation for the "Latest Results" summary cards (if they exist)
+      if (document.querySelector(".weekly-summary-cards .col")) {
+        tl.from(".weekly-summary-cards .col", {
+          duration: 1.2, // Increased duration to accommodate the bounce
+          x: "100%",    // Start from further right (100% of element's width)
+          opacity: 0,
+          ease: "elastic.out(1, 0.75)", // Elastic ease for the bounce effect.
+          // The parameters (amplitude, period) can be tuned.
+          stagger: 0.15, // Slightly adjusted stagger for a smoother sequence
+        }, "-=0.3"); // Timing relative to the previous animation
+      }
+
+      // 4. Placeholder for other specific card animations if needed on index.html
+      // Example: (This selector might not exist on index.html, guarded by if)
+      // if (document.querySelector("section.container .some-other-cards .card")) {
+      //   tl.from("section.container .some-other-cards .card", {
+      //     duration: 0.6,
+      //     y: 25,
+      //     opacity: 0,
+      //     stagger: 0.1,
+      //   }, "-=0.2");
+      // }
+    });
+  </script>
 
 
-<!-- Navbar scroll behavior -->
-<script>
-  let lastScrollTop = 0;
-  const navbar = document.querySelector('.navbar');
+  <!-- Navbar scroll behavior -->
+  <script>
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
 
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (scrollTop > lastScrollTop) {
-      navbar.classList.add('hidden');
-    } else {
-      navbar.classList.remove('hidden');
-    }
+      if (scrollTop > lastScrollTop) {
+        navbar.classList.add('hidden');
+      } else {
+        navbar.classList.remove('hidden');
+      }
 
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  });
-</script>
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+  </script>
 </body>
+
 </html>

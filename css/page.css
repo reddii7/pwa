@@ -2,10 +2,6 @@
   :root {
         --ar-body-font-family: 'Roboto', sans-serif; /* Using Roboto for body */
       }
-      main.page-wrapper {
-        padding-top: 5rem; /* Adjust this value based on the navbar's actual height to prevent content overlap */
-      }
-      /* Make table font smaller */
       .bg-light .table {
         font-size: 0.9rem; 
       }
@@ -24,6 +20,51 @@
         box-shadow: none !important;
       }
 
+/* Make table background transparent within secondary cards */
+.card.bg-secondary .table {
+  background-color: transparent;
+  font-size: 0.9rem; /* Match modal table font size */
+}
+
+/* Make table container full width by counteracting card-body padding */
+.card.bg-secondary .card-body .table-responsive {
+  margin-left: -1rem; /* Adjust based on Bootstrap's default card-body padding */
+  margin-right: -1rem; /* Adjust based on Bootstrap's default card-body padding */
+  /* The table inside will now extend to the card edges */
+}
+
+/* Ensure table headings in secondary cards also inherit the card's text color */
+.card.bg-secondary .table thead th {
+  color: inherit !important;
+  text-transform: uppercase; /* Make heading text uppercase */
+  background-color: transparent !important; /* Ensure heading background is transparent */
+}
+
+/* Add back horizontal padding to table cells and headers to align content */
+.card.bg-secondary .table th,
+.card.bg-secondary .table td {
+  padding-left: 1rem; /* Should match the negative margin applied above */
+  padding-right: 1rem; /* Should match the negative margin applied above */
+}
+/* Ensure table rows also have transparent background */
+.card.bg-secondary .table tbody tr {
+  background-color: transparent;
+}
+
+/* Target table cells specifically to ensure transparent background */
+.card.bg-secondary .table tbody tr td {
+  background-color: transparent !important; /* Use !important for stronger override */
+}
+
+/* Ensure hover state is also transparent */
+.card.bg-secondary .table tbody tr:hover {
+    background-color: transparent !important;
+}
+
+/* Ensure hover state on cells is also transparent */
+.card.bg-secondary .table tbody tr:hover td {
+  background-color: transparent !important; /* Use !important for stronger override */
+}
 .page-loading {
     position: fixed;
     top: 0;
@@ -123,6 +164,10 @@
     }
   }
 
+  body {
+  font-family: 'Roboto Mono', monospace;
+}
+
 
 
 main.page-wrapper {
@@ -158,5 +203,77 @@ main.page-wrapper {
   font-size: 1.2em; /* 20% larger font size for winner info on cards */
   color: #fff !important; /* Make winner text white */
 }
-
       
+.col-week-nine-custom-width {
+  max-width: 75%; /* Adjust as needed to make the card thinner */
+  margin-left: auto;
+  margin-right: auto;
+}
+.custom-week-underline {
+  font-weight: 400 !important; /* Or 'normal'. Use !important to ensure override if necessary */
+}
+.prize-players-line span:first-child {
+  margin-right: 2em; /* Adjust the space as needed */
+}
+
+/* Corrected duplicate rule */
+.prize-players-line span:first-child:not(:last-child) {
+  margin-right: 2em; /* Adjust the space as needed */
+}
+
+/* css/page.css */
+
+/* ... existing styles ... */
+
+.scores-button-wrapper .text-decoration-none {
+  color: inherit; /* Ensure the text "Full results" inherits card text color */
+}
+
+.arrow-icon-circle {
+  display: inline-flex; /* To center the icon inside */
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem; /* Adjust size as needed */
+  height: 2.25rem; /* Adjust size as needed */
+  border: 1px solid currentColor; /* Thin border using the current text color */
+  border-radius: 50%; /* Makes it a circle */
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.scores-button-wrapper a:hover .arrow-icon-circle {
+  background-color: var(--ar-primary-bg-subtle); /* Optional: subtle background on hover */
+  border-color: var(--ar-primary); /* Optional: change border color on hover */
+}
+
+.arrow-icon-circle .ai-arrow-right {
+  font-size: 1rem; /* Adjust icon size if fs-xl is too large for the circle */
+}
+
+/* Make Bootstrap modals full screen on all devices */
+.modal-dialog {
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.modal-content {
+  height: 100vh;
+  min-height: 100vh;
+  border-radius: 0;
+  border: none;
+}
+
+.modal-body {
+  height: calc(100vh - 56px - 56px); /* Adjust for header/footer if needed */
+  overflow-y: auto;
+  padding: 2rem 1rem;
+}
+
+@media (max-width: 576px) {
+  .modal-body {
+    padding: 1rem 0.5rem;
+  }
+}
+
