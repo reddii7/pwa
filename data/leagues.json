@@ -1,0 +1,82 @@
+{
+  "league1": {
+    "name": "League 1",
+    "players": [
+      { "pos": "1", "name": "TIM ALLSOPP", "score": 176 },
+      { "pos": "2", "name": "MARK READY", "score": 167 },
+      { "pos": "3", "name": "STEVE SUCH", "score": 162 },
+      { "pos": "4", "name": "RICHARD BIRD", "score": 158 },
+      { "pos": "5", "name": "JON BODEN", "score": 153 },
+      { "pos": "6", "name": "JEZ WILLIAMS", "score": 152 },
+      { "pos": "7", "name": "SIMON CARTER", "score": 151 },
+      { "pos": "8", "name": "NICK STABLEFORD", "score": 149 },
+      { "pos": "9", "name": "JAMES TOUGH", "score": 148 },
+      { "pos": "10", "name": "TONY MYNARD", "score": 146 },
+      { "pos": "11", "name": "DAVE HARRISON", "score": 133 },
+      { "pos": "12", "name": "TIM LEWIS", "score": 129 },
+      { "pos": "13", "name": "MARC ALLSOPP", "score": 126 },
+      { "pos": "14", "name": "ANDY RAY", "score": 125 },
+      { "pos": "15", "name": "MARK HOWELL", "score": 94 }
+    ]
+  },
+  "league2": {
+    "name": "League 2",
+    "players": [
+      { "pos": "1", "name": "IAN IND", "score": 186 },
+      { "pos": "2", "name": "GARY ADCOCK", "score": 149 },
+      { "pos": "T3", "name": "JOHN GOODMAN", "score": 126 },
+      { "pos": "T3", "name": "ADAM TEALE", "score": 126 },
+      { "pos": "5", "name": "STEVE ROBINSON", "score": 121 },
+      { "pos": "6", "name": "LEE EASTOE", "score": 118 },
+      { "pos": "7", "name": "TOM GREEN", "score": 117 },
+      { "pos": "8", "name": "PAUL SMITH", "score": 111 },
+      { "pos": "9", "name": "KEVIN HORTON", "score": 106 },
+      { "pos": "10", "name": "MICK SANDOZ", "score": 103 },
+      { "pos": "11", "name": "MARK JEFFRIES", "score": 91 },
+      { "pos": "12", "name": "RICHARD SHAW", "score": 72 },
+      { "pos": "13", "name": "STUART PICKERSGILL", "score": 52 },
+      { "pos": "14", "name": "ROSS JEFFRIES", "score": 45 },
+      { "pos": "15", "name": "PAUL BLADES", "score": 34 }
+    ]
+  },
+  "league3": {
+    "name": "League 3",
+    "players": [
+      { "pos": "T1", "name": "ADE COOPER", "score": 142 },
+      { "pos": "T1", "name": "PETER JEFFRIES", "score": 142 },
+      { "pos": "3", "name": "STEPHEN WALLACE", "score": 140 },
+      { "pos": "4", "name": "CHRIS BOARDS", "score": 137 },
+      { "pos": "5", "name": "JON MURCHINGTON", "score": 132 },
+      { "pos": "6", "name": "PAUL CHAPMAN", "score": 95 },
+      { "pos": "7", "name": "RICHARD CRAVEN JONES", "score": 90 },
+      { "pos": "8", "name": "LES LAWRENCE", "score": 85 },
+      { "pos": "9", "name": "MARTIN STEVENSON", "score": 81 },
+      { "pos": "10", "name": "STEVE ROCHESTER", "score": 49 },
+      { "pos": "11", "name": "JAMES HARRISON", "score": 43 },
+      { "pos": "12", "name": "MICK HENNESSY", "score": 39 },
+      { "pos": "13", "name": "BRIAN ELLIOT", "score": 17 },
+      { "pos": "T14", "name": "JON PRICE", "score": 0 },
+      { "pos": "T14", "name": "ANDREW KING", "score": 0 }
+    ]
+  },
+  "league4": {
+    "name": "League 4",
+    "players": [
+      { "pos": "1", "name": "MARK MOSLEY", "score": 153 },
+      { "pos": "2", "name": "STUART MURDOCK", "score": 145 },
+      { "pos": "3", "name": "MARK JACKSON", "score": 135 },
+      { "pos": "4", "name": "ADAM SIMCOX", "score": 117 },
+      { "pos": "5", "name": "CRAIG MILLIGAN", "score": 99 },
+      { "pos": "6", "name": "STEVE TARMEY", "score": 82 },
+      { "pos": "7", "name": "ROSS KELLY", "score": 64 },
+      { "pos": "8", "name": "WARREN CROOK", "score": 38 },
+      { "pos": "9", "name": "MATT SPENCER", "score": 28 },
+      { "pos": "10", "name": "JAMES SIMMONS", "score": 26 },
+      { "pos": "11", "name": "ANDY SPENCER", "score": 22 },
+      { "pos": "12", "name": "PAUL GARRATT", "score": 19 },
+      { "pos": "13", "name": "JAMES WILLIS", "score": 17 },
+      { "pos": "14", "name": "RICHARD COOK", "score": 15 },
+      { "pos": "15", "name": "NEALE ASTON", "score": 10 }
+    ]
+  }
+}

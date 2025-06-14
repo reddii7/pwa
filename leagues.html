@@ -1,66 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WAGS</title>
-
-    <!-- Webmanifest + Favicon / App icons -->
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/png" href="app-icons/icon-32x32.png" sizes="32x32">
-    <link rel="apple-touch-icon" href="app-icons/icon-180x180.png">
-
-    <!-- Theme switcher (color modes) -->
-    <script src="js/theme-switcher.js"></script>
-
-    <!-- Google Fonts: Roboto -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Font icons -->
-    <link rel="stylesheet" href="icons/around-icons.min.css">
-
-    <!-- Theme styles + Bootstrap -->
-    <link rel="stylesheet" media="screen" href="css/theme.min.css">
-    
-    <!-- Custom page styles (including .league-tab-circle and .league-rules-icon) -->
-    <link rel="stylesheet" media="screen" href="css/page.css">
-
-     <!-- Page loading scripts -->
-     <script>
-      (function () {
-        window.onload = function () {
-          const preloader = document.querySelector('.page-loading');
-          preloader.classList.remove('active');
-          setTimeout(function () {
-            preloader.remove();
-          }, 1500);
-        };
-      })();
-    </script>
-  </head>
-
-
-
-  <body>
-    <!-- Page loading spinner -->
-    <div class="page-loading active">
-      <div class="page-loading-inner">
-        <div class="page-spinner"></div>
-        <span>Loading...</span>
-      </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WAGS Leagues</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="app-icons/icon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="app-icons/icon-180x180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="icons/around-icons.min.css">
+  <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  <link rel="stylesheet" media="screen" href="css/page.css">
+  <script>
+    window.onload = function () {
+      const preloader = document.querySelector('.page-loading');
+      preloader.classList.remove('active');
+      setTimeout(() => preloader.remove(), 1500);
+    };
+  </script>
+</head>
+<body>
+  <!-- Page loading spinner -->
+  <div class="page-loading active">
+    <div class="page-loading-inner">
+      <div class="page-spinner"></div>
+      <span>Loading...</span>
     </div>
+  </div>
 
-    <!-- Combined Title and Back Button Navigation -->
-    <nav class="leagues-title-nav fixed-top bg-light">
-      <div class="container d-flex align-items-center justify-content-between py-3">
-        <a href="index.html" class="btn btn-icon btn-sm btn-outline-secondary border-0 rounded-circle" aria-label="Back">
-          <i class="ai-arrow-left"></i>
-        </a>
-        <!-- Dropdown for Leagues -->
-        <div class="dropdown">
-          <button class="btn btn-link dropdown-toggle text-dark fs-5 fw-bold text-decoration-none p-0" type="button" id="leaguesDropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+  <!-- Leagues Title and Navigation -->
+  <nav class="leagues-title-nav fixed-top bg-dark">
+    <div class="container d-flex align-items-center justify-content-between py-3">
+      <a href="scores.html" class="btn btn-icon btn-sm btn-outline-secondary border-0 rounded-circle" aria-label="Back">
+        <i class="ai-arrow-left"></i>
+      </a>
+      <div class="flex-grow-1 text-center">
+        <div class="dropdown d-inline-block">
+          <button class="btn btn-link dropdown-toggle fs-5 fw-bold text-decoration-none p-0" type="button" id="leaguesDropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
             <span id="activeLeagueName">LEAGUES</span>
           </button>
           <ul class="dropdown-menu" aria-labelledby="leaguesDropdownMenuButton" id="leaguesDropdownMenu" role="tablist">
@@ -70,207 +48,169 @@
             <li><button class="dropdown-item" id="dropdown-league4-tab" type="button" data-bs-toggle="tab" data-bs-target="#league4-pane" role="tab" aria-controls="league4-pane" aria-selected="false">League 4</button></li>
           </ul>
         </div>
-        <!-- Rules Icon - moved to the right -->
-        <a href="#" class="btn btn-icon btn-sm border-0 text-decoration-none text-dark" data-bs-toggle="modal" data-bs-target="#leagueRulesModal" aria-label="League Rules">
-          <i class="ai-file-text fs-4 league-rules-icon"></i>
-        </a>
       </div>
-    </nav>
+      <div style="width: 2.25rem; height: 2.25rem;"></div> <!-- Spacer to balance the back button -->
+    </div>
+  </nav>
 
-    <!-- Page wrapper -->
-    <main class="page-wrapper leagues-page-wrapper">
-      <!-- Navbar -->
-      <!-- Navbar has been removed -->
-
-
-<!-- Leagues Table Section -->
-<div class="bg-light py-4"> <!-- Added padding to the main background div -->
-  <div class="container pt-5"> <!-- Using a standard container, adjusted pt-3 to pt-5 for spacing from navbar -->
-    <div class="tab-content" id="leaguesTabContent">
-      <!-- League 1 Pane -->
-      <div class="tab-pane fade show active" id="league1-pane" role="tabpanel" tabindex="0">
-        <div class="table-responsive">
-          <table class="table table-hover text-start mb-0">
-            <thead>
-              <tr>
-                <th scope="col" class="text-center">POS</th>
-                <th scope="col">NAME</th>
-                <th scope="col" class="text-center">BEST 10</th>
-              </tr>
-            </thead>
-            <tbody>
- <tr> <td class="text-center">1</td> <td>TIM ALLSOPP</td><td class="text-center">161</td></tr>
- <tr> <td class="text-center">2</td> <td>SIMON CARTER</td><td class="text-center">151</td></tr>
- <tr> <td class="text-center">3</td> <td>JAMES TOUGH</td><td class="text-center">148</td></tr>
- <tr> <td class="text-center">T4</td> <td>TONY MYNARD</td><td class="text-center">146</td></tr>
- <tr> <td class="text-center">T4</td> <td>MARK READY</td><td class="text-center">146</td></tr>
- <tr> <td class="text-center">6</td> <td>STEVE SUCH</td><td class="text-center">144</td></tr>
- <tr> <td class="text-center">7</td> <td>RICHARD BIRD</td><td class="text-center">139</td></tr>
- <tr> <td class="text-center">8</td> <td>JON BODEN</td><td class="text-center">137</td></tr>
- <tr> <td class="text-center">T9</td> <td>JEZ WILLIAMS</td><td class="text-center">133</td></tr>
- <tr> <td class="text-center">T9</td> <td>DAVE HARRISON</td><td class="text-center">133</td></tr>
- <tr> <td class="text-center">T9</td> <td>NICK STABLEFORD</td><td class="text-center">133</td></tr>
- <tr> <td class="text-center">12</td> <td>MARC ALLSOPP</td><td class="text-center">110</td></tr>
- <tr> <td class="text-center">13</td> <td>ANDY RAY</td><td class="text-center">109</td></tr>
- <tr> <td class="text-center">14</td> <td>TIM LEWIS</td><td class="text-center">108</td></tr>
- <tr> <td class="text-center">15</td> <td>MARK HOWELL</td><td class="text-center">77</td></tr>
-            </tbody>
-          </table>
+  <main class="page-wrapper leagues-page-wrapper">
+    <div class="py-4">
+      <div class="container pt-5">
+        <div class="tab-content" id="leaguesTabContent">
+          <!-- League 1 Pane -->
+          <div class="tab-pane fade show active" id="league1-pane" role="tabpanel" tabindex="0">
+            <div class="table-responsive">
+              <table class="table table-hover text-start mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-center">POS</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col" class="text-center">BEST 10</th>
+                  </tr>
+                </thead>
+                <tbody id="league1TableBody">
+                  <!-- League 1 data will be injected here by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- League 2 Pane -->
+          <div class="tab-pane fade" id="league2-pane" role="tabpanel" tabindex="0">
+            <div class="table-responsive">
+              <table class="table table-hover text-start mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-center">POS</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col" class="text-center">BEST 10</th>
+                  </tr>
+                </thead>
+                <tbody id="league2TableBody">
+                  <!-- League 2 data will be injected here by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- League 3 Pane -->
+          <div class="tab-pane fade" id="league3-pane" role="tabpanel" tabindex="0">
+            <div class="table-responsive">
+              <table class="table table-hover text-start mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-center">POS</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col" class="text-center">BEST 10</th>
+                  </tr>
+                </thead>
+                <tbody id="league3TableBody">
+                  <!-- League 3 data will be injected here by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- League 4 Pane -->
+          <div class="tab-pane fade" id="league4-pane" role="tabpanel" tabindex="0">
+            <div class="table-responsive">
+              <table class="table table-hover text-start mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-center">POS</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col" class="text-center">BEST 10</th>
+                  </tr>
+                </thead>
+                <tbody id="league4TableBody">
+                  <!-- League 4 data will be injected here by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <!-- League 2 Pane -->
-      <div class="tab-pane fade" id="league2-pane" role="tabpanel" tabindex="0">
-        <div class="table-responsive">
-          <table class="table table-hover text-start mb-0">
-            <thead>
-              <tr>
-                <th scope="col" class="text-center">POS</th>
-                <th scope="col">NAME</th>
-                <th scope="col" class="text-center">BEST 10</th>
-              </tr>
-            </thead>
-            <tbody>
- <tr> <td class="text-center">1</td> <td>IAN IND</td><td class="text-center">179</td></tr>
- <tr> <td class="text-center">2</td> <td>GARY ADCOCK</td><td class="text-center">127</td></tr>
- <tr> <td class="text-center">T3</td> <td>JOHN GOODMAN</td><td class="text-center">126</td></tr>
- <tr> <td class="text-center">T3</td> <td>ADAM TEALE</td><td class="text-center">126</td></tr>
- <tr> <td class="text-center">5</td> <td>TOM GREEN</td><td class="text-center">117</td></tr>
- <tr> <td class="text-center">6</td> <td>PAUL SMITH</td><td class="text-center">111</td></tr>
- <tr> <td class="text-center">7</td> <td>STEVE ROBINSON</td><td class="text-center">109</td></tr>
- <tr> <td class="text-center">8</td> <td>KEVIN HORTON</td><td class="text-center">106</td></tr>
- <tr> <td class="text-center">9</td> <td>LEE EASTOE</td><td class="text-center">102</td></tr>
- <tr> <td class="text-center">10</td> <td>MICK SANDOZ</td><td class="text-center">86</td></tr>
- <tr> <td class="text-center">11</td> <td>RICHARD SHAW</td><td class="text-center">72</td></tr>
- <tr> <td class="text-center">12</td> <td>MARK JEFFRIES</td><td class="text-center">71</td></tr>
- <tr> <td class="text-center">13</td> <td>ROSS JEFFRIES</td><td class="text-center">45</td></tr>
- <tr> <td class="text-center">14</td> <td>STUART PICKERSGILL</td><td class="text-center">36</td></tr>
- <tr> <td class="text-center">15</td> <td>PAUL BLADES</td><td class="text-center">34</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- League 3 Pane -->
-      <div class="tab-pane fade" id="league3-pane" role="tabpanel" tabindex="0">
-        <div class="table-responsive">
-          <table class="table table-hover text-start mb-0">
-            <thead>
-              <tr>
-                <th scope="col" class="text-center">POS</th>
-                <th scope="col">NAME</th>
-                <th scope="col" class="text-center">BEST 10</th>
-              </tr>
-            </thead>
-            <tbody>
- <tr> <td class="text-center">1</td> <td>CHRIS BOARDS</td><td class="text-center">137</td></tr>
- <tr> <td class="text-center">2</td> <td>JON MURCHINGTON</td><td class="text-center">132</td></tr>
- <tr> <td class="text-center">3</td> <td>ADE COOPER</td><td class="text-center">129</td></tr>
- <tr> <td class="text-center">4</td> <td>STEPHEN WALLACE</td><td class="text-center">126</td></tr>
- <tr> <td class="text-center">5</td> <td>PETER JEFFRIES</td><td class="text-center">121</td></tr>
- <tr> <td class="text-center">6</td> <td>RICHARD CRAVEN JONES</td><td class="text-center">90</td></tr>
- <tr> <td class="text-center">7</td> <td>PAUL CHAPMAN</td><td class="text-center">78</td></tr>
- <tr> <td class="text-center">8</td> <td>LES LAWRENCE</td><td class="text-center">76</td></tr>
- <tr> <td class="text-center">9</td> <td>MARTIN STEVENSON</td><td class="text-center">65</td></tr>
- <tr> <td class="text-center">10</td> <td>STEVE ROCHESTER</td><td class="text-center">49</td></tr>
- <tr> <td class="text-center">11</td> <td>JAMES HARRISON</td><td class="text-center">43</td></tr>
- <tr> <td class="text-center">12</td> <td>MICK HENNESSY</td><td class="text-center">22</td></tr>
- <tr> <td class="text-center">13</td> <td>BRIAN ELLIOT</td><td class="text-center">17</td></tr>
- <tr> <td class="text-center">T14</td> <td>JON PRICE</td><td class="text-center">0</td></tr>
- <tr> <td class="text-center">T14</td> <td>ANDREW KING</td><td class="text-center">0</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- League 4 Pane -->
-      <div class="tab-pane fade" id="league4-pane" role="tabpanel" tabindex="0">
-        <div class="table-responsive">
-          <table class="table table-hover text-start mb-0">
-            <thead>
-              <tr>
-                <th scope="col" class="text-center">POS</th>
-                <th scope="col">NAME</th>
-                <th scope="col" class="text-center">BEST 10</th>
-              </tr>
-            </thead>
-            <tbody>
- <tr> <td class="text-center">1</td> <td>MARK MOSLEY</td><td class="text-center">138</td></tr>
- <tr> <td class="text-center">2</td> <td>STUART MURDOCK</td><td class="text-center">131</td></tr>
- <tr> <td class="text-center">3</td> <td>MARK JACKSON</td><td class="text-center">120</td></tr>
- <tr> <td class="text-center">4</td> <td>CRAIG MILLIGAN</td><td class="text-center">99</td></tr>
- <tr> <td class="text-center">5</td> <td>ADAM SIMCOX</td><td class="text-center">93</td></tr>
- <tr> <td class="text-center">6</td> <td>STEVE TARMEY</td><td class="text-center">67</td></tr>
- <tr> <td class="text-center">7</td> <td>ROSS KELLY</td><td class="text-center">51</td></tr>
- <tr> <td class="text-center">8</td> <td>WARREN CROOK</td><td class="text-center">33</td></tr>
- <tr> <td class="text-center">9</td> <td>MATT SPENCER</td><td class="text-center">28</td></tr>
- <tr> <td class="text-center">10</td> <td>JAMES SIMMONS</td><td class="text-center">26</td></tr>
- <tr> <td class="text-center">11</td> <td>ANDY SPENCER</td><td class="text-center">22</td></tr>
- <tr> <td class="text-center">12</td> <td>PAUL GARRATT</td><td class="text-center">19</td></tr>
- <tr> <td class="text-center">13</td> <td>JAMES WILLIS</td><td class="text-center">17</td></tr>
- <tr> <td class="text-center">14</td> <td>RICHARD COOK</td><td class="text-center">15</td></tr>
- <tr> <td class="text-center">15</td> <td>NEALE ASTON</td><td class="text-center">10</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div> <!-- end of tab-content -->
-  </div> <!-- end of container -->
-</div> <!-- end of bg-light -->
-
- 
-
- <!-- Back to top button -->
- <a class="btn-scroll-top" href="#top" data-scroll aria-label="Scroll back to top">
-  <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"></circle>
-  </svg>
-  <i class="ai-arrow-up"></i>
-</a>
-
-<!-- Bootstrap + Theme scripts -->
-<script src="js/theme.min.js"></script>
-
-<!-- League Rules Modal -->
-<div class="modal fade" id="leagueRulesModal" tabindex="-1" aria-labelledby="leagueRulesModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="leagueRulesModalLabel">League Rules</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>To keep everyones season going we play individual leagues. The top & bottom 3 players swap places at the end of each season.</p>
       </div>
     </div>
-  </div>
-</div>
+  </main>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const activeLeagueNameSpan = document.getElementById('activeLeagueName');
-    const leagueDropdownItems = document.querySelectorAll('#leaguesDropdownMenu .dropdown-item[data-bs-toggle="tab"]');
+  <!-- Back to top button -->
+  <a class="btn-scroll-top" href="#top" data-scroll aria-label="Scroll back to top">
+    <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"></circle>
+    </svg>
+    <i class="ai-arrow-up"></i>
+  </a>
 
-    function updateActiveLeagueName(name) {
-      if (activeLeagueNameSpan) {
-        activeLeagueNameSpan.textContent = name;
+  <!-- Bootstrap + Theme scripts -->
+  <script src="js/theme.min.js"></script>
+  <script src="js/dynamic-leagues.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const activeLeagueNameSpan = document.getElementById('activeLeagueName');
+      const leagueDropdownItems = document.querySelectorAll('#leaguesDropdownMenu .dropdown-item[data-bs-toggle="tab"]');
+
+      function updateActiveLeagueName(name) {
+        if (activeLeagueNameSpan) {
+          activeLeagueNameSpan.textContent = name;
+        }
       }
-    }
 
-    // Set initial active league name on page load
-    const initiallyActiveItem = document.querySelector('#leaguesDropdownMenu .dropdown-item.active');
-    if (initiallyActiveItem) {
-      updateActiveLeagueName(initiallyActiveItem.textContent);
-    }
+      // Set initial active league name on page load
+      const initiallyActiveItem = document.querySelector('#leaguesDropdownMenu .dropdown-item.active');
+      if (initiallyActiveItem) {
+        updateActiveLeagueName(initiallyActiveItem.textContent);
+      }
 
-    // Add event listeners to update name when a new league is shown
-    leagueDropdownItems.forEach(item => {
-      item.addEventListener('shown.bs.tab', function (event) {
-        updateActiveLeagueName(event.target.textContent);
+      // Add event listeners to update name when a new league is shown
+      leagueDropdownItems.forEach(item => {
+        item.addEventListener('shown.bs.tab', function (event) {
+          updateActiveLeagueName(event.target.textContent);
+        });
+      });
+
+      // GSAP Animations
+      window.addEventListener('load', () => {
+        // Animate navbar
+        gsap.from(".leagues-title-nav > .container > *", {
+          duration: 0.5,
+          opacity: 0,
+          y: -20,
+          stagger: 0.1,
+          delay: 0.2
+        });
+
+        const leagueTableBodiesIds = ['league1TableBody', 'league2TableBody', 'league3TableBody', 'league4TableBody'];
+        leagueTableBodiesIds.forEach(id => {
+          const tableBody = document.getElementById(id);
+          if (tableBody) {
+            const observer = new MutationObserver((mutationsList, obs) => {
+              for (const mutation of mutationsList) {
+                if (mutation.type === 'childList' && tableBody.querySelector("tr")) {
+                  gsap.from(tableBody.querySelectorAll("tr"), {
+                    duration: 0.5,
+                    opacity: 0,
+                    y: 20,
+                    stagger: 0.03,
+                    ease: "power2.out"
+                  });
+                  obs.disconnect(); // Disconnect after first animation for this table
+                  break;
+                }
+              }
+            });
+            observer.observe(tableBody, { childList: true });
+          }
+        });
+      });
+
+      // Navbar scroll hide/show
+      let lastScrollTop = 0;
+      const navbar = document.querySelector('.leagues-title-nav');
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        navbar.classList.toggle('hidden', scrollTop > lastScrollTop && scrollTop > 60);
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
       });
     });
-  });
-</script>
-
+  </script>
 </body>
 </html>

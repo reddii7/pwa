@@ -10,8 +10,6 @@
     <link rel="icon" type="image/png" href="app-icons/icon-32x32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="app-icons/icon-180x180.png">
 
-    <!-- Theme switcher (color modes) -->
-    <script src="js/theme-switcher.js"></script>
 
     <!-- Google Fonts: Roboto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,15 +50,15 @@
     </div>
 
     <!-- Combined Title and Back Button Navigation -->
-    <nav class="leagues-title-nav fixed-top bg-light">
+    <nav class="leagues-title-nav fixed-top bg-dark">
       <div class="container d-flex align-items-center justify-content-between py-3">
-        <a href="index.html" class="btn btn-icon btn-sm btn-outline-secondary border-0 rounded-circle" aria-label="Back">
+        <a href="scores.html" class="btn btn-icon btn-sm btn-outline-secondary border-0 rounded-circle" aria-label="Back">
           <i class="ai-arrow-left"></i>
         </a>
-        <h5 class="mb-0 fs-5 fw-bold text-dark text-nowrap overflow-hidden text-truncate">BEST 14 SCORES</h5>
-        <a href="#" class="btn btn-icon btn-sm border-0 text-decoration-none text-dark" data-bs-toggle="modal" data-bs-target="#best14RulesModal" aria-label="Best 14 Rules">
-          <i class="ai-file-text fs-4 league-rules-icon"></i>
-        </a>
+        <div class="flex-grow-1 text-center">
+          <h5 class="mb-0 fs-5 fw-bold text-nowrap overflow-hidden text-truncate d-inline-block">BEST 14 SCORES</h5>
+        </div>
+        <div style="width: 2.25rem; height: 2.25rem;"></div> <!-- Spacer to balance the back button -->
       </div>
     </nav>
 
@@ -70,7 +68,7 @@
 
 
 <!-- Table Section -->
-<div class="bg-light"> <!-- Full-width background for the table section -->
+<div> <!-- Full-width background for the table section -->
   <div class="container-fluid pt-5 pb-4 px-3"> <!-- Table content uses container-fluid for wider layout -->
     <div class="row">
       <div class="col-12">
@@ -153,38 +151,9 @@
 
 
 
-<!-- Best 14 Rules Modal -->
-<div class="modal fade" id="best14RulesModal" tabindex="-1" aria-labelledby="best14RulesModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="best14RulesModalLabel">Best 14 Rules</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Best 14 tracks each player's best 14 scores from the weekly competitions throughout the season.</p>
-        <p>The player with the highest aggregate score from their best 14 rounds at the end of the season is crowned the "Best 14" champion.</p>
-        <ul>
-          <li>Only your top 14 scores count.</li>
-          <li>Scores are automatically updated after each weekly competition.</li>
-        </ul>
-        <!-- Add more rules or information as needed -->
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
  
 
- <!-- Back to top button -->
- <a class="btn-scroll-top" href="#top" data-scroll aria-label="Scroll back to top">
-  <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"></circle>
-  </svg>
-  <i class="ai-arrow-up"></i>
-</a>
+
 
 <!-- Bootstrap + Theme scripts -->
 <script src="js/theme.min.js"></script>

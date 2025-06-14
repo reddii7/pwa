@@ -67,6 +67,9 @@
 [data-bs-theme="dark"] .shadow-lg:not([data-bs-theme="light"]) {
   box-shadow: 0 0.4375rem 1.25rem rgba(0, 0, 0, 0.4) !important;
 }
+[data-bs-theme="dark"] .card {
+  --ar-card-bg: rgb(19, 21, 25);
+}
 :root,
 [data-bs-theme="light"] {
   --ar-gray-100: #f6f9fc;
@@ -135,8 +138,8 @@
   --ar-body-line-height: 1.5;
   --ar-body-color: #576071;
   --ar-body-color-rgb: 87, 96, 113;
-  --ar-body-bg: #fff;
-  --ar-body-bg-rgb: 255, 255, 255;
+  --ar-body-bg: rgb(235, 234, 233);
+  --ar-body-bg-rgb: 235, 234, 233;
   --ar-emphasis-color: #000;
   --ar-emphasis-color-rgb: 0, 0, 0;
   --ar-secondary-color: #858c97;
@@ -145,8 +148,7 @@
   --ar-secondary-bg-rgb: 237, 241, 245;
   --ar-tertiary-color: rgba(87, 96, 113, 0.5);
   --ar-tertiary-color-rgb: 87, 96, 113;
-  --ar-tertiary-bg: #f6f9fc;
-  --ar-tertiary-bg-rgb: 246, 249, 252;
+  --ar-tertiary-bg: #f6f9fc; --ar-tertiary-bg-rgb: 246, 249, 252;
   --ar-heading-color: var(--ar-gray-900);
   --ar-link-color: #448c74;
   --ar-link-color-rgb: 68, 140, 116;
@@ -159,9 +161,7 @@
   --ar-highlight-bg: #fff3cd;
   --ar-border-width: 1px;
   --ar-border-style: solid;
-  --ar-border-color: #e3e9ef;
-  --ar-border-color-translucent: rgba(0, 0, 0, 0.1);
-  --ar-border-radius: 1rem;
+  --ar-border-color: #e3e9ef; --ar-border-color-translucent: rgba(0, 0, 0, 0.1); --ar-border-radius: 1rem;
   --ar-border-radius-sm: calc(var(--ar-border-radius) * 0.75);
   --ar-border-radius-lg: calc(var(--ar-border-radius) * 1.125);
   --ar-border-radius-xl: calc(var(--ar-border-radius) * 1.5);
@@ -177,15 +177,14 @@
   --ar-focus-ring-color: rgba(68, 140, 116, 0.25);
   --ar-form-valid-color: #3fca90;
   --ar-form-valid-border-color: #3fca90;
-  --ar-form-invalid-color: #ed5050;
-  --ar-form-invalid-border-color: #ed5050;
+  --ar-form-invalid-color: #ed5050; --ar-form-invalid-border-color: #ed5050;
 }
 [data-bs-theme="dark"] {
   color-scheme: dark;
   --ar-body-color: rgba(255, 255, 255, 0.7);
   --ar-body-color-rgb: 255, 255, 255;
-  --ar-body-bg: #121519;
-  --ar-body-bg-rgb: 18, 21, 25;
+  --ar-body-bg: rgb(19, 21, 25);
+  --ar-body-bg-rgb: 19, 21, 25;
   --ar-emphasis-color: #f6f9fc;
   --ar-emphasis-color-rgb: 246, 249, 252;
   --ar-secondary-color: rgba(255, 255, 255, 0.5);
@@ -227,8 +226,7 @@
   --ar-link-hover-color-rgb: 165, 200, 189;
   --ar-code-color: #ee70a7;
   --ar-highlight-color: rgba(255, 255, 255, 0.7);
-  --ar-highlight-bg: #664d03;
-  --ar-border-color: rgba(255, 255, 255, 0.13);
+  --ar-highlight-bg: #664d03; --ar-border-color: rgba(255, 255, 255, 0.13);
   --ar-border-color-translucent: rgba(255, 255, 255, 0.15);
   --ar-form-valid-color: #3fca90;
   --ar-form-valid-border-color: #3fca90;
@@ -4247,8 +4245,8 @@ fieldset:disabled .btn {
   --ar-card-spacer-x: 2.375rem;
   --ar-card-title-spacer-y: 1rem;
   --ar-card-title-color: var(--ar-gray-900);
-  --ar-card-subtitle-color: ;
-  --ar-card-border-width: var(--ar-border-width);
+  --ar-card-subtitle-color: ; /* Intentionally empty in source */
+  --ar-card-border-width: 0;
   --ar-card-border-color: var(--ar-border-color);
   --ar-card-border-radius: var(--ar-border-radius-xxl);
   --ar-card-box-shadow: ;
@@ -4261,7 +4259,7 @@ fieldset:disabled .btn {
   --ar-card-cap-color: ;
   --ar-card-height: ;
   --ar-card-color: var(--ar-body-color);
-  --ar-card-bg: var(--ar-body-bg);
+  --ar-card-bg: rgb(255, 255, 255);
   --ar-card-img-overlay-padding: 1rem;
   --ar-card-group-margin: 0.75rem;
   position: relative;
@@ -12565,8 +12563,7 @@ fieldset:disabled .btn {
   --ar-blockquote-footer-color: var(--ar-gray-900);
   --ar-blockquote-footer-font-size: 1rem;
   --ar-blockquote-mark-size: 3rem;
-  --ar-blockquote-mark-color: var(--ar-primary);
-  --ar-nav-link-color: var(--ar-gray-800);
+  --ar-blockquote-mark-color: var(--ar-primary); --ar-nav-link-color: var(--ar-gray-800);
   --ar-link-color-rgb: var(--ar-primary-rgb);
   --ar-link-hover-color-rgb: var(--ar-primary-rgb);
 }
@@ -14436,7 +14433,7 @@ hr.dropdown-divider {
 .navbar-toggler-icon::before,
 .navbar-toggler-icon::after {
   display: block;
-  width: 0.9625rem;
+  width: 1.375rem; /* Changed from 0.9625rem to match the middle bar */
   content: "";
 }
 .navbar-toggler-icon::before {
@@ -17229,5 +17226,12 @@ img-comparison-slider:focus {
 .blinking {
   animation: blinking 1s infinite;
 }
+
+[data-bs-theme="dark"] .card {
+  --ar-card-bg: rgb(19, 21, 25);
+}
+
+
+
 
 /*# sourceMappingURL=theme.min.css.map */

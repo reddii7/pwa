@@ -1,255 +1,104 @@
-/* Page loading styles */
-  :root {
-        --ar-body-font-family: 'Roboto', sans-serif; /* Using Roboto for body */
-      }
-      .bg-light .table {
-        font-size: 0.9rem; 
-      }
-
-      /* Improve text color contrast on secondary cards */
-      .card.bg-secondary {
-        color: var(--bs-secondary-text-emphasis) !important;
-      }
-      .card.bg-secondary a {
-        color: inherit !important; /* Ensure links inherit this improved contrast color */
-      }
-
-      /* Remove border and shadow from the rules modal */
-      #best14RulesModal .modal-content {
-        border: none !important;
-        box-shadow: none !important;
-      }
-
-/* Make table background transparent within secondary cards */
-.card.bg-secondary .table {
-  background-color: transparent;
-  font-size: 0.9rem; /* Match modal table font size */
+/* Font and base styles */
+:root {
+  --ar-body-font-family: 'Roboto', sans-serif;
 }
-
-/* Make table container full width by counteracting card-body padding */
-.card.bg-secondary .card-body .table-responsive {
-  margin-left: -1rem; /* Adjust based on Bootstrap's default card-body padding */
-  margin-right: -1rem; /* Adjust based on Bootstrap's default card-body padding */
-  /* The table inside will now extend to the card edges */
+body {
+  font-family: 'Roboto', sans-serif;
 }
-
-/* Ensure table headings in secondary cards also inherit the card's text color */
-.card.bg-secondary .table thead th {
-  color: inherit !important;
-  text-transform: uppercase; /* Make heading text uppercase */
-  background-color: transparent !important; /* Ensure heading background is transparent */
-}
-
-/* Add back horizontal padding to table cells and headers to align content */
-.card.bg-secondary .table th,
-.card.bg-secondary .table td {
-  padding-left: 1rem; /* Should match the negative margin applied above */
-  padding-right: 1rem; /* Should match the negative margin applied above */
-}
-/* Ensure table rows also have transparent background */
-.card.bg-secondary .table tbody tr {
-  background-color: transparent;
-}
-
-/* Target table cells specifically to ensure transparent background */
-.card.bg-secondary .table tbody tr td {
-  background-color: transparent !important; /* Use !important for stronger override */
-}
-
-/* Ensure hover state is also transparent */
-.card.bg-secondary .table tbody tr:hover {
-    background-color: transparent !important;
-}
-
-/* Ensure hover state on cells is also transparent */
-.card.bg-secondary .table tbody tr:hover td {
-  background-color: transparent !important; /* Use !important for stronger override */
-}
-.page-loading {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    -webkit-transition: all .4s .2s ease-in-out;
-    transition: all .4s .2s ease-in-out;
-    background-color: #fff;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 9999;
-  }
-  [data-bs-theme="dark"] .page-loading {
-    background-color: #121519;
-  }
-  .page-loading.active {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    z-index: 1000;
-  }
-
-  .navbar.hidden {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  .page-loading-inner {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    -webkit-transition: opacity .2s ease-in-out;
-    transition: opacity .2s ease-in-out;
-    opacity: 0;
-  }
-  .page-loading.active > .page-loading-inner {
-    opacity: 1;
-  }
-  .page-loading-inner > span {
-    display: block;
-    font-family: "avenir", sans-serif;
-    font-size: 1rem;
-    font-weight: normal;
-    color: #6f788b;
-  }
-  [data-bs-theme="dark"] .page-loading-inner > span {
-    color: #fff;
-    opacity: .6;
-  }
-  .page-spinner {
-    display: inline-block;
-    width: 2.75rem;
-    height: 2.75rem;
-    margin-bottom: .75rem;
-    vertical-align: text-bottom;
-    background-color: #d7dde2; 
-    border-radius: 50%;
-    opacity: 0;
-    -webkit-animation: spinner .75s linear infinite;
-    animation: spinner .75s linear infinite;
-  }
-  [data-bs-theme="dark"] .page-spinner {
-    background-color: rgba(255,255,255,.25);
-  }
-  @-webkit-keyframes spinner {
-    0% {
-      -webkit-transform: scale(0);
-      transform: scale(0);
-    }
-    50% {
-      opacity: 1;
-      -webkit-transform: none;
-      transform: none;
-    }
-  }
-  @keyframes spinner {
-    0% {
-      -webkit-transform: scale(0);
-      transform: scale(0);
-    }
-    50% {
-      opacity: 1;
-      -webkit-transform: none;
-      transform: none;
-    }
-  }
-
-  body {
-  font-family: 'Roboto Mono', monospace;
-}
-
-
-
 main.page-wrapper {
-  padding-top: 5rem; /* Adjust this value based on the navbar's actual height to prevent content overlap */
+  padding-top: 5rem;
 }
 
-/* Make table font smaller */
-.bg-light .table {
+/* Card and table styles */
+.bg-light .table,
+.card.bg-secondary .table {
   font-size: 0.9rem;
 }
-
-/* Pulse animation for league rules icon */
-@keyframes pulse-animation {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-  100% { transform: scale(1); }
+.card.bg-secondary {
+  color: var(--bs-secondary-text-emphasis) !important;
+}
+.card.bg-secondary a {
+  color: inherit !important;
+}
+.card.bg-secondary .table {
+  background-color: transparent;
+}
+.card.bg-secondary .card-body .table-responsive {
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+.card.bg-secondary .table thead th {
+  color: inherit !important;
+  text-transform: uppercase;
+  background-color: transparent !important;
+}
+.card.bg-secondary .table th,
+.card.bg-secondary .table td {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.card.bg-secondary .table tbody tr,
+.card.bg-secondary .table tbody tr td {
+  background-color: transparent !important;
+}
+.card.bg-secondary .table tbody tr:hover,
+.card.bg-secondary .table tbody tr:hover td {
+  background-color: transparent !important;
 }
 
-.league-rules-icon {
-  display: inline-block; /* Ensures transform works as expected */
-  animation: pulse-animation 2s infinite;
-  color: currentColor; /* Inherit color from parent, which will be set by text-dark */
+/* Modal table styles */
+.modal .table {
+  font-size: 0.9rem;
+}
+.modal .table thead th {
+  text-transform: uppercase;
 }
 
-/* Remove border and shadow from the league rules modal */
-#leagueRulesModal .modal-content {
-  border: none !important;
-  box-shadow: none !important;
+/* Weekly summary card winner info */
+.card-winner-info {
+  font-size: 1.2em;
+  color: #fff !important;
 }
 
-
- .card-winner-info {
-  font-size: 1.2em; /* 20% larger font size for winner info on cards */
-  color: #fff !important; /* Make winner text white */
-}
-      
+/* Custom card width for week nine */
 .col-week-nine-custom-width {
-  max-width: 75%; /* Adjust as needed to make the card thinner */
+  max-width: 75%;
   margin-left: auto;
   margin-right: auto;
 }
 .custom-week-underline {
-  font-weight: 400 !important; /* Or 'normal'. Use !important to ensure override if necessary */
-}
-.prize-players-line span:first-child {
-  margin-right: 2em; /* Adjust the space as needed */
+  font-weight: 400 !important;
 }
 
-/* Corrected duplicate rule */
+/* Prize players line spacing */
+.prize-players-line span:first-child,
 .prize-players-line span:first-child:not(:last-child) {
-  margin-right: 2em; /* Adjust the space as needed */
+  margin-right: 2em;
 }
 
-/* css/page.css */
-
-/* ... existing styles ... */
-
+/* Scores button and arrow icon */
 .scores-button-wrapper .text-decoration-none {
-  color: inherit; /* Ensure the text "Full results" inherits card text color */
+  color: inherit;
 }
-
 .arrow-icon-circle {
-  display: inline-flex; /* To center the icon inside */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.25rem; /* Adjust size as needed */
-  height: 2.25rem; /* Adjust size as needed */
-  border: 1px solid currentColor; /* Thin border using the current text color */
-  border-radius: 50%; /* Makes it a circle */
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 0; /* Removed border from arrow-icon-circle */
+  border-radius: 50%;
   transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
-
 .scores-button-wrapper a:hover .arrow-icon-circle {
-  background-color: var(--ar-primary-bg-subtle); /* Optional: subtle background on hover */
-  border-color: var(--ar-primary); /* Optional: change border color on hover */
+  background-color: var(--ar-primary-bg-subtle);
+  border-color: var(--ar-primary);
 }
-
 .arrow-icon-circle .ai-arrow-right {
-  font-size: 1rem; /* Adjust icon size if fs-xl is too large for the circle */
+  font-size: 1rem;
 }
 
-/* Make Bootstrap modals full screen on all devices */
+/* Modals full screen */
 .modal-dialog {
   width: 100vw;
   max-width: 100vw;
@@ -257,23 +106,155 @@ main.page-wrapper {
   margin: 0;
   padding: 0;
 }
-
 .modal-content {
   height: 100vh;
   min-height: 100vh;
   border-radius: 0;
   border: none;
 }
-
 .modal-body {
-  height: calc(100vh - 56px - 56px); /* Adjust for header/footer if needed */
+  height: calc(100vh - 56px - 56px);
   overflow-y: auto;
   padding: 2rem 1rem;
 }
-
 @media (max-width: 576px) {
   .modal-body {
     padding: 1rem 0.5rem;
   }
 }
 
+/* Handicap table horizontal lines only */
+.handicap-table {
+  border-collapse: collapse !important;
+  background-color: transparent !important;
+}
+.handicap-table th,
+.handicap-table td {
+  border-bottom: none !important; /* Removed bottom border from handicap-table cells */
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  background-clip: padding-box;
+}
+.handicap-table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* Dark mode support */
+[data-bs-theme="dark"] .handicap-table th,
+[data-bs-theme="dark"] .handicap-table td {
+  border-bottom: none !important; /* Removed bottom border for dark mode handicap-table cells */
+}
+
+/* Page loading spinner styles */
+.page-loading {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  width: 100%; height: 100%;
+  transition: all .4s .2s ease-in-out;
+  background-color: #fff;
+  opacity: 0; visibility: hidden;
+  z-index: 9999;
+}
+[data-bs-theme="dark"] .page-loading {
+  background-color: #121519;
+}
+.page-loading.active {
+  opacity: 1;
+  visibility: visible;
+}
+.page-loading-inner {
+  position: absolute;
+  top: 50%; left: 0; width: 100%;
+  text-align: center;
+  transform: translateY(-50%);
+  transition: opacity .2s ease-in-out;
+  opacity: 0;
+}
+.page-loading.active > .page-loading-inner {
+  opacity: 1;
+}
+.page-loading-inner > span {
+  display: block;
+  font-family: "avenir", sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  color: #6f788b;
+}
+[data-bs-theme="dark"] .page-loading-inner > span {
+  color: #fff;
+  opacity: .6;
+}
+.page-spinner {
+  display: inline-block;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: .75rem;
+  vertical-align: text-bottom;
+  background-color: #d7dde2;
+  border-radius: 50%;
+  opacity: 0;
+  animation: spinner .75s linear infinite;
+}
+[data-bs-theme="dark"] .page-spinner {
+  background-color: rgba(255,255,255,.25);
+}
+@keyframes spinner {
+  0% { transform: scale(0); }
+  50% { opacity: 1; transform: none; }
+}
+
+/* Navbar fixed and hide on scroll */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 1000;
+}
+.navbar.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* League rules icon pulse animation */
+@keyframes pulse-animation {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+.league-rules-icon {
+  display: inline-block;
+  animation: pulse-animation 2s infinite;
+  color: currentColor;
+}
+
+/* Remove border and shadow from modals */
+#best14RulesModal .modal-content,
+#leagueRulesModal .modal-content {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+/* Sticky card effect for weekly summary cards */
+.weekly-summary-cards .col {
+  position: sticky;
+  top: 1rem; /* Matches main.page-wrapper padding-top, assuming navbar height is 5rem */
+  z-index: 1;
+}
+
+/* Always give cards a background */
+.weekly-summary-cards .card {
+  background: var(--bs-secondary-bg, #222) !important;
+  color: var(--bs-body-color, #fff) !important;
+}
+
+[data-bs-theme="dark"] .weekly-summary-cards .card {
+  background: #1A1C20 !important;
+  color: #fff !important;
+}
+[data-bs-theme="light"] .weekly-summary-cards .card {
+  background: #f8f9fa !important;
+  color: #222 !important;
+}
