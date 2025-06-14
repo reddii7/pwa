@@ -1,67 +1,75 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>WAGS - We've Moved!</title>
-  <meta http-equiv="refresh" content="10;url=https://suttonwags.com/">
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" type="image/png" href="app-icons/icon-32x32.png" sizes="32x32">
-  <link rel="apple-touch-icon" href="app-icons/icon-180x180.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="icons/around-icons.min.css">
-  <link rel="stylesheet" media="screen" href="css/theme.min.css">
-  <link rel="stylesheet" media="screen" href="css/page.css">
-  <script>
-    window.onload = function () {
-      const preloader = document.querySelector('.page-loading');
-      if (preloader) {
-        preloader.classList.remove('active');
-        setTimeout(() => preloader.remove(), 1500);
-      }
-    };
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>We've Moved</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    .moved-message-container {
+    body {
+      margin: 0;
+      background: #f8f8f8;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #333;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .container {
       text-align: center;
-      padding-top: 5rem;
-      padding-bottom: 5rem;
+      padding: 2rem;
     }
-    .moved-message-container h1 {
-      margin-bottom: 1.5rem;
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
     }
-    .moved-message-container p {
-      font-size: 1.25rem;
+
+    p {
+      font-size: 1.1rem;
       margin-bottom: 2rem;
+      color: #666;
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    a.button:hover {
+      background: #555;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.7rem;
+      }
+      p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
-
 <body>
-  <!-- Page loading spinner -->
-  <div class="page-loading active">
-    <div class="page-loading-inner">
-      <div class="page-spinner"></div>
-      <span>Loading...</span>
-    </div>
+  <div class="container">
+    <h1>We've Moved</h1>
+    <p>Our new home is now <strong>suttonwags.com</strong>.<br>Please update your bookmarks.</p>
+    <a href="https://suttonwags.com" class="button">Visit New Site</a>
   </div>
-
-  <main class="page-wrapper">
-    <section class="container d-flex justify-content-center align-items-center min-vh-100">
-      <div class="moved-message-container">
-        <h1 class="display-4 fw-bolder">We've Moved!</h1>
-        <p>This WAGS site has moved to a new address.</p>
-        <p>Please remove any old bookmarks and add <a href="https://suttonwags.com/" class="fw-bold">suttonwags.com</a> to your home screen for easy access.</p>
-        <p>Please visit us at <a href="https://suttonwags.com/" class="fw-bold">suttonwags.com</a>.</p>
-        <a href="https://suttonwags.com/" class="btn btn-primary btn-lg rounded-pill py-3 px-5">Go to New Site</a>
-        <p class="mt-4 text-muted"><small>You will be redirected automatically in 10 seconds.</small></p>
-      </div>
-    </section>
-  </main>
-
-  <script src="js/theme.min.js"></script>
 </body>
 </html>
