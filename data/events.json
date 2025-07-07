@@ -1,0 +1,17 @@
+[
+  {
+    "eventId": "evt_1751914872789",
+    "date": "2025-07-09",
+    "courseName": "test 2",
+    "isFinalized": true,
+    "scores": [
+      {
+        "playerId": "p_1751914420729",
+        "stablefordScore": 12,
+        "snakes": 1,
+        "camels": 1
+      }
+    ],
+    "rolloverAmount": 0
+  }
+]

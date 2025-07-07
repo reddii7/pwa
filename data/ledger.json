@@ -1,0 +1,38 @@
+[
+  {
+    "id": "txn_1751914893354_p_1751914420729_entry",
+    "date": "2025-07-07",
+    "eventId": "evt_1751914872789",
+    "playerId": "p_1751914420729",
+    "type": "entry_fee",
+    "amount": -5,
+    "description": "Entry for test 2"
+  },
+  {
+    "id": "txn_1751914893354_p_1751914420729_snake",
+    "date": "2025-07-07",
+    "eventId": "evt_1751914872789",
+    "playerId": "p_1751914420729",
+    "type": "fine",
+    "amount": -1,
+    "description": "1 snake(s)"
+  },
+  {
+    "id": "txn_1751914893354_p_1751914420729_camel",
+    "date": "2025-07-07",
+    "eventId": "evt_1751914872789",
+    "playerId": "p_1751914420729",
+    "type": "fine",
+    "amount": -1,
+    "description": "1 camel(s)"
+  },
+  {
+    "id": "txn_1751914893354_p_1751914420729_payout",
+    "date": "2025-07-07",
+    "eventId": "evt_1751914872789",
+    "playerId": "p_1751914420729",
+    "type": "payout",
+    "amount": 1.5,
+    "description": "Prize money for test 2"
+  }
+]

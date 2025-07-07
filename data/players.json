@@ -11,6 +11,12 @@
         "handicap": 18,
         "eventId": null,
         "reason": "Initial Handicap"
+      },
+      {
+        "date": "2025-07-07",
+        "handicap": 18.1,
+        "eventId": "evt_1751914872789",
+        "reason": "Adjustment after scoring 12 pts"
       }
     ]
   }
