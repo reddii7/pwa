@@ -1,0 +1,1029 @@
+    /* === THEME COLOR VARIABLES === */
+    :root {
+      --page-bg: #1a1a26; /* Was #000016, now matches --card-bg / --content-area-bg */
+      --card-bg: #1a1a26;
+      --content-area-bg: #1a1a26;
+      --text-primary: #FFFFFF;
+      --text-secondary: #9797a5;
+      --border-color: #333340;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+
+      --button-grey-bg: #3d434b; /* rgb(61, 67, 75) */
+      --button-grey-text: #FFFFFF;
+      --button-grey-hover-bg: #4d535b; /* Lighter shade for hover */
+      --button-latest-bg: #95c4eb;
+      --button-latest-text: #212529; /* Dark text for contrast on light blue */
+      --button-latest-hover-bg: #85b3d8; /* Slightly darker blue for hover */
+      --button-outline-border: #71e3e1; /* rgb(113, 227, 225) */
+      --button-outline-text: #212529; /* Black text */
+      --button-outline-hover-bg: #61c3c1; /* Darker shade for hover */
+      --button-outline-hover-text: #212529; /* Black text */
+
+      --icon-fill: #9797a5;
+      --nav-overlay-bg: #1a1a26;
+      --nav-link-border: rgba(255, 255, 255, 0.15);
+      --nav-link-hover-color: #cccccc;
+      --burger-icon-color: #FFFFFF;
+      --burger-icon-hover-color: #cccccc;
+      --fixed-button-border: #FFFFFF;
+      --fixed-button-bg: rgba(255, 255, 255, 0.05);
+      --fixed-button-hover-bg: rgba(255, 255, 255, 0.2);
+      --fixed-button-hover-border: #cccccc;
+      --table-header-bg: #1a1a26;
+    }
+
+    /* === GLOBAL & DEFAULT STYLES === */
+    body {
+      background: var(--page-bg);
+      font-family: 'Manrope', sans-serif;
+      color: var(--text-primary); /* Default text color for most pages */
+      margin: 0;
+      /* padding-bottom: 80px; Removed as bottom nav is gone */
+      padding: 70px 5px 20px 5px; /* Increased top padding for fixed controls clearance */
+    }
+
+    /* === LAYOUT CONTAINERS === */
+    .content-area { /* Generic container for main content sections */
+      max-width: 1200px;
+      margin: 0 auto 20px auto; /* Removed top margin, kept horizontal auto and bottom margin */
+      background: var(--content-area-bg);
+      padding: 1px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px var(--shadow-color);
+    }
+
+    /* === PAGE-SPECIFIC BODY STYLES === */
+    body.index-page {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Vertically center the content */
+      align-items: center;     /* Horizontally center the content blocks */
+      min-height: 100vh; /* Use min-height instead of height */
+      padding: 0 5px; /* Remove top/bottom padding, keep side padding for content */
+      box-sizing: border-box; /* Ensure padding doesn't add to min-height */
+      /* font-family and background-color are inherited from default body */
+    }
+    /* Styles for fading out content on index page when nav is open */
+    body.index-page .title-container,
+    body.index-page .home-theme-toggle-container,
+    body.index-page .button-container { /* Added .button-container in case it's used */
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transition: opacity 0s linear 0s, visibility 0s linear 0s; /* Snappy */
+    }
+    body.index-page.nav-open .title-container,
+    body.index-page.nav-open .home-theme-toggle-container,
+    body.index-page.nav-open .button-container {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0s linear 0s, visibility 0s linear 0s; /* Snappy */
+    }
+    body.scores-page {
+      display: flex;
+      flex-direction: column; /* Stack .page-header-card and #cards-container */
+      align-items: center;   /* Center these children horizontally */
+      /* justify-content: center; /* Removed as align-items handles horizontal centering */
+      min-height: 100vh;
+      /* flex-wrap: wrap; /* Removed as direct children stack, not wrap */
+      gap: 15px;
+      padding: 70px 15px 15px 15px; /* Increased top padding to 70px for fixed controls clearance */
+      /* font-family and background-color are inherited */
+      background: #000016; /* Explicitly set scores page background for dark theme (original --page-bg) */
+    }
+    body.results-page {
+      /* Inherits default side padding from body, top padding is already 70px */
+      padding-top: 70px; /* Added padding to prevent content overlap by top-right-controls */
+      /* font-family and background-color are inherited */
+    }
+
+    #cards-container { /* Container for the dynamically loaded golf cards */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      width: 100%;
+      max-width: 800px; /* Ensures card grid is centered and has a max width */
+    }
+
+    .golf-card {
+      background: var(--card-bg);
+      border-radius: 16px; /* Increased for rounder corners */
+      box-shadow: 0 10px 30px var(--shadow-color);
+      padding: 24px;
+      width: 100%;
+      height: 250px;
+      display: grid;
+      grid-template-columns: 1fr; /* Only one column now */
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+
+    .golf-card .left {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .week-date {
+      display: flex;
+      align-items: baseline;
+      font-size: 0.85rem; /* Reverted font size */
+      color: var(--text-secondary);
+      text-transform: uppercase; /* Keep uppercase */
+      gap: 0.5em; /* Space between date, separator, and prize details */
+      flex-wrap: wrap; /* Allow wrapping if space is tight, though unlikely for this line */
+    }
+
+    .name-score-line {
+      display: flex;
+      flex-direction: column; /* Stack name and score vertically */
+      align-items: flex-start; /* Align items to the start (left) */
+      gap: 0px; /* Adjust or remove if not needed for vertical stacking */
+      padding-top: 30px; 
+    }
+    
+    .winner-name,
+    .score,
+    .score-unit {
+      font-family: 'Bebas Neue', sans-serif;
+      font-weight: 400;
+      color: var(--text-primary);
+    }
+
+    .winner-name {
+      font-size: 3rem;
+      letter-spacing: -1.0px; /* Adjust this value as needed */
+      text-transform: uppercase; /* Keep uppercase */
+    }
+
+    .score {
+      font-size: 2rem;
+      letter-spacing: -0.2px; /* Adjust this value as needed */
+      text-transform: uppercase; /* Keep uppercase */
+    }
+
+    .score-unit {
+      font-size: 2rem;
+      letter-spacing: -1.0px; /* Adjust this value as needed */
+    }
+
+    .handicap-changes {
+      font-size: 0.80rem; /* Slightly smaller for more text */
+      color: var(--text-secondary);
+      text-transform: uppercase; /* Optional, if you want this part uppercase */
+      line-height: 1.4;
+      max-width: 85%; /* Restrict width */
+      letter-spacing: 1px; /* Add some spacing between characters */
+      /* margin-top: auto; Removed, will be controlled by card-footer now */
+    }
+
+    /* Style for player names within the .handicap-changes block */
+    .handicap-changes .player-name {
+      color: var(--text-primary); /* Make names primary text color */
+    }
+
+    /* Style for the handicap change amount (number) */
+    div.handicap-changes span.change-amount { /* Made selector more specific */
+      color: var(--text-primary); /* Make numbers primary text color */
+    }
+
+    /* Styles for prize money when inline with date */
+    .prize-details-inline {
+      display: flex;
+      align-items: baseline;
+      font-size: 0.85rem; /* Reverted font size to match week-date */
+      gap: 0.3em; /* Space between label and amount */
+      /* Inherits font-size, text-transform from .week-date */
+    }
+
+    .prize-label-inline {
+      /* Inherits font-size, text-transform from .week-date */
+      color: var(--text-secondary);
+    }
+    .prize-amount-inline {
+      /* Inherits font-size, text-transform from .week-date */
+      color: var(--text-primary);
+    }
+
+    .arrow-icon {
+      width: 20px; /* Adjust size as needed */
+      height: 20px; /* Adjust size as needed */
+      fill: var(--icon-fill);
+    }
+    
+    .card-footer {
+      margin-top: auto; /* Pushes this footer (and subsequent handicap-changes) to the bottom */
+      display: flex;
+      justify-content: space-between; /* Positions prize money left, arrow right */
+      align-items: flex-end; /* Aligns items to their bottom edge */
+    }
+
+    /* === BUTTONS (from index.html originally) === */
+    .styled-button {
+      display: inline-block;
+      font-family: 'Manrope', sans-serif;
+      text-decoration: none !important; /* Crucial for removing underline */
+      padding: 15px 25px; /* Current padding */
+      border-radius: 34px; /* Match toggle switch track for pill shape */
+      font-weight: 700;
+      text-align: center;
+      font-size: 1rem;
+      border: 1px solid transparent; /* Base for border styling */
+      -webkit-tap-highlight-color: transparent; /* Removes tap highlight on iOS/some Android */
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    .styled-button:hover, .styled-button:focus {
+        text-decoration: none !important; /* Ensure no underline on interaction */
+    }
+    .button-grey {
+      background-color: var(--button-grey-bg);
+      color: var(--button-grey-text) !important;
+      border-color: var(--button-grey-bg);
+    }
+    .button-grey:hover, .button-grey:focus {
+      background-color: var(--button-grey-hover-bg);
+      border-color: var(--button-grey-hover-bg);
+      transform: translateY(-2px); /* Subtle lift */
+      box-shadow: 0 4px 8px var(--shadow-color); /* Adjusted shadow */
+    }
+    .button-latest {
+      background-color: var(--button-latest-bg);
+      color: var(--button-latest-text) !important;
+      border-color: var(--button-latest-bg);
+    }
+    .button-latest:hover, .button-latest:focus {
+      background-color: var(--button-latest-hover-bg);
+      color: var(--button-latest-text) !important;
+      border-color: var(--button-latest-hover-bg);
+      transform: translateY(-2px); /* Subtle lift */
+      box-shadow: 0 4px 8px var(--shadow-color);
+    }
+    .button-outline {
+      background-color: transparent;
+      color: var(--text-primary) !important; /* Text color from theme for contrast */
+      border: 1px solid var(--text-primary); /* Border color adapts to theme's primary text color */
+    }
+    .button-outline:hover, .button-outline:focus {
+      background-color: var(--button-outline-hover-bg); /* Fill with hover color */
+      color: var(--button-outline-text) !important; /* Use original text color for contrast on hover */
+      border-color: var(--button-outline-hover-bg);
+      transform: translateY(-2px); /* Subtle lift */
+      box-shadow: 0 4px 8px var(--shadow-color);
+    }
+
+    /* === INDEX PAGE SPECIFIC STYLES (Elements within index-page body) === */
+    .title-container {
+      text-align: center;
+      color: var(--text-primary); /* Use theme variable */
+    }
+
+    .title-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18vw; /* Reduced from 24vw */
+      margin: 0;
+      letter-spacing: -0.04em;
+    }
+    .title-wags {
+      line-height: 0.7;
+      text-align: left;
+      
+    }
+    .title-mobile {
+      line-height: 0.9;
+      text-align: left;
+    }
+    .button-container {
+      margin-top: 20px; display: flex; flex-direction: row; gap: 15px; width: auto;
+    }
+    
+    /* Theme Toggle on Home Page */
+    .home-theme-toggle-container {
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Center the label and switch within its container */
+      /* Positioning for bottom middle */
+      position: fixed;
+      bottom: 30px; /* Match other fixed buttons */
+      left: 50%;
+      transform: translateX(-50%); /* Center horizontally */
+      z-index: 1000; /* Ensure it's above other content */
+      padding: 0; /* Remove previous padding */
+    }
+
+    .theme-icon-wrapper {
+      display: inline-flex; /* Use flex to manage icons if needed, or just inline-block */
+      align-items: center;
+      justify-content: center;
+      width: 20px; /* Reduced size */
+      height: 20px; /* Reduced size */
+      margin-right: 10px; /* Space between icon and switch */
+      color: var(--text-primary); /* Icon color */
+    }
+    .theme-icon {
+      width: 100%;
+      height: 100%;
+    }
+    .icon-sun {
+      display: none; /* Hidden by default (when dark theme is active) */
+    }
+    body.light-theme .icon-sun {
+      display: inline-block; /* Show sun in light theme */
+    }
+    body.light-theme .icon-moon {
+      display: none; /* Hide moon in light theme */
+    }
+
+    /* Scoped label style for home page - This was for the text label, now removed */
+    /* .home-theme-toggle-container .theme-toggle-label { 
+      font-size: 1rem; 
+      color: var(--text-primary);
+      font-weight: 500; 
+      text-transform: none; 
+      margin-right: 15px; 
+    } */
+
+    /* === TYPOGRAPHY === */
+    .main-heading { /* For H1 titles */
+      color: var(--text-primary);
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.3rem; /* Made smaller */
+      text-transform: uppercase; /* All capital letters */
+    }
+    .sub-heading { /* For H2 titles like in Leagues */
+      color: var(--text-primary);
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1rem; /* Made smaller */
+      text-transform: lowercase; /* All lowercase */
+    }
+
+    /* === MESSAGES === */
+    .feedback-message { /* For loading/error messages */
+      text-align: center;
+      font-size: 1.2rem;
+      padding: 20px;
+      margin-top: 20px; /* Default margin */
+      color: var(--text-primary); /* Default color */
+    }
+
+    /* === GENERIC TABLE STYLES === */
+    .data-display-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px; /* Default margin */
+    }
+
+    .data-display-table th,
+    .data-display-table td {
+      padding: 10px; /* Default padding */
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      border-left: none;
+      border-right: none;
+      text-align: center; /* Default to center for all cells (works for Pos column) */
+    }
+
+    .data-display-table th {
+      background-color: var(--table-header-bg);
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+    /* REMOVED: Right-align the first column of ALL tables */
+    /* This caused issues with the 'Pos' column in 3-column tables */
+    /*
+    .data-display-table th:first-child,
+    .data-display-table td:first-child {
+      text-align: right;
+    }
+    */
+    /* Left-align the first column specifically in 2-column tables (Handicaps) */
+    .data-display-table th:first-child:nth-last-child(2),
+    .data-display-table td:first-child:nth-last-child(2) {
+      text-align: left;
+    }
+
+    /* For 3-column tables (e.g., Results: Pos | Name | Points), Name is the 2nd column */
+    .data-display-table:not(.cup-table) th:nth-child(1):nth-last-child(n+3) ~ th:nth-child(2),
+    .data-display-table:not(.cup-table) td:nth-child(1):nth-last-child(n+3) ~ td:nth-child(2) {
+      text-align: left;
+    }
+
+    /* Right-align the last column of ALL tables (Handicap, Best 14, Score, Points) */
+    .data-display-table th:last-child,
+    .data-display-table td:last-child {
+      text-align: right;
+    }
+    
+    /* Center-align the third column of ALL tables */
+    .data-display-table th:nth-child(3),
+    .data-display-table td:nth-child(3) {
+      text-align: center;
+    }
+
+    body.light-theme .data-display-table th {
+      background-color: var(--card-bg); /* Match card/content background in light mode */
+      /* Text color remains var(--text-primary) which is dark in light mode */
+    }
+
+    /* === HANDICAPS, BEST14, LEAGUES PAGES === */
+    /* These pages use default body, .content-area, .main-heading, .sub-heading, .data-display-table, .feedback-message */
+    /* Specific overrides below if needed */
+
+    /* Center-align the last column (Handicap) specifically for Handicaps page tables */
+    body.handicaps-page .data-display-table th:last-child,
+    body.handicaps-page .data-display-table td:last-child {
+      text-align: center;
+    }
+
+    /* Center-align the last column (Best 14) specifically for Best 14 page tables */
+    body.best14-page .data-display-table th:last-child,
+    body.best14-page .data-display-table td:last-child {
+      text-align: center;
+    }
+
+    /* Center-align the last column (Score) specifically for Leagues page tables */
+    body.leagues-page .data-display-table th:last-child,
+    body.leagues-page .data-display-table td:last-child {
+      text-align: center;
+    }
+
+
+    /* === RESULTS PAGE SPECIFIC STYLES === */
+    /* .content-area is used for .results-container */
+    /* body.results-page .content-area specific width style removed */
+
+    /* .main-heading is used for #results-title */
+    /* .results-table specific styles were here, now removed to use .data-display-table defaults. */
+    /* The class .results-pos for td styling is also removed for full consistency. */
+
+    .results-feedback { /* Specific class for results page messages, extends .feedback-message */
+        color: var(--text-secondary); /* Use secondary text color */
+        margin-top: 30px;
+    }
+    
+    /* Center-align the last column (Points) specifically for Results page tables */
+    body.results-page .data-display-table th:last-child,
+    body.results-page .data-display-table td:last-child {
+      text-align: center;
+    }
+
+    /* === CUP PAGE SPECIFIC STYLES === */
+    .cup-table {
+      margin-bottom: 30px; /* Space between the two tables */
+      table-layout: fixed; /* Force columns into a fixed layout */
+      width: 100%; /* Ensure table uses the full width of its container */
+    }
+    .cup-table td {
+      text-transform: uppercase;
+      font-size: 1rem; /* Existing font size */
+      padding: 15px 10px;
+    }
+    /* Override generic table alignment for cup page */
+    .cup-table td:first-child {
+      text-align: right;
+    }
+    .cup-table td:last-child {
+      text-align: left;
+    }
+    .cup-table td:nth-child(2) {
+      text-align: center;
+      width: 60px; /* Give middle column a small, fixed width */
+    }
+    .cup-table .cup-match-text {
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      text-transform: lowercase;
+    }
+    .cup-table .winner {
+      font-weight: 700; /* Bold for winner */
+    }
+
+    /* === FIXED CIRCULAR BACK BUTTON === */
+    .fixed-circle-back-button {
+      /* position: fixed; Removed */
+      /* bottom: 30px; Removed */
+      /* left: 50%; Removed */
+      /* z-index: 1000; Removed */
+      width: 60px;   /* Match menu pill button */
+      height: 40px;  /* Match menu pill button */
+      border-radius: 20px; /* Match menu pill button */
+      border: none; /* Explicitly remove border */ /* Kept from previous change */
+      background-color: var(--fixed-button-bg); /* Match menu pill button */
+      /* opacity: 1; Default */
+      /* visibility: visible; Default */
+      /* transform: translateX(-50%); Removed */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      /* Removed animation properties to match menu pill button */
+      /* animation-duration: 2.5s; */
+      /* animation-timing-function: ease-in-out; */
+      /* animation-iteration-count: infinite; */
+      -webkit-tap-highlight-color: transparent;
+      transition: background-color 0.2s ease-in-out,
+                  /* border-color 0.2s ease-in-out, */ /* Removed as border is none */
+                  opacity 0.3s ease-in-out,
+                  visibility 0s linear 0s, /* For showing: visibility changes immediately */
+                  transform 0.3s ease-in-out;
+    }
+    .fixed-circle-back-button svg {
+      width: 20px; /* Arrow size - Increased to match burger icon width */
+      height: 20px; /* Increased for proportion */
+      fill: var(--fixed-button-border); /* Match border color */
+    }
+    .fixed-circle-back-button:hover {
+      background-color: var(--fixed-button-hover-bg);
+      /* border-color: var(--fixed-button-hover-border); */ /* Border color removed as border is removed */
+    }
+
+
+
+
+    /* === FIXED MENU PILL BUTTON === */
+    .fixed-menu-pill-button {
+      /* position: fixed; Removed */
+      /* bottom: 30px; Removed */
+      /* left: 50%; Removed */
+      /* z-index: 1000; Removed */
+      width: 60px;  /* Adjusted for pill shape */
+      height: 40px; /* Adjusted for pill shape */
+      border-radius: 20px; /* Half of height for pill shape */
+      border: none; /* Explicitly remove border */ /* Kept from previous change */
+      background-color: var(--fixed-button-bg);
+      /* opacity: 1; Default */
+      /* visibility: visible; Default */
+      /* transform: translateX(-50%); Removed */
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      display: flex; /* For centering burger icon */
+      align-items: center; /* For centering burger icon */
+      justify-content: center; /* For centering burger icon */
+      transition: background-color 0.2s ease-in-out,
+                  /* border-color 0.2s ease-in-out, */ /* Removed as border is none */
+                  opacity 0.3s ease-in-out,
+                  visibility 0s linear 0s, /* For showing: visibility changes immediately */
+                  transform 0.3s ease-in-out;
+      /* Text-related properties like font-family, font-weight, font-size, color, text-decoration removed */
+    }
+    .fixed-menu-pill-button:hover {
+      background-color: var(--fixed-button-hover-bg);
+      /* border-color: var(--fixed-button-hover-border); */ /* Border color removed as border is removed */
+    }
+
+    /* Burger Icon (assumes 3 spans inside .fixed-menu-pill-button)
+       Example HTML:
+       <button class="fixed-menu-pill-button" aria-label="Open menu">
+         <div class="burger-icon">
+           <span></span>
+           <span></span>
+           <span></span>
+         </div>
+       </button>
+    */
+    .burger-icon span {
+      display: block;
+      width: 20px; /* Width of burger lines */
+      height: 2px;  /* Thickness of burger lines */
+      background-color: var(--burger-icon-color);
+      margin: 3px 0; /* Spacing between lines, adjusted for 3 lines */
+      transition: background-color 0.2s ease-in-out;
+    }
+    .fixed-menu-pill-button:hover .burger-icon span {
+      background-color: var(--burger-icon-hover-color);
+    }
+
+    /* Helper class to hide elements (e.g., on scroll, though not used by bottom pills anymore) */
+    .is-hidden-on-scroll {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transform: translateY(20px) !important; /* Generic move down */
+      will-change: transform, opacity; /* Hint for animation optimization */
+      transition: opacity 0.3s ease-in-out,
+                  visibility 0s linear 0.3s, /* For hiding: delay visibility change */ transform 0.3s ease-in-out !important; } /* === FULL PAGE NAVIGATION OVERLAY === */
+    .full-page-nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%; /* Keep full width */
+      height: 100%; /* Make it full page height */
+      background-color: var(--nav-overlay-bg); /* Use theme variable */
+      z-index: 2000; /* Higher than menu button and other content */
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center .nav-links horizontally */
+      justify-content: center; /* Center .nav-links vertically */
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1); /* No scale animation */
+      transform-origin: center center; /* Ensure scaling is from the center */
+      transition: opacity 0s linear 0s, visibility 0s linear 0s, transform 0s linear 0s; /* Snappy */
+      padding: 20px; /* Add some padding */
+      box-sizing: border-box; /* Include padding in element's total size */
+    }
+    .full-page-nav-overlay.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1); /* Ensure it's at full size */
+      transition: opacity 0s linear 0s, visibility 0s linear 0s, transform 0s linear 0s; /* Snappy */
+    }
+    .full-page-nav-overlay .nav-links {
+      list-style: none;
+      padding: 0; /* Remove specific left padding here */
+      margin: 40px 0 0 0; /* Add top margin to push links below close button */
+      text-align: center; /* Center text within li elements */
+      width: 100%; /* Make UL take full width of the overlay */
+    }
+    .full-page-nav-overlay .nav-links li {
+      /* border-bottom: 1px solid var(--nav-link-border); Removed line */
+      /* padding-left: 10px; Removed for centering */
+      padding-bottom: 15px; /* Space for the animated line */
+      margin-bottom: 15px; /* Space between items */
+      opacity: 0; /* Start hidden */
+      transform: translateX(0); /* No fly-in animation */
+      /* Define how each item animates its properties */
+      transform-origin: center center; /* Keep origin centered for consistency, though less critical for translateX */
+      transition: opacity 0s linear 0s, transform 0s linear 0s; /* Snappy */
+      /* Default transition-delay (for closing) will be set by nth-child rules below */
+      position: relative; /* For the ::after pseudo-element line */
+    }
+    .full-page-nav-overlay .nav-links li::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0; /* Initial width for animation */
+      height: 1px;
+      background-color: var(--nav-link-border); /* Use theme variable for line color */
+      transition: width 0s linear 0s; /* Snappy */
+      /* Default transition-delay (for closing) will be set by nth-child rules below */
+    }
+    .full-page-nav-overlay .nav-links li:last-child {
+      margin-bottom: 0; /* Still good to remove bottom margin from the actual last link */
+      padding-bottom: 0; /* No line needed for the very last item */
+    }
+    .full-page-nav-overlay .nav-links li:last-child::after {
+      display: none; /* No line for the last item */
+    }
+    .full-page-nav-overlay .nav-links a {
+      font-size: 2rem; /* Increased font size */
+      color: var(--text-primary); /* Use theme variable for text color */
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: lowercase; /* Make all letters lowercase */
+      padding: 8px 15px; /* Adjusted padding for larger font */
+      transition: color 0.2s ease-in-out;
+    }
+    .full-page-nav-overlay .nav-links a:hover {
+      color: var(--nav-link-hover-color); /* Use theme variable for hover color */
+    }
+
+    /* When the navigation overlay is active, animate list items into view */
+    .full-page-nav-overlay.active .nav-links li {
+      opacity: 1; /* Fade in */
+      transform: translateX(0); /* Ensure it's at its natural position */
+    }
+    .full-page-nav-overlay.active .nav-links li::after {
+      width: 70%; /* Line appears instantly */
+    }
+
+    /* --- Staggered Transition Delays --- */
+
+    /* CLOSING Delays: Applied by default. Last item to open is first to close. */
+    /* Item 5 (last to open) */
+    .full-page-nav-overlay .nav-links li:nth-child(5) { transition-delay: 0s !important; } /* Remove delay */
+    .full-page-nav-overlay .nav-links li:nth-child(5)::after { transition-delay: 0s !important; }
+    /* Item 4 */
+    .full-page-nav-overlay .nav-links li:nth-child(4) { transition-delay: 0s !important; }
+    .full-page-nav-overlay .nav-links li:nth-child(4)::after { transition-delay: 0s !important; }
+    /* Item 3 */
+    .full-page-nav-overlay .nav-links li:nth-child(3) { transition-delay: 0s !important; }
+    .full-page-nav-overlay .nav-links li:nth-child(3)::after { transition-delay: 0s !important; }
+    /* Item 2 */
+    .full-page-nav-overlay .nav-links li:nth-child(2) { transition-delay: 0s !important; }
+    .full-page-nav-overlay .nav-links li:nth-child(2)::after { transition-delay: 0s !important; }
+    /* Item 1 (first to open) */
+    .full-page-nav-overlay .nav-links li:nth-child(1) { transition-delay: 0s !important; }
+    .full-page-nav-overlay .nav-links li:nth-child(1)::after { transition-delay: 0s !important; }
+
+    /* OPENING Delays: Override base delays when .active class is present. */
+    /* Item 1 (first to open) */
+    .full-page-nav-overlay.active .nav-links li:nth-child(1) { transition-delay: 0s !important; } /* Remove delay */
+    .full-page-nav-overlay.active .nav-links li:nth-child(1)::after { transition-delay: 0s !important; }
+    /* Item 2 */
+    .full-page-nav-overlay.active .nav-links li:nth-child(2) { transition-delay: 0s !important; }
+    .full-page-nav-overlay.active .nav-links li:nth-child(2)::after { transition-delay: 0s !important; }
+    /* Item 3 */
+    .full-page-nav-overlay.active .nav-links li:nth-child(3) { transition-delay: 0s !important; }
+    .full-page-nav-overlay.active .nav-links li:nth-child(3)::after { transition-delay: 0s !important; }
+    /* Item 4 */
+    .full-page-nav-overlay.active .nav-links li:nth-child(4) { transition-delay: 0s !important; }
+    .full-page-nav-overlay.active .nav-links li:nth-child(4)::after { transition-delay: 0s !important; }
+    /* Item 5 (last to open) */
+    .full-page-nav-overlay.active .nav-links li:nth-child(5) { transition-delay: 0s !important; }
+    .full-page-nav-overlay.active .nav-links li:nth-child(5)::after { transition-delay: 0s !important; }
+    
+    /* If there are more than 5 links, add more nth-child rules here */
+    /* The theme toggle is no longer the last child here, so its specific animation delay is removed. */
+    .full-page-nav-overlay.active .nav-links li:last-child {
+      /* This will now apply to the actual last navigation link if it's different from the 5th */
+    }
+
+    /* Styles for the theme toggle wrapper within the nav pop-out */
+    .nav-theme-toggle-wrapper {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 10px; /* Match link padding */
+    }
+
+    /* Styles for .theme-toggle-container when it was in nav are removed */
+    .full-page-nav-overlay .close-nav-button {
+      position: absolute;
+      top: 25px;    /* Aligned with general top position of hamburger menu */
+      right: 20px;  /* Aligned with right position of hamburger menu */
+      transform: none; /* Remove previous transform */
+      background: none;
+      border: none;
+      color: var(--text-primary); /* Use theme variable for close button color */
+      font-size: 2.5rem;
+      font-weight: 300;
+      cursor: pointer;
+      padding: 5px;
+      line-height: 1;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .full-page-nav-overlay .close-nav-button:hover {
+      color: var(--nav-link-hover-color); /* Use theme variable for hover color */
+    }
+
+    /* === THEME TOGGLE SWITCH GENERIC STYLES === */
+    /* .theme-toggle-label is now scoped to .home-theme-toggle-container for home page specific styling */
+    /* The following .theme-toggle-switch, input, .slider styles are generic and remain */
+
+
+    .theme-toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px; /* Reduced width of the switch */
+      height: 28px; /* Reduced height of the switch */
+      flex-shrink: 0; /* Prevent shrinking if label is long */
+    }
+
+    .theme-toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--button-grey-bg); /* Default off state color */
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px; /* Reduced knob height */
+      width: 20px; /* Reduced knob width */
+      left: 4px; /* Keep left position */
+      bottom: 4px; /* Keep bottom position */
+      background-color: white;
+      transition: .4s;
+    }
+
+    /* === LIGHT THEME OVERRIDES === */
+    body.light-theme {
+      --page-bg: #FFFFFF; /* Was #F4F6F8, now matches --card-bg / --content-area-bg */
+      --card-bg: #FFFFFF;
+      --content-area-bg: #FFFFFF;
+      --text-primary: #212529;
+      --text-secondary: #6c757d;
+      --border-color: #dee2e6;
+      --shadow-color: rgba(0, 0, 0, 0.075);
+
+      --button-grey-bg: #3d434b; /* rgb(61, 67, 75) */
+      --button-grey-text: #FFFFFF;
+      --button-grey-hover-bg: #4d535b; /* Lighter shade for hover */
+      --button-outline-border: #71e3e1; /* rgb(113, 227, 225) */
+      --button-outline-text: #212529; /* Black text */
+      --button-outline-hover-bg: #61c3c1; /* Darker shade for hover */
+      --button-outline-hover-text: #212529; /* Black text */
+
+      --icon-fill: #6c757d;
+      --nav-overlay-bg: #FFFFFF;
+      --nav-link-border: rgba(0, 0, 0, 0.1);
+      --nav-link-hover-color: #007bff; /* Example blue for light theme link hover */
+      --burger-icon-color: #212529;
+      --burger-icon-hover-color: #007bff;
+      --fixed-button-border: #212529;
+      --fixed-button-bg: rgba(0, 0, 0, 0.03);
+      --fixed-button-hover-bg: rgba(0, 0, 0, 0.08);
+      --fixed-button-hover-border: #007bff;
+      --table-header-bg: #e9ecef;
+    }
+
+    /* Scores page specific background for light theme */
+    body.light-theme.scores-page {
+      background: #F4F6F8; /* Explicitly set scores page background for light theme (original light --page-bg) */
+    }
+
+    /* Styles for the toggle switch slider */
+    .theme-toggle-switch input:checked + .slider {
+      background-color: var(--button-outline-border); /* Active color, e.g., teal */
+    }
+
+    .theme-toggle-switch input:focus + .slider {
+      box-shadow: 0 0 1px var(--button-outline-border); /* Focus outline - Reverted */
+    }
+
+    .theme-toggle-switch input:checked + .slider:before {
+      transform: translateX(22px); /* Adjusted knob movement for smaller switch */
+    }
+
+    .slider.round {  border-radius: 28px; } /* Adjusted border-radius to match new height */
+    .slider.round:before { border-radius: 50%; }
+
+    /* Ensure fixed buttons in light theme use updated icon/border colors */
+    body.light-theme .fixed-circle-back-button svg {
+      fill: var(--fixed-button-border);
+    }
+
+    .top-right-controls {
+      position: fixed;
+      top: 25px; /* Moved up by 2px */
+      right: 20px; /* Adjust as needed */
+      display: flex;
+      gap: 10px; /* Space between back and menu buttons */
+      z-index: 1000; /* Above page content, below fullPageNav overlay */
+    }
+
+    body.index-page .top-right-controls {
+      top: 48px; /* Moved up by 2px - Position adjusted specifically for the index page */
+      right: 20px; /* Adjust as needed */
+      display: flex;
+      gap: 10px; /* Space between back and menu buttons */
+      z-index: 1000; /* Above page content, below fullPageNav overlay */
+    }
+
+/* === BACKGROUND VIDEO STYLES (for index.html) === */
+.hero-video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2; /* Behind all other content */
+  overflow: hidden; /* Prevent scrollbars if video is slightly larger */
+}
+
+#background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%; /* Fallback width */
+  height: 100%; /* Fallback height */
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* Allow clicks to pass through to elements above */
+}
+
+/* Responsive iframe for 16:9 aspect ratio */
+#background-video iframe {
+  width: 100vw; /* Cover full viewport width */
+  height: 56.25vw; /* 16:9 aspect ratio (9/16*100 = 56.25) */
+  min-height: 100vh; /* Ensure it covers full viewport height */
+  min-width: 177.77vh; /* Ensure it covers full viewport width if height is the constraint (16/9*100 = 177.77) */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+  z-index: -1; /* Sits on top of the video, but behind other content */
+}
+
+/* === FLEXIBLE FULL PAGE NAVIGATION (for TEST.html) === */
+.flexible-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95); /* Darker, more opaque background */
+  z-index: 2500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease-in-out, visibility 0s linear 0.4s;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto; /* Allow scrolling for the overlay if content exceeds viewport */
+}
+
+.flexible-nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease-in-out, visibility 0s linear 0s;
+}
+
+.close-flexible-nav-button {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  background: none;
+  border: none;
+  color: var(--text-primary, #FFFFFF); /* Default to white for dark overlay */
+  font-size: 2.8rem;
+  font-weight: 300;
+  cursor: pointer;
+  line-height: 1;
+  padding: 5px;
+  z-index: 2501; /* Ensure it's above cards container */
+  -webkit-tap-highlight-color: transparent;
+}
+
+body.light-theme .close-flexible-nav-button {
+  color: var(--text-primary, #212529); /* Adapts to light theme's primary text */
+}
+
+.flexible-nav-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px; /* Max width for the content area within the overlay */
+  align-items: stretch; /* Cards in the same row will have the same height */
+  justify-content: center;
+  padding: 20px 0; /* Add some vertical padding if cards are many */
+}
+
+.flexible-nav-card {
+  background-color: var(--card-bg, #1e1e2f); /* Slightly different from page for depth */
+  color: var(--text-primary, #FFFFFF);
+  border: 1px solid var(--border-color, #333340);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column; /* Stack h3 and p inside card */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.1rem;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 280px; /* Base width, cards will wrap if space is insufficient */
+  min-height: 180px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flexible-nav-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+body.light-theme .flexible-nav-card {
+  background-color: var(--card-bg, #f8f9fa); /* Light card background */
+  color: var(--text-primary, #212529);
+  border-color: var(--border-color, #dee2e6);
+  box-shadow: 0 6px 20px var(--shadow-color, rgba(0,0,0,0.1));
+}
+
+@media (max-width: 768px) { /* Tablet and mobile */
+  .flexible-nav-cards-container {
+    flex-direction: column; /* Stack cards vertically */
+    gap: 15px;
+    padding: 10px 0;
+  }
+  .flexible-nav-card {
+    flex-basis: 100%; /* Each card takes full width */
+    width: 100%;
+    min-height: 120px; /* Adjust height for stacked cards */
+    padding: 20px;
+  }
+  .close-flexible-nav-button {
+    top: 20px;
+    right: 20px;
+    font-size: 2.2rem;
+  }
+}

@@ -2,74 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>We've Moved</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      background: #f8f8f8;
-      font-family: 'Inter', sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      color: #333;
-      animation: fadeIn 1.5s ease;
-    }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WAGS</title>
 
-    .container {
-      text-align: center;
-      padding: 2rem;
-    }
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="manifest.json">
 
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
+  <!-- iOS specific tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="WAGS">
+  <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
 
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      color: #666;
-    }
+  <!-- Fonts and CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
 
-    a.button {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background: #333;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 500;
-      transition: background 0.3s ease;
-    }
-
-    a.button:hover {
-      background: #555;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.7rem;
-      }
-      p {
-        font-size: 1rem;
-      }
-    }
-  </style>
+  <!-- JS Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body>
-  <div class="container">
-    <h1>We've Moved</h1>
-    <p>Our new home is now <strong>suttonwags.com</strong>.<br>Please update by removing this site from your homepage and adding the new link. .</p>
-    
+<body class=""> <!-- Body class will be managed by JS -->
+
+  <!-- Main content will be injected here -->
+  <main id="app"></main>
+
+  <!-- Common UI elements that persist across pages -->
+  <div id="top-controls-container">
+    <!-- Back button and Menu button will be dynamically added here by the router -->
   </div>
+
+  <div id="fullPageNav" class="full-page-nav-overlay">
+    <button type="button" id="closeNavButton" class="close-nav-button" aria-label="Close menu">&times;</button>
+    <ul class="nav-links">
+      <li><a href="/" data-link>Home</a></li>
+      <li><a href="/scores" data-link>Results</a></li>
+      <li><a href="/handicaps" data-link>Handicaps</a></li>
+      <li><a href="/best14" data-link>Best 14</a></li>
+      <li><a href="/leagues" data-link>Leagues</a></li>
+      <li><a href="/rscup" data-link>RS Cup</a></li>
+    </ul>
+  </div>
+
+  <div id="bottom-controls-container">
+      <!-- The theme toggle for the home page will be injected here -->
+  </div>
+
+  <!-- Main script entry point -->
+  <script type="module" src="app.js"></script>
+
 </body>
 </html>
+
+<!-- The old content below is now handled by js/pages/home.js -->
+<!--
+
+
+  <div class="top-right-controls">
+    <button type="button" id="menuPillButton" class="fixed-menu-pill-button" aria-label="Open menu" aria-expanded="false" aria-controls="fullPageNav">
+      <div class="burger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+  </div>
+
+
+    <div class="title-container">
+    <h1 class="title-text title-wags">WAGS</h1>
+    <h1 class="title-text title-mobile">MOBILE</h1>
+  </div>
+ 
+-->
