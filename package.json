@@ -1,0 +1,25 @@
+{
+  "name": "pwa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reddii7/pwa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/reddii7/pwa/issues"
+  },
+  "homepage": "https://github.com/reddii7/pwa#readme",
+  "dependencies": {
+    "@octokit/rest": "^22.0.0",
+    "dotenv": "^17.0.1"
+  }
+}

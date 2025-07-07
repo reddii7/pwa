@@ -1,0 +1,12 @@
+# .gitignore
+
+# Ignore Node.js dependencies folder
+node_modules
+
+# Ignore environment variables file (SECRETS!)
+.env
+
+# Ignore macOS system files
+.DS_Store
+# Local Netlify folder
+.netlify
